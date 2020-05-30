@@ -1,0 +1,13 @@
+export const colorDefs = {
+    WHITE: "#FFFFFF",
+    ALABASTER: "#F8F8F9",
+    SILVER_CHALICE: "#AAAAAA",
+    SILVER: "#BBBBBB",
+    MINE_SHAFT: "#333333",
+    RADICAL_RED: "#FF416C",
+    RED_ORANGE: "#FF4B2B",
+    POT_POURRI: "#F5E1DD",
+    DOVE_GRAY: "#707070",
+    NERO: "#000000",
+    TRANSPARENT: "#FFFFFF10"
+}
