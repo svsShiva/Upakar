@@ -7,15 +7,15 @@ const Stack = createStackNavigator();
 
 function SwitchNavigation() {
     var isLoggedIn = true;
-  return (
-      <Stack.Navigator>
-      {isLoggedIn ? (
-            {AppNavigation}
-        ) : (
-            {AuthNavigation}
-        )}
-      </Stack.Navigator>
-  );
+    return (
+        <>
+            {isLoggedIn ? (
+                <AppNavigation />
+            ) : (
+                    <AuthNavigation />
+                )}
+        </>
+    );
 }
 
 export default SwitchNavigation;

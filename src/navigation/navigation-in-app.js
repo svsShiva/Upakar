@@ -6,7 +6,7 @@ import SwitchNavigation from './switch-navigation';
 function NavigationInApp() {
   return (
     <NavigationContainer>
-        {SwitchNavigation}
+        <SwitchNavigation />
     </NavigationContainer>
   );
 }

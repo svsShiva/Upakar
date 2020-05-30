@@ -15,7 +15,7 @@ export default function Dashboard(props) {
             <Text>{props.state.globalReducer.testField}</Text>
             <Text>{props.state.dashboardReducer.isWorking}</Text>
 
-            <TouchableOpacity onPress={()=>props.testAction()}>
+            <TouchableOpacity onPress={()=>props.navigation.toggleDrawer()}>
                 <Text>Click</Text>
             </TouchableOpacity>
         </View>
