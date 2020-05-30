@@ -3,11 +3,6 @@ import {
     View,
     Text,
     TouchableOpacity,
-    SafeAreaView,
-    Image,
-    FlatList,
-    ScrollView,
-    RefreshControl
 } from 'react-native';
 
 import { dashboardStrings } from '../../../constants/strings';
