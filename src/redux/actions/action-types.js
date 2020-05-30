@@ -1,5 +1,7 @@
 export const globalActionTypes = {
-    SAMPLE_ACTION: "test"  
+    SHOW_LOADER: "SHOW_LOADER",
+    HIDE_LOADER: "HIDE_LOADER",
+    UPDATE_CONNECTIVITY: "UPDATE_CONNECTIVITY",
 };
 
 export const dashboardActionTypes = {
