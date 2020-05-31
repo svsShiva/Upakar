@@ -1,13 +1,22 @@
 import * as React from 'react';
-import Dashboard from '../components/pages/dashboard'
 import { createDrawerNavigator } from '@react-navigation/drawer';
+
+import DashboardNavigation from './dashboard-navigation';
+import MyHelpNavigation from './myhelps-navigation';
+import BidsNavigation from './bids-navigation';
+import CreateHelp from '../components/pages/createhelp'
+
 const Drawer = createDrawerNavigator();
 
-export default function AppNavigation() {
+function AppNavigation() {
   return (
-      <Drawer.Navigator initialRouteName="Dashboard">
-        <Drawer.Screen name="Dashboard" component={Dashboard} />
-        <Drawer.Screen name="Dashboard2" component={Dashboard} />
-      </Drawer.Navigator>
+    <Drawer.Navigator initialRouteName="Dashboard">
+      <Drawer.Screen name="Dashboard" component={DashboardNavigation} />
+      <Drawer.Screen name="My Helps" component={MyHelpNavigation} />
+      <Drawer.Screen name="Bids" component={BidsNavigation} />
+      <Drawer.Screen name="Ask Help" component={CreateHelp} />
+    </Drawer.Navigator>
   );
 }
+
+export default AppNavigation;

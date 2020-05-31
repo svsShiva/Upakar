@@ -5,11 +5,11 @@ import {
 } from 'react-native';
 
 import { loginStrings } from '../../../constants/strings';
-import { loginStyles } from './login.styles';
+import { styles } from './login.styles';
 
 export default function Login(props) {
     return (
-        <View style={loginStyles.container} >
+        <View style={styles.container} >
             <Text>{loginStrings.WELCOME_MESSAGE}</Text>
         </View>
     );
