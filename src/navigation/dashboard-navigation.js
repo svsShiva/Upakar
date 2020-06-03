@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Dashboard from '../components/pages/dashboard';
 import DashboardDetail from '../components/pages/dashboard-detail';
-import Header from '../components/controls/custom-header/custom-header.component'
+import CustomHeader from '../components/controls/custom-header'
 
 const Stack = createStackNavigator();
 
@@ -21,7 +21,7 @@ function DashboardNavigation() {
                 : scene.route.name;
 
           return (
-            <Header
+            <CustomHeader
               title={"Welcome"}
               // leftButton={ 
               //   previous ? <MyBackButton onPress={navigation.goBack} /> : undefined
