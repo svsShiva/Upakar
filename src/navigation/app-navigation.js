@@ -4,13 +4,14 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import DashboardNavigation from './dashboard-navigation';
 import MyHelpNavigation from './myhelps-navigation';
 import BidsNavigation from './bids-navigation';
-import CreateHelp from '../components/pages/createhelp'
+import CreateHelp from '../components/pages/createhelp';
+import CustomDrawer from '../components/controls/custom-drawer'
 
 const Drawer = createDrawerNavigator();
 
 function AppNavigation() {
   return (
-    <Drawer.Navigator initialRouteName="Dashboard">
+    <Drawer.Navigator initialRouteName="Dashboard" drawerContent={(props) => <CustomDrawer {...props} />}>
       <Drawer.Screen name="Dashboard" component={DashboardNavigation} />
       <Drawer.Screen name="My Helps" component={MyHelpNavigation} />
       <Drawer.Screen name="Bids" component={BidsNavigation} />
