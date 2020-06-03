@@ -8,40 +8,34 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         marginHorizontal: 15,
         marginVertical: 5,
-        paddingTop: getStatusBarHeight() + 5 
+        paddingTop: getStatusBarHeight() + 5,
+        height: 70
     },
     linearGradient: {
     },
-    headerLeftWrapper: {
-        width: 40,
+    titleWrapper: {
+        flex: 6,
         justifyContent: 'center',
         alignItems: 'flex-start',
-    },
-    headerLeft: {
-        width: 30,
-        height: 30,
-        resizeMode: 'contain'
-    },
-    backButton: {
-        resizeMode: 'contain'
-    },
-    titleWrapper: {
-        flex: 1,
-        alignItems: 'center',
-        paddingHorizontal: 10
+        // backgroundColor: 'black'
     },
     title: {
         fontSize: 22,
         color: colorDefs.WHITE
     },
-    hamWrapper: {
-        width: 40,
+    headerLeftWrapper: {
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'flex-start',
+        // backgroundColor: 'red'
     },
-    hamBurger: {
+    headerLeft: {
         width: 25,
         height: 15,
         resizeMode: 'contain'
+    },
+    headerRightWrapper: {
+        flex: 1,
+        // backgroundColor: 'white'
     }
 })

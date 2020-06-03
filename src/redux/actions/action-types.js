@@ -3,7 +3,7 @@ export const globalActionTypes = {
 };
 
 export const dashboardActionTypes = {
-    TEST_SAMPLE: "TEST_SAMPLE"  
+    REFRESH_FLATLIST: "REFRESH_FLATLIST"  
 };
 
 export const loginActionTypes = {

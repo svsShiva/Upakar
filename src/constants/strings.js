@@ -3,7 +3,7 @@ export const screens = {
 }
 
 export const dashboardStrings = {
-    WELCOME_MESSAGE: "Create Help"
+    LOADING_MESSAGE: "Loading ..."
 }
 
 export const loginStrings = {

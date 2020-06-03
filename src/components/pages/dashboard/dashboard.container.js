@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 
 import Dashboard from './dashboard.component';
-import { testAction } from './dashboard.actions';
+import { refreshFlatlist } from './dashboard.actions';
 
 const mapStateToProps = (state, ownProps) => ({
     state: state
 });
 
 const mapDispatchToProps = dispatch => ({
-    testAction: () => dispatch(testAction())
+    refreshFlatlist: () => dispatch(refreshFlatlist())
 });
 
 export default connect(

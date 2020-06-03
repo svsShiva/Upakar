@@ -15,12 +15,17 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { colorDefs, appColors } from '../../../constants/colors';
 import { gradientDimensions } from '../../../constants/styles';
 import imgHamBurger from '../../../assets/images/hamburger.png';
+import imgLeftArrow from '../../../assets/images/left-arrow.png';
 import { styles } from './custom-header.styles';
 
-export default function Header(props) {
+export default function CustomHeader(props) {
 
     var onHamPress = () => {
         props.navigation.openDrawer();
+    }
+
+    var onGoBack = () => {
+        props.navigation.goBack();
     }
 
     return (
@@ -38,15 +43,29 @@ export default function Header(props) {
                 />
                 <SafeAreaView backgroundColor={colorDefs.TRANSPARENT} />
                 <View style={styles.container}>
-                    <TouchableOpacity
-                        style={styles.hamWrapper}
-                        onPress={onHamPress}
-                    >
-                        <Image
-                            source={imgHamBurger}
-                            style={styles.hamBurger}
-                        />
-                    </TouchableOpacity>
+                    {
+                        props.showBackButton ?
+                            <TouchableOpacity
+                                style={styles.headerLeftWrapper}
+                                onPress={onGoBack}
+                            >
+                                <Image
+                                    source={imgLeftArrow}
+                                    style={styles.headerLeft}
+                                />
+                            </TouchableOpacity>
+                            :
+                            <TouchableOpacity
+                                style={styles.headerLeftWrapper}
+                                onPress={onHamPress}
+                            >
+                                <Image
+                                    source={imgHamBurger}
+                                    style={styles.headerLeft}
+                                />
+                            </TouchableOpacity>
+                    }
+
 
                     <View style={styles.titleWrapper}>
                         <Text
@@ -54,9 +73,11 @@ export default function Header(props) {
                             ellipsizeMode='tail'
                             numberOfLines={1}
                         >
-                            Upakar
+                            {props.title}
                         </Text>
                     </View>
+
+                    <View style={styles.headerRightWrapper}></View>
                 </View>
             </LinearGradient>
         </View>

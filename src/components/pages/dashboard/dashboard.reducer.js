@@ -1,15 +1,15 @@
 import { dashboardActionTypes } from "../../../redux/actions/action-types";
 
 const initialState = {
-    isWorking: "false"
+    refreshFlatlist: false
 }
 
 const dashboardReducer = (state = initialState, action) => {
     switch (action.type) {
-        case dashboardActionTypes.TEST_SAMPLE:
+        case dashboardActionTypes.REFRESH_FLATLIST:
             return {
                 ...state,
-                isWorking: "true"
+                refreshFlatlist: !state.refreshFlatlist
             }
         default: return state;
     }

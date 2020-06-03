@@ -1,5 +1,5 @@
 import { dashboardActionTypes } from "../../../redux/actions/action-types";
 
-export const testAction = () => ({
-    type:  dashboardActionTypes.TEST_SAMPLE
+export const refreshFlatlist = () => ({
+    type:  dashboardActionTypes.REFRESH_FLATLIST
 });
