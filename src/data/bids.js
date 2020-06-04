@@ -46,7 +46,7 @@ export const bidsData = [
   },
   {
     bidder: '103',
-    credits: '1 day',
+    credits: '100',
     help_duration: '5 hrs',
     status: 'PENDING ',
     upakar_id: '103',
@@ -55,7 +55,7 @@ export const bidsData = [
   },
   {
     bidder: '150',
-    credits: '1 day',
+    credits: '30',
     help_duration: '5 hrs',
     status: 'PENDING ',
     upakar_id: '103',
@@ -64,7 +64,7 @@ export const bidsData = [
   },
   {
     bidder: '151',
-    credits: '1 day',
+    credits: '40',
     help_duration: '5 hrs',
     status: 'PENDING ',
     upakar_id: '103',
@@ -73,7 +73,7 @@ export const bidsData = [
   },
   {
     bidder: '152',
-    credits: '1 day',
+    credits: '30',
     help_duration: '5 hrs',
     status: 'PENDING ',
     upakar_id: '103',
@@ -82,7 +82,7 @@ export const bidsData = [
   },
   {
     bidder: '153',
-    credits: '1 day',
+    credits: '35',
     help_duration: '5 hrs',
     status: 'PENDING ',
     upakar_id: '103',
@@ -91,7 +91,7 @@ export const bidsData = [
   },
   {
     bidder: '154',
-    credits: '1 day',
+    credits: '36',
     help_duration: '5 hrs',
     status: 'PENDING ',
     upakar_id: '103',

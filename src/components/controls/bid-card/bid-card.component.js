@@ -24,9 +24,17 @@ export default function BidCard(props) {
   return (
     <TouchableOpacity style={styles.container} onPress={onBidClick}>
       <View style={styles.wrapper}>
-        <Text>{props.data.upakar_name}</Text>
-        <Text>{props.data.credits}</Text>
-        <Text>{props.data.help_duration}</Text>
+        <Text style={styles.title}>{props.data.upakar_name}</Text>
+        <View style={styles.box}>
+          <View style={styles.lblContainer}>
+            <Text style={styles.lblCredit}>{props.data.credits}</Text>
+            <Text>credit</Text>
+          </View>
+          <View style={styles.lblContainer_2}>
+            <Text style={styles.lblduration}>{props.data.help_duration}</Text>
+            <Text>duration</Text>
+          </View>
+        </View>
       </View>
     </TouchableOpacity>
   );

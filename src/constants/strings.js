@@ -23,7 +23,11 @@ export const myHelpsDetailStrings = {
 }
 
 export const placedBidsStrings = {
-    WELCOME_MESSAGE: "Placed bids"
+    WELCOME_MESSAGE: "Placed bids",
+    CREDTS:'Credits',
+    DURATION:'Duration',
+    END_TIME: "End's In",
+    
 }
 
 export const receivedBidsStrings = {
