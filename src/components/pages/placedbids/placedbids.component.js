@@ -9,7 +9,7 @@ import BidCard from '../../controls/bid-card';
 
 export default function PlacedBids(props) {
   var getRenderItem = ({item, index}) => {
-    return <BidCard {...props} data={item} Key={index} />;
+    return <BidCard {...props} data={item} Key={index} nav="PlacedBidDetail"/>;
   };
   var getKeyExtractor = (item, index) => item.id;
   var getFooterComponent = () => {

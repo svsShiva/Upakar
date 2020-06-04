@@ -8,7 +8,7 @@ import {bidsData} from '../../../data/bids';
 import BidCard from '../../controls/bid-card';
 export default function ReceivedBids(props) {
   var getRenderItem = ({item, index}) => {
-    return <BidCard {...props} data={item} Key={index} />;
+    return <BidCard {...props} data={item} Key={index} nav="RecievedBidDetail" />;
   };
   var getKeyExtractor = (item, index) => item.id;
   var getFooterComponent = () => {

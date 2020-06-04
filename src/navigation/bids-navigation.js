@@ -14,7 +14,7 @@ function placedbids() {
   return (
     <stackPlacedBids.Navigator initialRouteName="Placed Bids Home" headerMode="none">
       <stackPlacedBids.Screen name="Placed Bids Home" component={PlacedBids} />
-      <stackPlacedBids.Screen name="BidDeatil" component={BidDetail} />
+      <stackPlacedBids.Screen name="PlacedBidDetail" component={BidDetail} />
     </stackPlacedBids.Navigator>
   );
 }
@@ -22,7 +22,7 @@ function receivedbids(){
   return(
     <stackrecievedBids.Navigator initialRouteName="Recieved Bids Home" headerMode="none"> 
       <stackrecievedBids.Screen name="Recieved Bids Home" component={ReceivedBids} />
-      <stackrecievedBids.Screen name="BidDetail" component={BidDetail} />
+      <stackrecievedBids.Screen name="RecievedBidDetail" component={BidDetail} />
     </stackrecievedBids.Navigator>
   );
 }

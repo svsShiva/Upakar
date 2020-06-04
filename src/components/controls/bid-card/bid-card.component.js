@@ -16,7 +16,8 @@ import {styles} from './bid-card.styles';
 
 export default function BidCard(props) {
   var onBidClick = data => {
-    props.navigation.navigate('BidDetail');
+    console.log(props.nav);
+    props.navigation.navigate(props.nav);
     // console.log('Bid clicked');
   };
 
