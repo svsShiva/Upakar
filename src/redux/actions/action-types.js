@@ -3,7 +3,8 @@ export const globalActionTypes = {
 };
 
 export const dashboardActionTypes = {
-    REFRESH_FLATLIST: "REFRESH_FLATLIST"  
+    REFRESH_FLATLIST: "REFRESH_FLATLIST",
+    SELECT_HELP: "SELECT_HELP"
 };
 
 export const loginActionTypes = {

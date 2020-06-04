@@ -1,3 +1,3 @@
-import HelpCard from './help-card.component';
+import HelpCard from './help-card.container';
 
 export default HelpCard;
