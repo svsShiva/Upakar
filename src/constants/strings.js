@@ -33,3 +33,6 @@ export const receivedBidsStrings = {
 export const createHelpStrings = {
     WELCOME_MESSAGE: "Create Help"
 }
+export const bidDetailStrings= {
+    WELCOME_MESSAGE:'Bid Details'
+}

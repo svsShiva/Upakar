@@ -1,10 +1,14 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-import { colorDefs  } from '../../../constants/colors';
+import {colorDefs} from '../../../constants/colors';
 
 export const styles = StyleSheet.create({
-    container: {
-        backgroundColor: colorDefs.WHITE,
-        flex: 1
-    }
+  container: {
+    backgroundColor: colorDefs.WHITE,
+    flex: 1,
+  },
+  flatlist: {
+    flex: 1,
+    padding: 5,
+  },
 });

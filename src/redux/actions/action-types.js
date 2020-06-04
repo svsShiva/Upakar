@@ -27,3 +27,6 @@ export const receivedBidsActionTypes = {
 
 export const createHelpActionTypes = {
 };
+export const bidDetailActionTypes={
+
+};
