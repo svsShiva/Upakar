@@ -15,7 +15,8 @@ export const dashboardDetailStrings = {
 }
 
 export const myHelpsStrings = {
-    WELCOME_MESSAGE: "my Helps"
+    WELCOME_MESSAGE: "my Helps",
+    LOADING_MESSAGE: "Loading ..."
 }
 
 export const myHelpsDetailStrings = {
