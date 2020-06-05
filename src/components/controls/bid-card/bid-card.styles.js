@@ -2,17 +2,24 @@ import {StyleSheet, YellowBox} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 import {colorDefs} from '../../../constants/colors';
-
 export const styles = StyleSheet.create({
   container: {
+    backgroundColor: colorDefs.WHITE,
+    flex: 1,
+  },
+  flatlist: {
+    flex: 1,
+    // padding: 5,
+  },
+  itemContainer: {
     flexDirection: 'row',
-    backgroundColor: colorDefs.DARK_GREEN,
     padding: 10,
     borderRadius: 10,
     shadowOffset: {
       height: 1,
       width: 0,
     },
+    backgroundColor: colorDefs.WHITE,
     shadowOpacity: 0.2,
     shadowColor: colorDefs.LIGHT_GREY,
     shadowRadius: 2,
@@ -35,22 +42,33 @@ export const styles = StyleSheet.create({
   lblduration: {
     fontSize: 18,
     padding: 5,
-    // alignSelf:'flex-end'
-    
   },
   title: {
     fontSize: 18,
     padding: 5,
   },
-  lblContainer:{
-    flex:1,
-    flexDirection:'column',
-    // backgroundColor:colorDefs.DARK_GREY,
+  creditContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
-  lblContainer_2:{
-    flex:1,
-    flexDirection:'column',
-    // backgroundColor:colorDefs.LIGHT_GREEN,
-    alignItems:'flex-end'
-  }
+  durationContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+  },
+  lable: {
+    fontSize: 15,
+    color: colorDefs.DARK_GREY,
+  },
+  expiryContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  lblExpiration: {
+    fontSize: 15,
+    padding: 5,
+    marginBottom: 5,
+  },
 });

@@ -1,3 +1,3 @@
-import BidCard from './bid-card.component';
+import BidCard from './bid-card.container';
 
 export default BidCard;
