@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { colorDefs  } from '../../../constants/colors';
+import { colorDefs } from '../../../constants/colors';
 
 export const styles = StyleSheet.create({
     outerContainer: {
@@ -9,65 +9,48 @@ export const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        backgroundColor: colorDefs.SMOKE_WHITE
     },
-    sessionName: {
-        fontSize: 18,
-        color: colorDefs.TEXT_LIGHT,
-        paddingVertical: 10
+    flatlistWrapper: {
+        flex:1
     },
-    lables: {
-        fontSize: 14,
-        color: colorDefs.TEXT_LIGHT,
+    flatlist: {
+        flex: 1
     },
-    texFields: {
-        fontSize: 14,
-        color: colorDefs.TEXT_LIGHT,
-        marginVertical: 5
+    help: {
+        backgroundColor: colorDefs.WHITE,
+        padding: 15,
+        borderRadius: 10,
+        shadowOffset: {
+            height: 1,
+            width: 0
+        },
+        shadowOpacity: 0.5,
+        shadowColor: colorDefs.LIGHT_GREY,
+        shadowRadius: 2,
+        marginVertical: 4,
+        elevation: 1
     },
-    scanType: {
-        height: 44,
-        width: 130,
-        marginVertical: 10,
-        flexDirection: 'row',
-        borderWidth: 2,
-        borderColor: colorDefs.LIGHT_GREEN,
-        borderRadius: 25
-    },
-    gradientLeft: {
-        flex: 1,
-        borderTopLeftRadius: 20,
-        borderBottomLeftRadius: 20,
-        justifyContent: 'center',
-        borderColor: colorDefs.DARK_GREEN,
-    },
-    gradientRight: {
-        flex: 1,
-        borderTopRightRadius: 20,
-        borderBottomRightRadius: 20,
-        justifyContent: 'center',
-        borderColor: colorDefs.LIGHT_GREEN
-    },
-    scanTypeIN: {
-        flex: 1,
-    },
-    scanTypeOUT: {
-        flex: 1,
-    },
-    scanTypeText: {
-        fontSize: 16,
-        alignSelf: 'center',
-        color: colorDefs.LIGHT_GREEN
-    },
-    uploads: {
-        flex: 1,
+    bids: {
+        backgroundColor: colorDefs.WHITE,
+        padding: 15,
+        borderRadius: 10,
+        shadowOffset: {
+            height: 1,
+            width: 0
+        },
+        shadowOpacity: 0.5,
+        shadowColor: colorDefs.LIGHT_GREY,
+        shadowRadius: 2,
+        marginVertical: 4,
+        elevation: 1,
         flexDirection: 'row'
     },
-    uploadsForIn: {
-        flex: 1,
-    },
-    uploadsForOut: {
-        flex: 1
+    lables: {
+        fontSize: 18,
+        color: colorDefs.LIGHT_GREEN,
+        fontWeight: 'bold'
     },
     buttonWrapper: {
         marginTop: 20
@@ -79,15 +62,62 @@ export const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonText: {
-        color: colorDefs.TEXT_WHITE,
-        fontSize: 16
-    },
-    pendingScans: {
-        marginTop: 10,
-        alignItems: 'center'
-    },
-    pendingScansText: {
-        color: colorDefs.RED_ORANGE,
+        color: colorDefs.WHITE,
         fontSize: 16,
+        fontWeight: 'bold'
+    },
+    title: {
+        fontSize: 20,
+        color: colorDefs.LIGHT_GREEN,
+        fontWeight: 'bold',
+    },
+    textFields: {
+        fontSize: 16,
+        paddingVertical: 10
+    },
+    helpDetails: {
+        flexDirection: 'row'
+    },
+    bidsCountWrapper: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        // backgroundColor: 'red'
+    },
+    baseValueWrapper: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        // backgroundColor: 'black'
+    },
+    profilePic: {
+        width: 80,
+        height: 80,
+        resizeMode: 'contain',
+        alignItems: 'flex-start',
+    },
+    bidsWrapper: {
+        flex: 1,
+        paddingHorizontal: 20,
+        justifyContent: 'center'
+        // backgroundColor: 'red',
+    },
+    bidsTextFields: {
+        fontSize: 16,
+    },
+    bidsDetails: {
+        paddingVertical: 10,
+        flex: 1,
+        flexDirection: 'row'
+    },
+    bidsCreditDetails: {
+        fontSize: 16,
+        flex: 1,
+        alignItems: 'flex-start',
+    },
+    bidsDurationDetails: {
+        fontSize: 16,
+        flex: 1, 
+        alignSelf: 'center'
     }
 });
