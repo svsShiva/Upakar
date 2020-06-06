@@ -4,7 +4,8 @@ export const globalActionTypes = {
 
 export const dashboardActionTypes = {
     REFRESH_FLATLIST: "REFRESH_FLATLIST",
-    SELECT_HELP: "SELECT_HELP"
+    SELECT_HELP: "SELECT_HELP",
+    SHOW_HIDE_PLACEBIDS_MODAL: "SHOW_PLACEBIDS_MODAL"
 };
 
 export const loginActionTypes = {

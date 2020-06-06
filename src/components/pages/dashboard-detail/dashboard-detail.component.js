@@ -6,7 +6,9 @@ import {
     ScrollView,
     SafeAreaView,
     FlatList,
-    Image
+    Image,
+    Alert,
+    Modal
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -19,21 +21,30 @@ import { bidsData } from '../../../data/bids';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
 
 export default function DashboardDetail(props) {
-    var getRenderItem = ({ item, index }) => {
+
+    const getRenderItem = ({ item, index }) => {
         return <BidCard {...props}
             data={item}
             Key={index} />
     }
 
-    var getKeyExtractor = (item, index) => item.id;
+    const getKeyExtractor = (item, index) => item.id;
 
-    var getFooterComponent = () => {
+    const getFooterComponent = () => {
         return <View style={{ height: 20 }} />
+    }
+
+    const showPlaceBidsModal = () => {
+        props.showHidePlaceBidsModal();
     }
 
     return (
         <View style={styles.outerContainer}>
             <CustomHeader navigation={props.navigation} showBackButton={true} title={"Help Detail"}></CustomHeader>
+
+            <PlaceBidModal showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
+                hidePlaceBidModal={props.showHidePlaceBidsModal} />
+
             <View style={styles.container}>
                 <View style={styles.help}>
                     <Text style={styles.title}>{props.state.dashboardReducer.selectedHelp.title}</Text>
@@ -50,7 +61,7 @@ export default function DashboardDetail(props) {
                             <Text style={styles.textFields}>{"50 Credits"}</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={styles.buttonWrapper}>
+                    <TouchableOpacity style={styles.buttonWrapper} onPress={showPlaceBidsModal}>
                         <LinearGradient
                             start={gradientDimensions.start} end={gradientDimensions.end}
                             colors={[appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT]}
@@ -61,6 +72,7 @@ export default function DashboardDetail(props) {
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
+
                 <View style={styles.flatlistWrapper}>
                     <FlatList
                         showsVerticalScrollIndicator={false}
@@ -73,7 +85,6 @@ export default function DashboardDetail(props) {
                     />
                 </View>
             </View>
-            <SafeAreaView />
         </View>
     );
 }
@@ -90,11 +101,40 @@ function BidCard(props) {
                 <Text style={styles.bidsTextFields}>{"Some bidder" + props.data.bidder}</Text>
                 <Text style={styles.bidsTextFields}>{"Ratings: 4.5"}</Text>
                 <View style={styles.bidsDetails}>
-                    <Text style={styles.bidsCreditDetails}>{"Credits  "+ props.data.credits}</Text>
-                    <Text style={styles.bidsDurationDetails}>{" Duration "+ props.data.help_duration}</Text>
+                    <Text style={styles.bidsCreditDetails}>{"Credits  " + props.data.credits}</Text>
+                    <Text style={styles.bidsDurationDetails}>{" Duration " + props.data.help_duration}</Text>
                 </View>
             </View>
         </View>
     )
+}
+
+function PlaceBidModal(props) {
+    const hidePlaceBidModal = () => {
+        props.hidePlaceBidModal();
+    }
+
+    return (
+        <Modal
+            animationType="slide"
+            transparent={true}
+            visible={props.showPlaceBidsModal}
+            onRequestClose={() => {
+                Alert.alert("Modal has been closed.");
+            }}
+        >
+            <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+
+                    <TouchableOpacity
+                        style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+                        onPress={hidePlaceBidModal}
+                    >
+                        <Text style={styles.textStyle}>Hide Modal</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </Modal>
+    );
 }
 

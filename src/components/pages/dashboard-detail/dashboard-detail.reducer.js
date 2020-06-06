@@ -1,11 +1,16 @@
 import { dashboardActionTypes } from "../../../redux/actions/action-types";
 
 const initialState = {
-    message: "Dashboard-detail"
+    showPlaceBidsModal: false
 }
 
 const dashboardDetailReducer = (state = initialState, action) => {
     switch (action.type) {
+        case dashboardActionTypes.SHOW_HIDE_PLACEBIDS_MODAL: 
+            return {
+                ...state,
+                showPlaceBidsModal: !state.showPlaceBidsModal
+            }
         default: return state;
     }
 }
