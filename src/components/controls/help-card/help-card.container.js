@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 
-import DashboardDetail from './dashboard-detail.component';
-import { showHidePlaceBidsModal } from './dashboard-detail.actions';
+import HelpCard from './help-card.component';
+import { selectHelp } from '../../pages/dashboard/dashboard.actions'
 
 const mapStateToProps = (state, ownProps) => ({
     state: state
 });
 
 const mapDispatchToProps = dispatch => ({
-    showHidePlaceBidsModal: () => dispatch(showHidePlaceBidsModal())
+    selectHelp: (data) => dispatch(selectHelp(data))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(DashboardDetail);
+)(HelpCard);

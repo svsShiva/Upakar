@@ -15,8 +15,15 @@ import { colorDefs, appColors } from '../../../constants/colors';
 import { styles } from './help-card.styles';
 
 export default function HelpCard(props) {
-    var onHelpClick = (data) => {
-        props.navigation.navigate('DashboardDetail')
+    var onHelpClick = async () => {
+        try {
+            props.selectHelp(props.data)
+            props.navigation.navigate('DashboardDetail')
+        }
+        catch(err) {
+            console.warn(err)
+        }
+        
     }
     
     return (
