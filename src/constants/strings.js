@@ -24,7 +24,11 @@ export const myHelpsDetailStrings = {
 }
 
 export const placedBidsStrings = {
-    WELCOME_MESSAGE: "Placed bids"
+    WELCOME_MESSAGE: "Placed bids",
+    CREDTS:'Credits',
+    DURATION:'Duration',
+    END_TIME: "End's In",
+    
 }
 
 export const receivedBidsStrings = {
@@ -34,6 +38,10 @@ export const receivedBidsStrings = {
 export const createHelpStrings = {
     WELCOME_MESSAGE: "Create Help"
 }
-export const bidDetailStrings= {
-    WELCOME_MESSAGE:'Bid Details'
+export const placedbidDetailStrings= {
+    WELCOME_MESSAGE:'Placed Bid Details'
+}
+export const recievedbidDetailStrings={
+    WELCOME_MESSAGE:'Recieved Bid Details',
+    ACCEPT_BID: 'Accept Bid'
 }

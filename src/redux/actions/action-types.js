@@ -1,5 +1,5 @@
 export const globalActionTypes = {
-    SAMPLE_ACTION: "test"  
+  SAMPLE_ACTION: 'test',
 };
 
 export const dashboardActionTypes = {
@@ -9,26 +9,27 @@ export const dashboardActionTypes = {
 };
 
 export const loginActionTypes = {
-    TEST_SAMPLE_LOGIN: "TEST_SAMPLE_LOGIN"  
+  TEST_SAMPLE_LOGIN: 'TEST_SAMPLE_LOGIN',
 };
 
-export const dashboardDetailActionTypes = {
-};
+export const dashboardDetailActionTypes = {};
 
-export const myHelpsActionTypes = {
-};
+export const myHelpsActionTypes = {};
 
-export const myHelpsDetailActionTypes = {
-};
+export const myHelpsDetailActionTypes = {};
 
 export const placedBidsActionTypes = {
+  SELECT_BID: 'SELECT_BID',
 };
 
 export const receivedBidsActionTypes = {
-};
-
-export const createHelpActionTypes = {
-};
-export const bidDetailActionTypes={
+  SELECT_BID: 'SELECT_BID',
 
 };
+
+export const createHelpActionTypes = {};
+export const placedbidDetailActionTypes = {
+
+};
+export const receivedbidDetailActionTypes = {
+}

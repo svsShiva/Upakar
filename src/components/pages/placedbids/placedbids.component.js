@@ -8,8 +8,9 @@ import {bidsData} from '../../../data/bids';
 import BidCard from '../../controls/bid-card';
 
 export default function PlacedBids(props) {
+
   var getRenderItem = ({item, index}) => {
-    return <BidCard {...props} data={item} Key={index} />;
+    return <BidCard {...props} data={item} key={index} nav="PlacedBidDetail" />;
   };
   var getKeyExtractor = (item, index) => item.id;
   var getFooterComponent = () => {
@@ -17,7 +18,10 @@ export default function PlacedBids(props) {
   };
   return (
     <View style={styles.container}>
-      <CustomHeader navigation={props.navigation} title={placedBidsStrings.WELCOME_MESSAGE}/>
+      <CustomHeader
+        navigation={props.navigation}
+        title={placedBidsStrings.WELCOME_MESSAGE}
+      />
       {bidsData.length > 0 ? (
         <FlatList
           showsVerticalScrollIndicator={false}

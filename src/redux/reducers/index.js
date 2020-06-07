@@ -9,7 +9,7 @@ import myHelpDetailReducer from '../../components/pages/myhelps-detail/myhelps-d
 import receivedBidsReducer from '../../components/pages/receivedbids/receivedbids.reducer';
 import placedBidsReducer from '../../components/pages/placedbids/placedbids.reducer';
 import createHelpReducer from '../../components/pages/createhelp/createhelp.reducer';
-import bidDeailReducer from '../../components/pages/bids-detail/bid-detail.reducer';
+import bidDeailReducer from '../../components/pages/placed-bid-detail/placed-bid-detail.reducer';
 
 const reducers = combineReducers({
     globalReducer,

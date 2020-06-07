@@ -4,7 +4,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import PlacedBids from '../components/pages/placedbids';
 import ReceivedBids from '../components/pages/receivedbids';
 import {createStackNavigator} from '@react-navigation/stack';
-import BidDetail from '../components/pages/bids-detail';
+import PlacedbidDetail from '../components/pages/placed-bid-detail';
+import RecievedbiDetail from '../components/pages/recieved-bid-detail';
 
 const Tab = createBottomTabNavigator();
 const stackPlacedBids = createStackNavigator();
@@ -14,7 +15,7 @@ function placedbids() {
   return (
     <stackPlacedBids.Navigator initialRouteName="Placed Bids Home" headerMode="none">
       <stackPlacedBids.Screen name="Placed Bids Home" component={PlacedBids} />
-      <stackPlacedBids.Screen name="BidDeatil" component={BidDetail} />
+      <stackPlacedBids.Screen name="PlacedBidDetail" component={PlacedbidDetail} />
     </stackPlacedBids.Navigator>
   );
 }
@@ -22,7 +23,7 @@ function receivedbids(){
   return(
     <stackrecievedBids.Navigator initialRouteName="Recieved Bids Home" headerMode="none"> 
       <stackrecievedBids.Screen name="Recieved Bids Home" component={ReceivedBids} />
-      <stackrecievedBids.Screen name="BidDetail" component={BidDetail} />
+      <stackrecievedBids.Screen name="RecievedBidDetail" component={RecievedbiDetail} />
     </stackrecievedBids.Navigator>
   );
 }

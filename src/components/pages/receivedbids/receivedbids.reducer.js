@@ -1,12 +1,19 @@
-import { receivedBidsActionTypes } from "../../../redux/actions/action-types";
+import {receivedBidsActionTypes} from '../../../redux/actions/action-types';
 
 const initialState = {
-}
+  selectedBid: {},
+};
 
 const receivedBidsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        default: return state;
-    }
-}
+  switch (action.type) {
+    case receivedBidsActionTypes.SELECT_BID:
+      return {
+        ...state,
+        selectedBid: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 export default receivedBidsReducer;
