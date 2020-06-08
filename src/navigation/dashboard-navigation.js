@@ -11,8 +11,8 @@ const Stack = createStackNavigator();
 function DashboardNavigation() {
   return (
     <Stack.Navigator initialRouteName="Dashboard" headerMode="none">
-      <Stack.Screen name="Dashboard" component={CreateHelp} />
-      {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
+      {/* <Stack.Screen name="Dashboard" component={CreateHelp} /> */}
+      <Stack.Screen name="Dashboard" component={Dashboard} />
       <Stack.Screen name="DashboardDetail" component={DashboardDetail} />
     </Stack.Navigator >
   );

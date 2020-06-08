@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
   },
-
   box: {
     flexDirection: 'row',
     flex: 1,
@@ -70,5 +69,5 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     padding: 5,
     marginBottom: 5,
-  },
+  }
 });

@@ -8,7 +8,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "30 minutes",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "24",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -22,7 +22,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "45",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -35,7 +35,7 @@ export const data = [
         expiration_date: "10th June",
         help_duration: "2 days",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "45",
         status: "ACCEPTED",
         is_available: true,
         is_successful: false
@@ -49,7 +49,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "44",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -63,7 +63,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "26",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -77,7 +77,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "50",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -91,7 +91,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "50",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -105,7 +105,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "50",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -119,7 +119,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "50",
         status: "PLACED",
         is_available: true,
         is_successful: false
@@ -133,7 +133,7 @@ export const data = [
         expiration_date: "15th June",
         help_duration: "4 hours",
         accepted_bid_id: "",
-        bid_credits: "",
+        bid_credits: "40",
         status: "PLACED",
         is_available: true,
         is_successful: false
