@@ -36,7 +36,7 @@ export default function MyHelps(props) {
             <View style={styles.viewsIcon}>
                 <View style={styles.searchView}>
                     <Image style={styles.imgSearchStyle} source={imgSearch} ></Image>
-                    <TextInput placeholder="Seach for help..." style={{flex:1}}/>
+                    <TextInput placeholder="Search for help..." style={{flex:1}}/>
                 </View>
                
             </View>
