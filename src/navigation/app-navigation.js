@@ -7,6 +7,7 @@ import BidsNavigation from './bids-navigation';
 import CreateHelp from '../components/pages/createhelp';
 import CustomDrawer from '../components/controls/custom-drawer'
 import { colorDefs, appColors } from '../constants/colors';
+import Profile from '../components/pages/profile';
 
 const Drawer = createDrawerNavigator();
 
@@ -21,6 +22,7 @@ function AppNavigation() {
       <Drawer.Screen name="My Helps" component={MyHelpNavigation} />
       <Drawer.Screen name="Bids" component={BidsNavigation} />
       <Drawer.Screen name="Ask Help" component={CreateHelp} />
+      <Drawer.Screen name="Profile" component={Profile} />
     </Drawer.Navigator>
   );
 }
