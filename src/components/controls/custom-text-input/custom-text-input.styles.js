@@ -14,7 +14,10 @@ export default styles = StyleSheet.create({
         marginHorizontal: 8,
         paddingLeft: 16,
         fontSize: 16,
-        textAlignVertical: "top"
+        textAlignVertical: "top",
+        borderColor:appColors.BORDER_COLOR,
+        borderRadius:10,
+        borderWidth: 0.5,
     },
     label: {
         color: appColors.TEXT_DARK,

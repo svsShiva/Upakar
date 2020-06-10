@@ -18,6 +18,12 @@ export default class CustomTextInput extends React.Component {
     render() {
         let name = this.props.item.name;
         let placeholder = this.props.item.placeholder;
+        let contentType;
+        if(this.props.item.type=="email"){
+            contentType = "email-address"
+        }else if(this.props.item.type == "number"){
+            contentType = "numeric"
+        }
 
         return (
             <View style={styles.container}>
@@ -28,6 +34,7 @@ export default class CustomTextInput extends React.Component {
                     value={this.props.item.value}
                     style={styles.textInput}
                     numberOfLines={this.props.multiLine ? 4 : 1}
+                    keyboardType={contentType}
                 />
             </View>
         );
