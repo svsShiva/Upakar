@@ -1,6 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
-import { colorDefs } from '../../../constants/colors';
+import { colorDefs, appColors } from '../../../constants/colors';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
     outerContainer: {
@@ -126,9 +129,12 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 22,
     },
+    modalScrollView: {
+        flex: 1
+    },
     modalView: {
         margin: 20,
-        backgroundColor: "white",
+        backgroundColor: colorDefs.SMOKE_WHITE,
         borderRadius: 20,
         padding: 35,
         alignItems: "center",
@@ -139,21 +145,45 @@ export const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5
+        elevation: 5,
+        width: "90%",
+        height: "60%"
     },
-    openButton: {
-        backgroundColor: "#F194FF",
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2
+    modalFieldsContainer: {
+        flex: 1,
     },
     textStyle: {
         color: "white",
         fontWeight: "bold",
         textAlign: "center"
     },
-    modalText: {
-        marginBottom: 15,
-        textAlign: "center"
+    textInput: {
+        width: windowWidth - 100,
+        margin: 5,  
+        backgroundColor:appColors.TEXT_WHITE,
+        borderRadius: 10,
+        fontSize: 16,
+        textAlignVertical: "top"
+    },
+    modalBtnsContainer: {
+        flexDirection: 'row',
+    },
+    modalSaveBtn: {
+        flex: 1, 
+        backgroundColor: colorDefs.DARK_GREEN,
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+        justifyContent: 'center',
+        margin: 5
+    },
+    modalCancelBtn: {
+        flex: 1,
+        backgroundColor: colorDefs.DARK_GREY,
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+        justifyContent: 'center',
+        margin: 5
     }
 });

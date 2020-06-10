@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -8,7 +8,8 @@ import {
     FlatList,
     Image,
     Alert,
-    Modal
+    Modal,
+    TextInput
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -19,6 +20,7 @@ import { gradientDimensions } from '../../../constants/styles';
 import { colorDefs, appColors } from '../../../constants/colors';
 import { bidsData } from '../../../data/bids';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
+import CustomTextInput from '../../controls/custom-text-input';
 
 export default function DashboardDetail(props) {
 
@@ -127,6 +129,47 @@ function BidCard(props) {
 }
 
 function PlaceBidModal(props) {
+    initialFields = [
+        {
+            name: "Bid Amount",
+            placeholder: "Bid Amount",
+            value: ""
+        },
+        {
+            name: "Help Duration",
+            placeholder: "Help Duration",
+            value: ""
+        },
+        {
+            name: "Comments",
+            placeholder: "Comments",
+            value: ""
+        }
+    ]
+    const [fields, setFields] = useState(initialFields);
+
+    const onBidsChanged = (value) => {
+        let updatedFields = { ...fields };
+        let updatedField = updatedFields[0];
+        updatedField.value = value;
+        setFields(updatedFields);
+    }
+
+    const onHelpDurationChanged = (value) => {
+        let updatedFields = { ...fields };
+        let updatedField = updatedFields[1];
+        updatedField.value = value;
+        setFields(updatedFields);
+    }
+
+    const onCommentsChanged = (value) => {
+        let updatedFields = { ...fields };
+        let updatedField = updatedFields[2];
+        updatedField.value = value;
+        setFields(updatedFields);
+    }
+
+
     const hidePlaceBidModal = () => {
         props.hidePlaceBidModal();
     }
@@ -140,17 +183,48 @@ function PlaceBidModal(props) {
                 Alert.alert("Modal has been closed.");
             }}
         >
-            <View style={styles.centeredView}>
-                <View style={styles.modalView}>
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <View style={styles.modalFieldsContainer}>
+                            <TextInput
+                                placeholder={fields[0].placeholder}
+                                onChangeText={onBidsChanged}
+                                value={fields[0].value}
+                                style={styles.textInput}
+                                numberOfLines={1}
+                            />
+                            <TextInput
+                                placeholder={fields[1].placeholder}
+                                onChangeText={onHelpDurationChanged}
+                                value={fields[1].value}
+                                style={styles.textInput}
+                                numberOfLines={1}
+                            />
+                            <TextInput
+                                placeholder={fields[2].placeholder}
+                                onChangeText={onCommentsChanged}
+                                value={fields[2].value}
+                                style={styles.textInput}
+                                numberOfLines={4}
+                            />
+                        </View>
+                        <View style={styles.modalBtnsContainer}>
+                            <TouchableOpacity
+                                style={styles.modalSaveBtn}
+                                onPress={hidePlaceBidModal}
+                            >
+                                <Text style={styles.textStyle}>Save</Text>
+                            </TouchableOpacity>
 
-                    <TouchableOpacity
-                        style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-                        onPress={hidePlaceBidModal}
-                    >
-                        <Text style={styles.textStyle}>Hide Modal</Text>
-                    </TouchableOpacity>
+                            <TouchableOpacity
+                                style={styles.modalCancelBtn}
+                                onPress={hidePlaceBidModal}
+                            >
+                                <Text style={styles.textStyle}>Cancel</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </View>
-            </View>
         </Modal>
     );
 }

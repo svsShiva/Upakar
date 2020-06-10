@@ -3,7 +3,8 @@ import {
     View,
     Text,
     TouchableOpacity,
-    StatusBar
+    StatusBar,
+    Image
 } from 'react-native';
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import LinearGradient from 'react-native-linear-gradient';
@@ -11,6 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { colorDefs, appColors } from '../../../constants/colors';
 import { gradientDimensions } from '../../../constants/styles';
 import { styles } from './custom-drawer.styles';
+import imgProfilePic from '../../../assets/images/profile_pic.png'
 
 function CustomDrawer(props) {
     return (
@@ -25,7 +27,15 @@ function CustomDrawer(props) {
                     barStyle='light-content'
                     translucent={true}
                 />
-                <Text style={styles.headerTitle}>Upakar</Text>
+                <View style={styles.profileContainer}>
+                    <TouchableOpacity>
+                        <Image
+                            source={imgProfilePic}
+                            style={styles.profileImage}
+                        />
+                        <Text style={styles.username}>Shiva Siripurapu</Text>
+                    </TouchableOpacity>
+                </View>
             </LinearGradient>
             <DrawerContentScrollView {...props} style={styles.drawer}>
                 <DrawerItemList {...props} />
