@@ -12,10 +12,13 @@ export default function PlacedBids(props) {
   var getRenderItem = ({item, index}) => {
     return <BidCard {...props} data={item} key={index} nav="PlacedBidDetail" otptext="Start OTP" />;
   };
+
   var getKeyExtractor = (item, index) => item.id;
+
   var getFooterComponent = () => {
     return <View style={{height: 20}} />;
   };
+  
   return (
     <View style={styles.container}>
       <CustomHeader

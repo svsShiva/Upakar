@@ -8,6 +8,7 @@ import {bidsData} from '../../../data/bids';
 import BidCard from '../../controls/bid-card';
 
 export default function ReceivedBids(props) {
+  
   var getRenderItem = ({item, index}) => {
     return (
       <BidCard {...props} data={item} key={index} nav="RecievedBidDetail" otptext="End OTP" />
@@ -15,9 +16,11 @@ export default function ReceivedBids(props) {
   };
 
   var getKeyExtractor = (item, index) => item.id;
+
   var getFooterComponent = () => {
     return <View style={{height: 20}} />;
   };
+
   return (
     <View style={styles.container}>
       <CustomHeader

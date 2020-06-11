@@ -2,7 +2,7 @@ import { dashboardActionTypes } from "../../../redux/actions/action-types";
 
 const initialState = {
     showPlaceBidsModal: false,
-    isBidPlaced: true
+    isBidPlaced: false
 }
 
 const dashboardDetailReducer = (state = initialState, action) => {

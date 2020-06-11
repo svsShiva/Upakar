@@ -3,9 +3,9 @@ export const globalActionTypes = {
 };
 
 export const dashboardActionTypes = {
-    REFRESH_FLATLIST: "REFRESH_FLATLIST",
-    SELECT_HELP: "SELECT_HELP",
-    SHOW_HIDE_PLACEBIDS_MODAL: "SHOW_PLACEBIDS_MODAL"
+  REFRESH_FLATLIST: "REFRESH_FLATLIST",
+  SELECT_HELP: "SELECT_HELP",
+  SHOW_HIDE_PLACEBIDS_MODAL: "SHOW_PLACEBIDS_MODAL"
 };
 
 export const loginActionTypes = {
@@ -29,7 +29,8 @@ export const receivedBidsActionTypes = {
 
 export const createHelpActionTypes = {};
 export const placedbidDetailActionTypes = {
-
+  SHOW_DATA: "SHOW_DATA"
 };
 export const receivedbidDetailActionTypes = {
+  SHOW_DATA: "SHOW_DATA"
 }

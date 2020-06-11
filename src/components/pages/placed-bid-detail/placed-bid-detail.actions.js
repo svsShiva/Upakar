@@ -1,2 +1,6 @@
 import { placedbidDetailActionTypes } from "../../../redux/actions/action-types";
-// export const selectBid
+
+export const showData = (data) => ({
+    type: placedbidDetailActionTypes.SHOW_DATA,
+    payload: data
+});

@@ -19,11 +19,10 @@ import {colorDefs} from '../../../constants/colors';
 import {ScrollView} from 'react-native-gesture-handler';
 import StatusComponent from '../../controls/status';
 import imgChat from '../../../assets/images/imageChat.png';
+
+
 export default function RecievedbidsDetails(props) {
-  console.log(
-    'Recieved Bid Details ',
-    props.state.receivedBidsReducer.selectedBid,
-  );
+  console.log(props)
   return (
     <View style={styles.container} behavior="position">
       <CustomHeader
@@ -34,25 +33,25 @@ export default function RecievedbidsDetails(props) {
       <ScrollView>
         <KeyboardAvoidingView style={{flex: 1}} behavior="padding">
           <StatusComponent
-            status={props.state.receivedBidsReducer.selectedBid.status}
+            status={props.state.receivedBidDetailReducer.data.status}
           />
           <View style={styles.bidContainer}>
             <View style={styles.bidContainerRow}>
               <Text style={styles.lblTitle}>Bidder :</Text>
               <Text style={styles.lblDesc}>
-                {props.state.receivedBidsReducer.selectedBid.bidder}
+                {props.state.receivedBidDetailReducer.data.bidder}
               </Text>
             </View>
             <View style={styles.bidContainerRow}>
               <Text style={styles.lblTitle}>Credits :</Text>
               <Text style={styles.lblDesc}>
-                {props.state.receivedBidsReducer.selectedBid.credits}
+                {props.state.receivedBidDetailReducer.data.credits}
               </Text>
             </View>
             <View style={styles.bidContainerRow}>
               <Text style={styles.lblTitle}>Help Duration :</Text>
               <Text style={styles.lblDesc}>
-                {props.state.receivedBidsReducer.selectedBid.help_duration}
+                {props.state.receivedBidDetailReducer.data.help_duration}
               </Text>
             </View>
             <View style={styles.bidContainerRow}>
@@ -64,7 +63,7 @@ export default function RecievedbidsDetails(props) {
               <Text style={styles.lblDesc}>Testing comments</Text>
             </View>
           </View>
-          {props.state.receivedBidsReducer.selectedBid.status === 'PENDING' ? (
+          {props.state.receivedBidDetailReducer.data.status === 'PENDING' ? (
             <TouchableOpacity style={styles.submit}>
               <Text style={styles.lblSubmit}>
                 {recievedbidDetailStrings.ACCEPT_BID}

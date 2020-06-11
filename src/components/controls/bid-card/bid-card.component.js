@@ -16,10 +16,9 @@ import {placedBidsStrings} from '../../../constants/strings';
 import {styles} from './bid-card.styles';
 
 export default function BidCard(props) {
+
   var onBidClick = () => {
-    console.log(props.nav);
-    console.log(props);
-    props.selectBid(props.data);
+    props.showData(props.data);
     props.navigation.navigate(props.nav);
   };
 
