@@ -104,7 +104,6 @@ export default function Register(props) {
     const [modalData, setModalData] = useState(initialModalData);
 
     const showModal = (data) => {
-        // console.log(data)
         setModalData(data);
         setshowSkillModal(true);
     }
@@ -159,7 +158,6 @@ export default function Register(props) {
 }
 
 function SkillModal(props) {
-    console.log(props)
     if (props.data == undefined) {
         isEnable = true;
         title = "Add Skill";
@@ -253,7 +251,6 @@ function SkillCard(props) {
             name: element.name,
             rating: element.rating
         }
-        console.log(dataObj)
         props.showModal(dataObj);
     }
     return (

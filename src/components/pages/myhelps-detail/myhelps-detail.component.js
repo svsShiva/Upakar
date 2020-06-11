@@ -93,8 +93,13 @@ export default function MyHelpsDetail(props) {
 
 function BidCard(props) {
 
+    const onBidPressed = () => {
+        props.showData(props.data)
+        props.navigation.navigate('BidDetail')
+    }
+
     return (
-        <View style={styles.bids}>
+        <TouchableOpacity style={styles.bids} onPress={onBidPressed}>
             <Image
                 source={imgProfilePic}
                 style={styles.profilePic}
@@ -107,7 +112,7 @@ function BidCard(props) {
                     <Text style={styles.bidsDurationDetails}>{" Duration " + props.data.help_duration}</Text>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 

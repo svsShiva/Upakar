@@ -23,7 +23,6 @@ const screenOptions = ({route}) => ({
     } else if (route.name === 'Received Bids') {
       iconName = imgrecievedbid;
     }
-    console.log('color ', color);
     return (
       <Image
         source={iconName}

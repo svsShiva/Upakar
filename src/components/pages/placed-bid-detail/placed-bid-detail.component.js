@@ -13,7 +13,6 @@ import imgChat from '../../../assets/images/imageChat.png';
 
 
 export default function PlacedbidsDetails(props) {
-  console.log(props)
   const [helpDuration, sethelpDuration] = useState('');
   const [editable, setEditable] = useState(false);
   const [otp, setOtp] = useState('');
@@ -33,7 +32,6 @@ export default function PlacedbidsDetails(props) {
   };
 
   var onEditPress = () => {
-    console.log('On edit press');
     setEditable(true);
   };
 
@@ -42,7 +40,6 @@ export default function PlacedbidsDetails(props) {
   };
 
   var onSave = () => {
-    console.log(helpDuration);
     setEditable(false);
   };
 

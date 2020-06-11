@@ -22,7 +22,7 @@ import imgChat from '../../../assets/images/imageChat.png';
 
 
 export default function RecievedbidsDetails(props) {
-  console.log(props)
+  
   return (
     <View style={styles.container} behavior="position">
       <CustomHeader
