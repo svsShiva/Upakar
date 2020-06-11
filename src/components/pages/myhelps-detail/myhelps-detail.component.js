@@ -77,14 +77,14 @@ export default function MyHelpsDetail(props) {
                     </View>
                 </View>
             </ScrollView>
-            <TouchableOpacity style={styles.buttonWrapper} onPress={showPlaceBidsModal}>
+            <TouchableOpacity style={styles.buttonWrapper}>
                 <LinearGradient
                     start={gradientDimensions.start} end={gradientDimensions.end}
                     colors={[appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT]}
                     style={styles.button}>
                     <Text
                         style={styles.buttonText}
-                    >{"PLACE BID"}</Text>
+                    >{"EDIT DETAILS"}</Text>
                 </LinearGradient>
             </TouchableOpacity>
         </View>

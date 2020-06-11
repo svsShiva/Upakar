@@ -97,16 +97,26 @@ export default function DashboardDetail(props) {
                     </View>
                 </View>
             </ScrollView>
-            <TouchableOpacity style={styles.buttonWrapper} onPress={showPlaceBidsModal}>
-                <LinearGradient
-                    start={gradientDimensions.start} end={gradientDimensions.end}
-                    colors={[appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT]}
-                    style={styles.button}>
-                    <Text
-                        style={styles.buttonText}
-                    >{"PLACE BID"}</Text>
-                </LinearGradient>
-            </TouchableOpacity>
+            {
+                props.state.dashboardDetailReducer.isBidPlaced ?
+                    <View style={styles.buttonWrapper}>
+                        <View style={styles.inActiveButton}>
+                            <Text
+                                style={styles.inActiveButtonText}
+                            >{"Bid Already Placed"}</Text>
+                        </View>
+                    </View> :
+                    <TouchableOpacity style={styles.buttonWrapper} onPress={showPlaceBidsModal}>
+                        <LinearGradient
+                            start={gradientDimensions.start} end={gradientDimensions.end}
+                            colors={[appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT]}
+                            style={styles.button}>
+                            <Text
+                                style={styles.buttonText}
+                            >{"PLACE BID"}</Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+            }
         </View>
     );
 }
@@ -191,27 +201,27 @@ function PlaceBidModal(props) {
                     <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Place Bid</Text>
                     <ScrollView style={styles.modalFieldsContainer}>
                         {/* <View style={styles.modalFieldsContainer}> */}
-                            <TextInput
-                                placeholder={fields[0].placeholder}
-                                onChangeText={onBidsChanged}
-                                value={fields[0].value}
-                                style={styles.textInput}
-                                numberOfLines={1}
-                            />
-                            <TextInput
-                                placeholder={fields[1].placeholder}
-                                onChangeText={onHelpDurationChanged}
-                                value={fields[1].value}
-                                style={styles.textInput}
-                                numberOfLines={1}
-                            />
-                            <TextInput
-                                placeholder={fields[2].placeholder}
-                                onChangeText={onCommentsChanged}
-                                value={fields[2].value}
-                                style={styles.textInput}
-                                numberOfLines={4}
-                            />
+                        <TextInput
+                            placeholder={fields[0].placeholder}
+                            onChangeText={onBidsChanged}
+                            value={fields[0].value}
+                            style={styles.textInput}
+                            numberOfLines={1}
+                        />
+                        <TextInput
+                            placeholder={fields[1].placeholder}
+                            onChangeText={onHelpDurationChanged}
+                            value={fields[1].value}
+                            style={styles.textInput}
+                            numberOfLines={1}
+                        />
+                        <TextInput
+                            placeholder={fields[2].placeholder}
+                            onChangeText={onCommentsChanged}
+                            value={fields[2].value}
+                            style={styles.textInput}
+                            numberOfLines={4}
+                        />
                         {/* </View> */}
                     </ScrollView>
                     <View style={styles.modalBtnsContainer}>

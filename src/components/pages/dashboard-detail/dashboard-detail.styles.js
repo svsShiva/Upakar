@@ -93,6 +93,17 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold'
     },
+    inActiveButton: {
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colorDefs.LIGHT_GREY
+    },
+    inActiveButtonText: {
+        color: colorDefs.WHITE,
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
     helpTitle: {
         fontSize: 18,
         color: colorDefs.LIGHT_GREEN,
