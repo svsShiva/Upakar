@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
     shadowColor: colorDefs.LIGHT_GREY,
     shadowRadius: 2,
     marginVertical: 4,
+    margin:5,
     elevation: 1,
   },
   wrapper: {
@@ -32,14 +33,15 @@ export const styles = StyleSheet.create({
   box: {
     flexDirection: 'row',
     flex: 1,
-    justifyContent: 'space-between',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
   lblCredit: {
-    fontSize: 18,
+    fontSize: 15,
     padding: 5,
   },
-  lblduration: {
-    fontSize: 18,
+  lblOtp: {
+    fontSize: 15,
     padding: 5,
   },
   title: {
@@ -51,7 +53,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
-  durationContainer: {
+  otpContainer: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-end',
@@ -60,14 +62,33 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     color: colorDefs.DARK_GREY,
   },
-  expiryContainer: {
+  statusConatiner: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
+    marginRight: 15,
   },
-  lblExpiration: {
+  containerOne: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  containerTwo: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  durationContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  lblStatus: {
     fontSize: 15,
     padding: 5,
-    marginBottom: 5,
-  }
+  },
+  lblDuration: {
+    fontSize: 15,
+    padding: 5,
+    marginRight: 5,
+  },
 });

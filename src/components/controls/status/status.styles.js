@@ -4,12 +4,12 @@ import {colorDefs} from '../../../constants/colors';
 
 export const styles = StyleSheet.create({
   acceptConatiner: {
-    backgroundColor: colorDefs.BID_PENDING,
+    backgroundColor: colorDefs.BID_ACCEPTED,
     height: 50,
     justifyContent: 'center',
   },
   pendingContainer: {
-    backgroundColor: colorDefs.BID_ACCEPTED,
+    backgroundColor: colorDefs.BID_PENDING,
     height: 50,
     justifyContent: 'center',
   },
