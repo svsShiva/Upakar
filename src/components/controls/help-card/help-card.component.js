@@ -18,7 +18,7 @@ export default function HelpCard(props) {
     var onHelpClick = async () => {
         try {
             props.selectHelp(props.data)
-            props.navigation.navigate('DashboardDetail')
+            props.navigation.navigate(props.onBackNavigateScreen)
         }
         catch (err) {
             console.warn(err)

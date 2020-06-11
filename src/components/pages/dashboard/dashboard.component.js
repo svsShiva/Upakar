@@ -22,6 +22,7 @@ export default function Dashboard(props) {
         return <HelpCard {...props}
             data={item}
             Key={index}
+            onBackNavigateScreen={"DashboardDetail"}
         />
     }
 

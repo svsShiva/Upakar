@@ -22,6 +22,7 @@ export default function MyHelps(props) {
         return <HelpCard {...props}
             data={item}
             Key={index}
+            onBackNavigateScreen={"MyHelpsDetail"}
         />
     }
 
