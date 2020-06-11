@@ -35,6 +35,28 @@ export const styles = StyleSheet.create({
         marginVertical: 4,
         elevation: 1
     },
+    userDetailContainer: {
+        flex: 2,
+        flexDirection:'row'
+    },
+    userDetails: { 
+        flex: 1,
+        flexDirection: 'column', 
+        justifyContent: 'center',  
+        alignItems: 'flex-start', 
+        padding: 10,
+        marginHorizontal: 10
+    },
+    userName: { 
+        flex: 1, 
+        fontSize: 16 
+    },
+    userProfilePic: {
+        width: 65,
+        height: 65,
+        resizeMode: 'contain',
+        alignItems: 'flex-start',
+    },
     bids: {
         backgroundColor: colorDefs.WHITE,
         padding: 15,
@@ -56,12 +78,14 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     buttonWrapper: {
-        marginTop: 20
+        position: 'absolute',
+        bottom: 0,
+        flex:1,
+        width: "100%"
     },
     button: {
-        height: 40,
+        height: 50,
         alignItems: 'center',
-        borderRadius: 30,
         justifyContent: 'center'
     },
     buttonText: {
@@ -69,16 +93,24 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold'
     },
-    title: {
-        fontSize: 20,
+    helpTitle: {
+        fontSize: 18,
         color: colorDefs.LIGHT_GREEN,
         fontWeight: 'bold',
+        marginVertical: 5
+    },
+    helpDescription: {
+        fontSize: 16,
+        color: appColors.TEXT_DARK,
+        fontStyle: 'italic',
+        marginVertical: 5
     },
     textFields: {
         fontSize: 16,
         paddingVertical: 10
     },
     helpDetails: {
+        marginVertical: 10,
         flexDirection: 'row'
     },
     bidsCountWrapper: {
@@ -123,11 +155,13 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignSelf: 'center'
     },
+
+    //Modal styles
     centeredView: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22,
+        backgroundColor: appColors.SEMI_TRANSPARENT
     },
     modalScrollView: {
         flex: 1
@@ -136,7 +170,7 @@ export const styles = StyleSheet.create({
         margin: 20,
         backgroundColor: colorDefs.SMOKE_WHITE,
         borderRadius: 20,
-        padding: 35,
+        padding: 20,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -147,10 +181,13 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         width: "90%",
-        height: "60%"
+        height: "60%",
     },
     modalFieldsContainer: {
-        flex: 1,
+        // backgroundColor: 'blue',
+        width: "100%",
+        marginVertical: 10,
+        height: "55%"
     },
     textStyle: {
         color: "white",
@@ -158,32 +195,36 @@ export const styles = StyleSheet.create({
         textAlign: "center"
     },
     textInput: {
-        width: windowWidth - 100,
         margin: 5,  
         backgroundColor:appColors.TEXT_WHITE,
         borderRadius: 10,
         fontSize: 16,
-        textAlignVertical: "top"
+        textAlignVertical: "top",
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
     },
     modalBtnsContainer: {
         flexDirection: 'row',
+        width: "100%",
+        height: 75,
+        padding: "5%",
+        // backgroundColor: 'red',
     },
     modalSaveBtn: {
         flex: 1, 
         backgroundColor: colorDefs.DARK_GREEN,
         borderRadius: 20,
-        padding: 10,
         elevation: 2,
         justifyContent: 'center',
-        margin: 5
+        marginHorizontal: 5
     },
     modalCancelBtn: {
         flex: 1,
         backgroundColor: colorDefs.DARK_GREY,
         borderRadius: 20,
-        padding: 10,
         elevation: 2,
         justifyContent: 'center',
-        margin: 5
+        marginHorizontal: 5
     }
 });

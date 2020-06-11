@@ -12,6 +12,7 @@ import {
     TextInput
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { Rating } from 'react-native-ratings';
 
 import { dashboardDetailStrings } from '../../../constants/strings';
 import { styles } from './dashboard-detail.styles';
@@ -33,7 +34,7 @@ export default function DashboardDetail(props) {
     const getKeyExtractor = (item, index) => item.id;
 
     const getFooterComponent = () => {
-        return <View style={{ height: 20 }} />
+        return <View style={{ height: 60 }} />
     }
 
     const showPlaceBidsModal = () => {
@@ -43,67 +44,69 @@ export default function DashboardDetail(props) {
     return (
         <View style={styles.outerContainer}>
             <CustomHeader navigation={props.navigation} showBackButton={true} title={"Help Detail"}></CustomHeader>
+            <ScrollView>
+                <PlaceBidModal showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
+                    hidePlaceBidModal={props.showHidePlaceBidsModal} />
 
-            <PlaceBidModal showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
-                hidePlaceBidModal={props.showHidePlaceBidsModal} />
+                <View style={styles.container}>
+                    <View style={styles.help}>
+                        <View style={styles.userDetailContainer} >
+                            <Image
+                                source={imgProfilePic}
+                                style={styles.userProfilePic}
+                            />
+                            <View style={styles.userDetails}>
+                                <Text style={styles.userName}>Shiva Siripurapu</Text>
+                                <Rating
+                                    type="custom"
+                                    ratingCount={5}
+                                    imageSize={20}
+                                    showRating={false}
+                                    startingValue={4}
+                                    readonly={true}
+                                    ratingColor={appColors.GRADIENT_LEFT}
+                                    style={{ flex: 1 }}
+                                />
+                            </View>
+                        </View>
+                        <Text style={styles.helpTitle}>{props.state.dashboardReducer.selectedHelp.title}</Text>
+                        <Text style={styles.helpDescription}>{props.state.dashboardReducer.selectedHelp.description}</Text>
+                        <View style={styles.helpDetails}>
+                            <View style={styles.bidsCountWrapper}>
+                                <Text style={styles.lables}>{"Ends by"}</Text>
+                                <Text style={styles.textFields}>{"20th June, 2020"}</Text>
+                            </View>
+                            <View style={styles.baseValueWrapper}>
+                                <Text style={styles.lables}>{"Base Value"}</Text>
+                                <Text style={styles.textFields}>{"50 Credits"}</Text>
+                            </View>
+                        </View>
 
-            <View style={styles.container}>
-                <View style={styles.help}>
-                    <Text style={styles.title}>{props.state.dashboardReducer.selectedHelp.title}</Text>
-                    <Text style={styles.textFields}>{props.state.dashboardReducer.selectedHelp.status + " - Ends by 20th June, 2020"}</Text>
-                    <Text style={styles.lables}>Description</Text>
-                    <Text style={styles.textFields}>{props.state.dashboardReducer.selectedHelp.description}</Text>
-                    <View style={styles.helpDetails}>
-                        <View style={styles.bidsCountWrapper}>
-                            <Text style={styles.lables}>{"Bids"}</Text>
-                            <Text style={styles.textFields}>{"20"}</Text>
-                        </View>
-                        <View style={styles.baseValueWrapper}>
-                            <Text style={styles.lables}>{"Base Value"}</Text>
-                            <Text style={styles.textFields}>{"50 Credits"}</Text>
-                        </View>
                     </View>
-                    <TouchableOpacity style={styles.buttonWrapper} onPress={showPlaceBidsModal}>
-                        <LinearGradient
-                            start={gradientDimensions.start} end={gradientDimensions.end}
-                            colors={[appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT]}
-                            style={styles.button}>
-                            <Text
-                                style={styles.buttonText}
-                            >{"PLACE BID"}</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-                </View>
 
-                <View style={styles.flatlistWrapper}>
-                    {/* <Text>My Bid</Text>
-                    <BidCard {...props}
-                        data={{
-                            title: "Delivery item from @medipally to @ggk",
-                            description: "Item length: 30CM, Item widthL 40CM. 2 wheeler can deliver the item",
-                            requester: "1",
-                            category: "Delivery",
-                            sub_category: "Products",
-                            expiration_date: "15th June",
-                            help_duration: "4 hours",
-                            accepted_bid_id: "",    
-                            bid_credits: "",
-                            status: "PLACED",
-                            is_available: true,
-                            is_successful: false
-                        }} />
-                    <Text>ALL BIDS</Text> */}
-                    <FlatList
-                        showsVerticalScrollIndicator={false}
-                        data={bidsData}
-                        renderItem={getRenderItem}
-                        keyExtractor={getKeyExtractor}
-                        style={styles.flatlist}
-                        ListFooterComponent={getFooterComponent}
-                        extraData={props.state.dashboardReducer.refreshFlatlist}
-                    />
+                    <View style={styles.flatlistWrapper}>
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            data={bidsData}
+                            renderItem={getRenderItem}
+                            keyExtractor={getKeyExtractor}
+                            style={styles.flatlist}
+                            ListFooterComponent={getFooterComponent}
+                            extraData={props.state.dashboardReducer.refreshFlatlist}
+                        />
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
+            <TouchableOpacity style={styles.buttonWrapper} onPress={showPlaceBidsModal}>
+                <LinearGradient
+                    start={gradientDimensions.start} end={gradientDimensions.end}
+                    colors={[appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT]}
+                    style={styles.button}>
+                    <Text
+                        style={styles.buttonText}
+                    >{"PLACE BID"}</Text>
+                </LinearGradient>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -183,9 +186,11 @@ function PlaceBidModal(props) {
                 Alert.alert("Modal has been closed.");
             }}
         >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <View style={styles.modalFieldsContainer}>
+            <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Place Bid</Text>
+                    <ScrollView style={styles.modalFieldsContainer}>
+                        {/* <View style={styles.modalFieldsContainer}> */}
                             <TextInput
                                 placeholder={fields[0].placeholder}
                                 onChangeText={onBidsChanged}
@@ -207,24 +212,24 @@ function PlaceBidModal(props) {
                                 style={styles.textInput}
                                 numberOfLines={4}
                             />
-                        </View>
-                        <View style={styles.modalBtnsContainer}>
-                            <TouchableOpacity
-                                style={styles.modalSaveBtn}
-                                onPress={hidePlaceBidModal}
-                            >
-                                <Text style={styles.textStyle}>Save</Text>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity
-                                style={styles.modalCancelBtn}
-                                onPress={hidePlaceBidModal}
-                            >
-                                <Text style={styles.textStyle}>Cancel</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {/* </View> */}
+                    </ScrollView>
+                    <View style={styles.modalBtnsContainer}>
+                        <TouchableOpacity
+                            style={styles.modalCancelBtn}
+                            onPress={hidePlaceBidModal}
+                        >
+                            <Text style={styles.textStyle}>Cancel</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.modalSaveBtn}
+                            onPress={hidePlaceBidModal}
+                        >
+                            <Text style={styles.textStyle}>Save</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
+            </View>
         </Modal>
     );
 }
