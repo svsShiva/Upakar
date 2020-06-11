@@ -12,7 +12,7 @@ export const colorDefs = {
     SEMI_TRANSPARENT: '#F0F0F050',
     LIGHT_TRANSPARENT: '#D0D0D090',
     MODAL_TRANSPARENT: '#CCCCCC90',
-    BID_ACCEPTED:'#008000',
+    BID_ACCEPTED:'#0fa1db',
     BID_PENDING:'#ecb009',
 }
 

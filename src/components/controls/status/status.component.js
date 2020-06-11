@@ -3,17 +3,18 @@ import {View, Text} from 'react-native';
 
 import {styles} from './status.styles';
 export default function StatusComponent(props) {
+  console.log("Properties: ",props)
   var Accepted = () => {
     return (
       <View style={styles.acceptConatiner}>
-        <Text style={styles.lblstatus}>BID STATUS</Text>
+        <Text style={styles.lblstatus}>{props.status}</Text>
       </View>
     );
   };
   var Pending = () => {
     return (
       <View style={styles.pendingContainer}>
-        <Text style={styles.lblstatus}>BID STATUS</Text>
+        <Text style={styles.lblstatus}>{props.status}</Text>
       </View>
     );
   };

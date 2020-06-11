@@ -28,19 +28,28 @@ export default function BidCard(props) {
       <View style={styles.wrapper}>
         <Text style={styles.title}>{props.data.upakar_name}</Text>
         <View style={styles.box}>
-          <View style={styles.creditContainer}>
-            <Text style={styles.lblCredit}>{props.data.credits}</Text>
-            <Text style={styles.lable}>{placedBidsStrings.CREDTS}</Text>
+          <View style={styles.containerOne}>
+            <View style={styles.creditContainer}>
+              <Text style={styles.lblCredit}>{props.data.credits}</Text>
+              <Text style={styles.lable}>{placedBidsStrings.CREDTS}</Text>
+            </View>
+            <View style={styles.statusConatiner}>
+              <Text style={styles.lblStatus}>
+                {props.data.status.toLowerCase()}
+              </Text>
+              <Text style={styles.lable}>{'Status'}</Text>
+            </View>
           </View>
-          <View style={styles.expiryContainer}>
-            <Text style={styles.lblExpiration}>
-              {new Date().toDateString()}
-            </Text>
-            <Text style={styles.lable}>{placedBidsStrings.END_TIME}</Text>
-          </View>
-          <View style={styles.durationContainer}>
-            <Text style={styles.lblduration}>{props.data.help_duration}</Text>
-            <Text style={styles.lable}>{placedBidsStrings.DURATION}</Text>
+          <View style={styles.containerTwo}>
+            <View style={styles.durationContainer}>
+              <Text style={styles.lblDuration}>{props.data.help_duration}</Text>
+              <Text style={styles.lable}>{placedBidsStrings.DURATION}</Text>
+            </View>
+
+            <View style={styles.otpContainer}>
+              <Text style={styles.lblOtp}>{'1234'}</Text>
+              <Text style={styles.lable}>{props.otptext}</Text>
+            </View>
           </View>
         </View>
       </View>

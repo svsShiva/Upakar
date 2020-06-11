@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colorDefs} from '../../../constants/colors';
+import {colorDefs, appColors} from '../../../constants/colors';
 
 export const styles = StyleSheet.create({
   outerContainer: {
@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     shadowRadius: 2,
     marginVertical: 4,
     elevation: 1,
-    marginBottom: 40,
+    // marginBottom: 40,
   },
   bids: {
     backgroundColor: colorDefs.WHITE,
@@ -52,6 +52,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: colorDefs.LIGHT_GREEN,
     fontWeight: 'bold',
+    marginLeft: 5,
   },
   buttonWrapper: {
     marginTop: 20,
@@ -71,15 +72,18 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     color: colorDefs.LIGHT_GREEN,
     fontWeight: 'bold',
+    padding: 5,
   },
   textFields: {
-    fontSize: 16,
+    fontSize: 17,
     paddingVertical: 10,
+    marginLeft: 20,
   },
   helpDetails: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignContent: 'space-between',
+    marginLeft: 5,
   },
   helpDuration: {
     fontSize: 16,
@@ -109,7 +113,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     justifyContent: 'center',
-    // backgroundColor: 'red',
   },
   bidsTextFields: {
     fontSize: 16,
@@ -128,6 +131,7 @@ export const styles = StyleSheet.create({
     borderColor: colorDefs.DARK_GREEN,
     justifyContent: 'center',
     margin: 15,
+    height: 40,
   },
   submitBtnText: {
     alignSelf: 'center',
@@ -156,8 +160,8 @@ export const styles = StyleSheet.create({
     color: colorDefs.DARK_GREEN,
     alignSelf: 'center',
     fontWeight: 'bold',
-    padding: 10,
-    margin: 5,
+    padding: 5,
+    margin: 2,
   },
   floatingButton: {
     position: 'absolute',
@@ -165,14 +169,46 @@ export const styles = StyleSheet.create({
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
-    right: 30,
-    bottom: 20,
-    backgroundColor: colorDefs.LIGHT_GREEN,
+    right: 10,
+    bottom: 75,
     borderRadius: 50,
     padding: 10,
   },
   lblChat: {
     padding: 10,
+    color: colorDefs.WHITE,
+  },
+  lblDesc: {
+    fontSize: 15,
+    padding: 5,
+  },
+  rowConatiner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  lblHelpDuration: {
+    fontSize: 18,
+    color: colorDefs.LIGHT_GREEN,
+    fontWeight: 'bold',
+  },
+  lblOtp: {
+    marginLeft: 20,
+    fontSize: 16,
+  },
+  chatbtn: {
+    height: 65,
+    width: 65,
+  },
+  endHelp: {
+    backgroundColor: appColors.GRADIENT_RIGHT,
+    height: 40,
+    justifyContent: 'center',
+    borderColor: appColors.GRADIENT_LEFT,
+    borderRadius: 20,
+    margin: 10,
+  },
+  lblendHelp: {
+    alignSelf: 'center',
     color: colorDefs.WHITE,
   },
 });

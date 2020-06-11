@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
 
-import {colorDefs} from '../../../constants/colors';
+import {colorDefs, appColors} from '../../../constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: colorDefs.WHITE,
+    backgroundColor: appColors.BG,
     flex: 1,
   },
 
@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     shadowColor: colorDefs.LIGHT_GREY,
     shadowRadius: 2,
     marginVertical: 4,
+    margin:5,
     elevation: 1,
   },
   bidContainerRow: {
@@ -69,14 +70,47 @@ export const styles = StyleSheet.create({
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
-    right: 30,
-    bottom: 30,
-    backgroundColor: colorDefs.LIGHT_GREEN,
+    right: 10,
+    bottom: 75,
     borderRadius: 50,
     padding: 10,
   },
   lblChat: {
     padding: 10,
     color: colorDefs.WHITE,
+  },
+  lblOtp: {
+    marginLeft: 20,
+    fontSize: 16,
+  },
+  rowConatiner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  help: {
+    backgroundColor: colorDefs.WHITE,
+    padding: 15,
+    borderRadius: 10,
+    shadowOffset: {
+      height: 1,
+      width: 0,
+    },
+    shadowOpacity: 0.5,
+    shadowColor: colorDefs.LIGHT_GREY,
+    shadowRadius: 2,
+    marginVertical: 4,
+    margin:5,
+    elevation: 1,
+    // marginBottom: 40,
+  },
+  lables: {
+    fontSize: 18,
+    color: colorDefs.LIGHT_GREEN,
+    fontWeight: 'bold',
+    marginLeft: 5,
+  },
+  chatbtn: {
+    height: 65,
+    width: 65,
   },
 });
