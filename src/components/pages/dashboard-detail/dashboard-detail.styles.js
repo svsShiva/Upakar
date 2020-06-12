@@ -37,19 +37,19 @@ export const styles = StyleSheet.create({
     },
     userDetailContainer: {
         flex: 2,
-        flexDirection:'row'
+        flexDirection: 'row'
     },
-    userDetails: { 
+    userDetails: {
         flex: 1,
-        flexDirection: 'column', 
-        justifyContent: 'center',  
-        alignItems: 'flex-start', 
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
         padding: 10,
         marginHorizontal: 10
     },
-    userName: { 
-        flex: 1, 
-        fontSize: 16 
+    userName: {
+        flex: 1,
+        fontSize: 16
     },
     userProfilePic: {
         width: 65,
@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
     buttonWrapper: {
         position: 'absolute',
         bottom: 0,
-        flex:1,
+        flex: 1,
         width: "100%"
     },
     button: {
@@ -192,7 +192,7 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         width: "90%",
-        height: "60%",
+        height: "65%",
     },
     modalFieldsContainer: {
         // backgroundColor: 'blue',
@@ -206,8 +206,8 @@ export const styles = StyleSheet.create({
         textAlign: "center"
     },
     textInput: {
-        margin: 5,  
-        backgroundColor:appColors.TEXT_WHITE,
+        margin: 5,
+        backgroundColor: appColors.TEXT_WHITE,
         borderRadius: 10,
         fontSize: 16,
         textAlignVertical: "top",
@@ -223,7 +223,7 @@ export const styles = StyleSheet.create({
         // backgroundColor: 'red',
     },
     modalSaveBtn: {
-        flex: 1, 
+        flex: 1,
         backgroundColor: colorDefs.DARK_GREEN,
         borderRadius: 20,
         elevation: 2,
@@ -237,5 +237,29 @@ export const styles = StyleSheet.create({
         elevation: 2,
         justifyContent: 'center',
         marginHorizontal: 5
+    },
+    helpDurationContainer: {
+        flex: 1,
+        margin: 5,
+        // backgroundColor: 'black'
+    },
+    durationPickerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        margin: 5
+    },
+    durationPicker: {
+        flex: 1.5,
+        backgroundColor: appColors.TEXT_WHITE,
+        fontSize: 8,
+    },
+    durationTextContainer: {
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+    },
+    durationText: {
+        fontSize: 18,
+        padding: 10
     }
 });

@@ -9,10 +9,12 @@ import {
     Image,
     Alert,
     Modal,
-    TextInput
+    TextInput,
+    Slider
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Rating } from 'react-native-ratings';
+import { Picker } from '@react-native-community/picker';
 
 import { dashboardDetailStrings } from '../../../constants/strings';
 import { styles } from './dashboard-detail.styles';
@@ -155,17 +157,15 @@ function PlaceBidModal(props) {
             value: ""
         },
         {
-            name: "Help Duration",
-            placeholder: "Help Duration",
-            value: ""
-        },
-        {
             name: "Comments",
             placeholder: "Comments",
             value: ""
         }
     ]
     const [fields, setFields] = useState(initialFields);
+    const [helpDuration, setHelpDuration] = useState(0);
+    const [durationType, setDurationType] = useState("hours")
+
 
     const onBidsChanged = (value) => {
         let updatedFields = { ...fields };
@@ -174,16 +174,9 @@ function PlaceBidModal(props) {
         setFields(updatedFields);
     }
 
-    const onHelpDurationChanged = (value) => {
-        let updatedFields = { ...fields };
-        let updatedField = updatedFields[1];
-        updatedField.value = value;
-        setFields(updatedFields);
-    }
-
     const onCommentsChanged = (value) => {
         let updatedFields = { ...fields };
-        let updatedField = updatedFields[2];
+        let updatedField = updatedFields[1];
         updatedField.value = value;
         setFields(updatedFields);
     }
@@ -214,17 +207,35 @@ function PlaceBidModal(props) {
                             style={styles.textInput}
                             numberOfLines={1}
                         />
+                        <View style={styles.helpDurationContainer}>
+                            <View style={styles.durationPickerContainer}>
+                                <View style={styles.durationTextContainer}>
+                                    <Text style={styles.durationText}>Help Duration: {helpDuration}</Text>
+                                </View>
+                                <Picker
+                                    selectedValue={durationType}
+                                    style={styles.durationPicker}
+                                    onValueChange={(itemValue, itemIndex) =>
+                                        setDurationType(itemValue)
+                                    }>
+                                    <Picker.Item label="Days" value="Days" />
+                                    <Picker.Item label="Hours" value="Hours" />
+                                </Picker>
+                            </View>
+                            <Slider
+                                style={{ flex: 1, margin: 10, }}
+                                minimumValue={0}
+                                maximumValue={90}
+                                minimumTrackTintColor={appColors.GRADIENT_LEFT}
+                                maximumTrackTintColor="#000000"
+                                onValueChange={(value) => { setHelpDuration(value) }}
+                                step={1}
+                            />
+                        </View>
                         <TextInput
                             placeholder={fields[1].placeholder}
-                            onChangeText={onHelpDurationChanged}
-                            value={fields[1].value}
-                            style={styles.textInput}
-                            numberOfLines={1}
-                        />
-                        <TextInput
-                            placeholder={fields[2].placeholder}
                             onChangeText={onCommentsChanged}
-                            value={fields[2].value}
+                            value={fields[1].value}
                             style={styles.textInput}
                             numberOfLines={4}
                         />
