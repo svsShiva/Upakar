@@ -29,8 +29,10 @@ export const receivedBidsActionTypes = {
 
 export const createHelpActionTypes = {};
 export const placedbidDetailActionTypes = {
-  SHOW_DATA: "SHOW_DATA"
+  SHOW_DATA: "SHOW_DATA",
+  SHOW_HIDE_ENDHELP_MODAL: "SHOW_END HELP_MODAL"
 };
 export const receivedbidDetailActionTypes = {
-  SHOW_DATA: "SHOW_DATA"
+  SHOW_DATA: "SHOW_DATA",
+  SHOW_HIDE_ACCEPT_BID_MODAL: "SHOW ACCEPT BID MODAL"
 }

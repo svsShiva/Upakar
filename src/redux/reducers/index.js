@@ -10,7 +10,7 @@ import receivedBidsReducer from '../../components/pages/receivedbids/receivedbid
 import placedBidsReducer from '../../components/pages/placedbids/placedbids.reducer';
 import createHelpReducer from '../../components/pages/createhelp/createhelp.reducer';
 import placedBidDetailReducer from '../../components/pages/placed-bid-detail/placed-bid-detail.reducer';
-import receivedBidDetailReducer from '../../components/pages/recieved-bid-detail/recieved-bid-detail.reducer';
+import receivedBidDetailReducer from '../../components/pages/received-bid-detail/received-bid-detail.reducer';
 
 const reducers = combineReducers({
     globalReducer,

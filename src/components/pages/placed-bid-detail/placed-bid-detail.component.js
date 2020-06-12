@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Button, Image } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Button,
+  Image,
+  Modal,
+  Alert,
+} from 'react-native';
 
 import {
   placedbidDetailStrings,
   placedBidsStrings,
 } from '../../../constants/strings';
-import { styles } from './placed-bid-detail.styles';
+import {styles} from './placed-bid-detail.styles';
 import CustomHeader from '../../controls/custom-header';
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import {ScrollView, TextInput} from 'react-native-gesture-handler';
 import StatusComponent from '../../controls/status';
 import imgChat from '../../../assets/images/imageChat.png';
-
 
 export default function PlacedbidsDetails(props) {
   const [helpDuration, sethelpDuration] = useState('');
@@ -42,7 +49,9 @@ export default function PlacedbidsDetails(props) {
   var onSave = () => {
     setEditable(false);
   };
-
+  const showHideEndHelp = () => {
+    props.showHideEndHelp();
+  };
   return (
     <View style={styles.outerContainer}>
       <CustomHeader
@@ -53,7 +62,15 @@ export default function PlacedbidsDetails(props) {
       <StatusComponent
         status={props.state.placedBidDetailReducer.data.status}
       />
+      {/* <OtpModal
+        showPlaceBidsModal={props.state.receivedBidDetailReducer.showEndHelp}
+        hidePlaceBidModal={props.showHideEndHelp}
+      /> */}
       <ScrollView>
+        <OtpModal
+          showEndHelp={props.state.placedBidDetailReducer.showEndHelp}
+          hidePlaceBidModal={props.showHideEndHelp}
+        />
         <View style={styles.help}>
           <Text style={styles.heading}>Bid Details</Text>
           <View style={styles.rowConatiner}>
@@ -115,8 +132,8 @@ export default function PlacedbidsDetails(props) {
               </View>
             </View>
           ) : (
-              <View />
-            )}
+            <View />
+          )}
         </View>
         <View style={styles.help}>
           <Text style={styles.heading}>Help Details</Text>
@@ -154,17 +171,62 @@ export default function PlacedbidsDetails(props) {
           </View>
         </View>
       </ScrollView>
-      <TouchableOpacity style={styles.floatingButton}>
-        {/* <Text style={styles.lblChat}>Chat</Text> */}
+      {/* <TouchableOpacity style={styles.floatingButton}>
         <Image source={imgChat} style={styles.chatbtn} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       {props.state.placedBidDetailReducer.data.status === 'ACCEPTED' ? (
-        <TouchableOpacity style={styles.endHelp}>
+        <TouchableOpacity style={styles.endHelp} onPress={showHideEndHelp}>
           <Text style={styles.lblendHelp}>End the Help</Text>
         </TouchableOpacity>
       ) : (
-          <View />
-        )}
+        <View />
+      )}
     </View>
+  );
+}
+
+function OtpModal(props) {
+  const [otpValue, setOtp] = useState('');
+  var onOtpChange = value => {
+    setOtp(value);
+  };
+  const hidePlaceBidModal = () => {
+    props.hidePlaceBidModal();
+  };
+  return (
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={props.showEndHelp}
+      onRequestClose={() => {
+        Alert.alert('Modal has been closed.');
+      }}>
+      <View style={styles.centeredView}>
+        <View style={styles.modalView}>
+          <Text style={styles.heading}>Enter Otp</Text>
+          <TextInput
+            placeholder="Enter End Otp"
+            onChangeText={onOtpChange}
+            value={otpValue}
+            style={styles.textInput}
+          />
+          <Text style={styles.getOtptext}>
+            {'*please get the end otp from the respective help seeker'}
+          </Text>
+          <View style={styles.modalBtnsContainer}>
+            <TouchableOpacity
+              style={styles.modalCancelBtn}
+              onPress={hidePlaceBidModal}>
+              <Text style={styles.textStyle}>Cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.modalSaveBtn}
+              onPress={hidePlaceBidModal}>
+              <Text style={styles.textStyle}>Submit</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 }

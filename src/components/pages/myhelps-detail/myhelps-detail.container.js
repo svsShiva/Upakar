@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import MyHelpDetail from './myhelps-detail.component';
-import { showData } from '../recieved-bid-detail/recieved-bid-detail.actions'
+import { showData } from '../received-bid-detail/received-bid-detail.actions'
 
 const mapStateToProps = (state, ownProps) => ({
     state: state

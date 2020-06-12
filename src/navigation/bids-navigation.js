@@ -6,10 +6,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import PlacedBids from '../components/pages/placedbids';
 import ReceivedBids from '../components/pages/receivedbids';
 import PlacedbidDetail from '../components/pages/placed-bid-detail';
-import RecievedbiDetail from '../components/pages/recieved-bid-detail';
+import RecievedbiDetail from '../components/pages/received-bid-detail';
 import imgplacedbid from '../assets/images/placedbid.png';
-import imgrecievedbid from '../assets/images/recievedbid.png';
-import {appColors} from '../constants/colors';
+import imgrecievedbid from '../assets/images/receivedbid.png';
+import {appColors, colorDefs} from '../constants/colors';
+import imgPlacedFocus from '../assets/images/imgPlacedFocus.png';
+import imgRecievedFocus from '../assets/images/imgReceivedFocus.png';
 
 const Tab = createBottomTabNavigator();
 const stackPlacedBids = createStackNavigator();
@@ -19,9 +21,9 @@ const screenOptions = ({route}) => ({
   tabBarIcon: ({focused, color, size}) => {
     let iconName;
     if (route.name === 'Placed Bids') {
-      iconName = imgplacedbid;
+      iconName = focused ? imgPlacedFocus : imgplacedbid;
     } else if (route.name === 'Received Bids') {
-      iconName = imgrecievedbid;
+      iconName = focused ? imgRecievedFocus : imgrecievedbid;
     }
     return (
       <Image
@@ -32,8 +34,8 @@ const screenOptions = ({route}) => ({
   },
 });
 const tabbaroptions = {
-  activeTintColor: appColors.GRADIENT_RIGHT,
-  inactiveTintColor: appColors.LIGHT_TRANSPARENT,
+  activeTintColor: appColors.GRADIENT_LEFT,
+  inactiveTintColor: appColors.GRADIENT_RIGHT,
 };
 function placedbids() {
   return (
