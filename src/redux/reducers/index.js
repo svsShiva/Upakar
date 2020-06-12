@@ -11,6 +11,7 @@ import placedBidsReducer from '../../components/pages/placedbids/placedbids.redu
 import createHelpReducer from '../../components/pages/createhelp/createhelp.reducer';
 import placedBidDetailReducer from '../../components/pages/placed-bid-detail/placed-bid-detail.reducer';
 import receivedBidDetailReducer from '../../components/pages/recieved-bid-detail/recieved-bid-detail.reducer';
+import profileReducer from '../../components/pages/profile/profile.reducer';
 
 const reducers = combineReducers({
     globalReducer,
@@ -23,7 +24,8 @@ const reducers = combineReducers({
     placedBidsReducer,
     createHelpReducer,
     placedBidDetailReducer,
-    receivedBidDetailReducer
+    receivedBidDetailReducer,
+    profileReducer
 });
 
 export default reducers;

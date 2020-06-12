@@ -22,6 +22,7 @@ import { colorDefs, appColors } from '../../../constants/colors';
 import { bidsData } from '../../../data/bids';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
 import CustomTextInput from '../../controls/custom-text-input';
+import { profileData } from '../../../data/profile';
 
 export default function DashboardDetail(props) {
 
@@ -41,6 +42,11 @@ export default function DashboardDetail(props) {
         props.showHidePlaceBidsModal();
     }
 
+    const onProfilePress = () => {
+        props.showProfile(profileData[1])
+        props.navigation.navigate('Profile')
+    }
+
     return (
         <View style={styles.outerContainer}>
             <CustomHeader navigation={props.navigation} showBackButton={true} title={"Help Detail"}></CustomHeader>
@@ -50,7 +56,7 @@ export default function DashboardDetail(props) {
 
                 <View style={styles.container}>
                     <View style={styles.help}>
-                        <View style={styles.userDetailContainer} >
+                        <TouchableOpacity style={styles.userDetailContainer} onPress={onProfilePress}>
                             <Image
                                 source={imgProfilePic}
                                 style={styles.userProfilePic}
@@ -68,7 +74,7 @@ export default function DashboardDetail(props) {
                                     style={{ flex: 1 }}
                                 />
                             </View>
-                        </View>
+                        </TouchableOpacity>
                         <Text style={styles.helpTitle}>{props.state.dashboardReducer.selectedHelp.title}</Text>
                         <Text style={styles.helpDescription}>{props.state.dashboardReducer.selectedHelp.description}</Text>
                         <View style={styles.helpDetails}>

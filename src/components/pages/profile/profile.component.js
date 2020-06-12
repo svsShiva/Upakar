@@ -28,8 +28,8 @@ export default function Profile(props) {
                     />
                     <View style={styles.nameContainer}>
                         <View style={styles.nameTextContainer}>
-                            <Text style={styles.nameText}> Sainag Chunduru</Text>
-                            <Text style={styles.bioText}> Here to do my bit to mankind :)</Text>
+                            <Text style={styles.nameText}> {props.state.profileReducer.data.name} </Text>
+                            <Text style={styles.bioText}> {props.state.profileReducer.data.bio}</Text>
                         </View>
                     </View>
                     <View style={{ alignSelf: "flex-start" }}>
@@ -41,20 +41,20 @@ export default function Profile(props) {
                 </View>
                 <View style={styles.detailsContainer}>
                     <View style={styles.walletContainer}>
-                        <Text style={styles.walletText}>Rs. 438</Text>
+                        <Text style={styles.walletText}>Rs. {props.state.profileReducer.data.walletBalance}</Text>
                     </View>
                     <View style={styles.helpDetailsContainer}>
                         <View style={styles.myHelpsContainer}>
-                            <Text style={styles.myHelpNumberText}>58</Text>
+                            <Text style={styles.myHelpNumberText}>{props.state.profileReducer.data.totalHelps}</Text>
                             <Text style={styles.myHelpTitleText}>Helps</Text>
                         </View>
                         <View style={styles.myHelpsContainer}>
-                            <Text style={styles.myHelpNumberText}>58</Text>
+                            <Text style={styles.myHelpNumberText}>{props.state.profileReducer.data.totalBids}</Text>
                             <Text style={styles.myHelpTitleText}>Bids</Text>
                         </View>
                         <View style={styles.myHelpsContainer}>
-                            <Text style={styles.myHelpNumberText}>58</Text>
-                            <Text style={styles.myHelpTitleText}>Accepted Bids</Text>
+                            <Text style={styles.myHelpNumberText}>{props.state.profileReducer.data.totalSuccessfulBids}</Text>
+                            <Text style={styles.myHelpTitleText}>Successful Bids</Text>
                         </View>
                     </View>
                 </View>
@@ -62,23 +62,23 @@ export default function Profile(props) {
                     <Text style={styles.aboutTitleText}>About</Text>
                     <View style={styles.aboutDetailContainer}>
                         <Text style={styles.aboutDetailTitleText}>Gender</Text>
-                        <Text style={styles.aboutDetailDescriptionText}>Male</Text>
+                        <Text style={styles.aboutDetailDescriptionText}>{props.state.profileReducer.data.gender}</Text>
                     </View>
                     <View style={styles.aboutDetailContainer}>
                         <Text style={styles.aboutDetailTitleText}>Email</Text>
-                        <Text style={styles.aboutDetailDescriptionText}>sainagchunduru23@gmail.com</Text>
+                        <Text style={styles.aboutDetailDescriptionText}>{props.state.profileReducer.data.email}</Text>
                     </View>
                     <View style={styles.aboutDetailContainer}>
                         <Text style={styles.aboutDetailTitleText}>Mobile</Text>
-                        <Text style={styles.aboutDetailDescriptionText}>9000549236</Text>
+                        <Text style={styles.aboutDetailDescriptionText}>{props.state.profileReducer.data.mobile}</Text>
                     </View>
                     <View style={styles.aboutDetailContainer}>
                         <Text style={styles.aboutDetailTitleText}>Occupation</Text>
-                        <Text style={styles.aboutDetailDescriptionText}>Software Engineer</Text>
+                        <Text style={styles.aboutDetailDescriptionText}>{props.state.profileReducer.data.occupation}</Text>
                     </View>
                     <View style={styles.aboutDetailContainer}>
                         <Text style={styles.aboutDetailTitleText}>Address</Text>
-                        <Text style={[styles.aboutDetailDescriptionText, { width: 250 }]}>Plot No: 62, Creative Nagar, ECIL Post, Hyderabad, Telangana. </Text>
+                        <Text style={[styles.aboutDetailDescriptionText, { width: 250 }]}>{props.state.profileReducer.data.address.line1} </Text>
                     </View>
                 </View>
                 <View style={styles.skillContainer}>

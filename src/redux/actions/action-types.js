@@ -34,3 +34,7 @@ export const placedbidDetailActionTypes = {
 export const receivedbidDetailActionTypes = {
   SHOW_DATA: "SHOW_DATA"
 }
+
+export const profileActionTypes = {
+  SHOW_DATA: "SHOW_DATA"
+}
