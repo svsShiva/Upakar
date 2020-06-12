@@ -172,10 +172,10 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: appColors.SEMI_TRANSPARENT
     },
     modalScrollView: {
-        flex: 1
+        flex: 1,
+        backgroundColor: colorDefs.SEMI_TRANSPARENT
     },
     modalView: {
         margin: 20,
@@ -192,13 +192,11 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         width: "90%",
-        height: "65%",
     },
     modalFieldsContainer: {
         // backgroundColor: 'blue',
         width: "100%",
         marginVertical: 10,
-        height: "55%"
     },
     textStyle: {
         color: "white",
@@ -249,9 +247,38 @@ export const styles = StyleSheet.create({
         margin: 5
     },
     durationPicker: {
-        flex: 1.5,
-        backgroundColor: appColors.TEXT_WHITE,
-        fontSize: 8,
+        height: 40,
+        width: 130,
+        marginVertical: 10,
+        flexDirection: 'row',
+        borderWidth: 2,
+        borderColor: colorDefs.LIGHT_GREEN,
+        borderRadius: 25
+    },
+    durationTypeText: {
+        fontSize: 16,
+        alignSelf: 'center',
+        color: colorDefs.SMOKE_WHITE
+    },
+    durationTypeHours: {
+        flex: 1,
+    },
+    durationTypeDays: {
+        flex: 1
+    },
+    durationGradientLeft: {
+        flex: 1,
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
+        justifyContent: 'center',
+        borderColor: colorDefs.DARK_GREEN,
+    },
+    durationGradientRight: {
+        flex: 1,
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 20,
+        justifyContent: 'center',
+        borderColor: colorDefs.DARK_GREEN
     },
     durationTextContainer: {
         flex: 2,

@@ -164,7 +164,7 @@ function PlaceBidModal(props) {
     ]
     const [fields, setFields] = useState(initialFields);
     const [helpDuration, setHelpDuration] = useState(0);
-    const [durationType, setDurationType] = useState("hours")
+    const [durationType, setDurationType] = useState("Hours")
 
 
     const onBidsChanged = (value) => {
@@ -181,10 +181,31 @@ function PlaceBidModal(props) {
         setFields(updatedFields);
     }
 
+    const onDurationHoursPressed = () => {
+        setDurationType("Hours")
+    }
+
+    const onDurationDaysPressed = () => {
+        setDurationType("Days")
+    }
 
     const hidePlaceBidModal = () => {
         props.hidePlaceBidModal();
     }
+
+    let durationTypeHoursGradientColors = durationType == "Hours" ?
+        [appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT] :
+        [colorDefs.SMOKE_WHITE, colorDefs.SMOKE_WHITE];
+    let durationTypeHoursTextColor = durationType == "Hours" ?
+        [styles.durationTypeText, { color: colorDefs.WHITE }] :
+        [styles.durationTypeText, { color: appColors.GRADIENT_LEFT }];
+
+    let durationTypeDaysGradientColors = durationType == "Days" ?
+        [appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT] :
+        [colorDefs.SMOKE_WHITE, colorDefs.SMOKE_WHITE];
+    let durationTypeDaysTextColors = durationType == "Days" ?
+        [styles.durationTypeText, { color: colorDefs.WHITE }] :
+        [styles.durationTypeText, { color: appColors.GRADIENT_LEFT }]
 
     return (
         <Modal
@@ -195,68 +216,83 @@ function PlaceBidModal(props) {
                 Alert.alert("Modal has been closed.");
             }}
         >
-            <View style={styles.centeredView}>
-                <View style={styles.modalView}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Place Bid</Text>
-                    <ScrollView style={styles.modalFieldsContainer}>
-                        {/* <View style={styles.modalFieldsContainer}> */}
-                        <TextInput
-                            placeholder={fields[0].placeholder}
-                            onChangeText={onBidsChanged}
-                            value={fields[0].value}
-                            style={styles.textInput}
-                            numberOfLines={1}
-                        />
-                        <View style={styles.helpDurationContainer}>
-                            <View style={styles.durationPickerContainer}>
-                                <View style={styles.durationTextContainer}>
-                                    <Text style={styles.durationText}>Help Duration: {helpDuration}</Text>
+            <ScrollView style={styles.modalScrollView}>
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Place Bid</Text>
+                        {/* <ScrollView style={styles.modalFieldsContainer}> */}
+                        <View style={styles.modalFieldsContainer}>
+                            <TextInput
+                                placeholder={fields[0].placeholder}
+                                onChangeText={onBidsChanged}
+                                value={fields[0].value}
+                                style={styles.textInput}
+                                numberOfLines={1}
+                            />
+                            <View style={styles.helpDurationContainer}>
+                                <View style={styles.durationPickerContainer}>
+                                    <View style={styles.durationTextContainer}>
+                                        <Text style={styles.durationText}>Help Duration: {helpDuration}</Text>
+                                    </View>
+                                    <View style={styles.durationPicker}>
+                                        <TouchableOpacity style={styles.durationTypeHours} onPress={onDurationHoursPressed}>
+                                            <LinearGradient
+                                                start={gradientDimensions.start} end={gradientDimensions.end}
+                                                colors={durationTypeHoursGradientColors}
+                                                style={styles.durationGradientLeft}>
+                                                <Text
+                                                    style={durationTypeHoursTextColor}
+                                                >{"Hours"}</Text>
+                                            </LinearGradient>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity style={styles.durationTypeDays} onPress={onDurationDaysPressed}>
+                                            <LinearGradient
+                                                start={gradientDimensions.start} end={gradientDimensions.end}
+                                                colors={durationTypeDaysGradientColors}
+                                                style={styles.durationGradientRight}>
+                                                <Text
+                                                    style={durationTypeDaysTextColors}
+                                                >{"Days"}</Text>
+                                            </LinearGradient>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
-                                <Picker
-                                    selectedValue={durationType}
-                                    style={styles.durationPicker}
-                                    onValueChange={(itemValue, itemIndex) =>
-                                        setDurationType(itemValue)
-                                    }>
-                                    <Picker.Item label="Days" value="Days" />
-                                    <Picker.Item label="Hours" value="Hours" />
-                                </Picker>
+                                <Slider
+                                    style={{ flex: 1, margin: 10, }}
+                                    minimumValue={0}
+                                    maximumValue={90}
+                                    minimumTrackTintColor={appColors.GRADIENT_LEFT}
+                                    maximumTrackTintColor="#000000"
+                                    onValueChange={(value) => { setHelpDuration(value) }}
+                                    step={1}
+                                />
                             </View>
-                            <Slider
-                                style={{ flex: 1, margin: 10, }}
-                                minimumValue={0}
-                                maximumValue={90}
-                                minimumTrackTintColor={appColors.GRADIENT_LEFT}
-                                maximumTrackTintColor="#000000"
-                                onValueChange={(value) => { setHelpDuration(value) }}
-                                step={1}
+                            <TextInput
+                                placeholder={fields[1].placeholder}
+                                onChangeText={onCommentsChanged}
+                                value={fields[1].value}
+                                style={[styles.textInput, { flexWrap: 'wrap' }]}
+                                numberOfLines={4}
                             />
                         </View>
-                        <TextInput
-                            placeholder={fields[1].placeholder}
-                            onChangeText={onCommentsChanged}
-                            value={fields[1].value}
-                            style={styles.textInput}
-                            numberOfLines={4}
-                        />
-                        {/* </View> */}
-                    </ScrollView>
-                    <View style={styles.modalBtnsContainer}>
-                        <TouchableOpacity
-                            style={styles.modalCancelBtn}
-                            onPress={hidePlaceBidModal}
-                        >
-                            <Text style={styles.textStyle}>Cancel</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalSaveBtn}
-                            onPress={hidePlaceBidModal}
-                        >
-                            <Text style={styles.textStyle}>Save</Text>
-                        </TouchableOpacity>
+                        {/* </ScrollView> */}
+                        <View style={styles.modalBtnsContainer}>
+                            <TouchableOpacity
+                                style={styles.modalCancelBtn}
+                                onPress={hidePlaceBidModal}
+                            >
+                                <Text style={styles.textStyle}>Cancel</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                style={styles.modalSaveBtn}
+                                onPress={hidePlaceBidModal}
+                            >
+                                <Text style={styles.textStyle}>Save</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
-            </View>
+            </ScrollView>
         </Modal>
     );
 }
