@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import MyHelps from '../components/pages/myhelps';
 import MyHelpsDetail from '../components/pages/myhelps-detail';
-import ReceivedBidDetail from '../components/pages/recieved-bid-detail';
+import ReceivedBidDetail from '../components/pages/received-bid-detail';
 import CustomHeader from '../components/controls/custom-header'
 
 const Stack = createStackNavigator();

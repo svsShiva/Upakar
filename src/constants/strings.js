@@ -41,7 +41,7 @@ export const createHelpStrings = {
 export const placedbidDetailStrings= {
     WELCOME_MESSAGE:'Placed Bid Details'
 }
-export const recievedbidDetailStrings={
-    WELCOME_MESSAGE:'Recieved Bid Details',
+export const receivedbidDetailStrings={
+    WELCOME_MESSAGE:'Received Bid Details',
     ACCEPT_BID: 'Accept Bid'
 }
