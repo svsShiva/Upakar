@@ -5,12 +5,12 @@ import {colorDefs, appColors} from '../../../constants/colors';
 export const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    backgroundColor: colorDefs.SMOKE_WHITE,
+    backgroundColor: appColors.BG,
   },
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: colorDefs.SEMI_GREY,
+    backgroundColor: appColors.TRANSPARENT,
   },
   flatlistWrapper: {
     flex: 1,
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   help: {
-    backgroundColor: colorDefs.WHITE,
+    backgroundColor: appColors.TEXT_WHITE,
     padding: 15,
     borderRadius: 10,
     shadowOffset: {
@@ -27,14 +27,15 @@ export const styles = StyleSheet.create({
       width: 0,
     },
     shadowOpacity: 0.5,
-    shadowColor: colorDefs.LIGHT_GREY,
+    shadowColor: appColors.LIGHT_GREY,
     shadowRadius: 2,
-    marginVertical: 4,
+    marginVertical: 6,
+    marginHorizontal: 6,
     elevation: 1,
     // marginBottom: 40,
   },
   bids: {
-    backgroundColor: colorDefs.WHITE,
+    backgroundColor: appColors.BG,
     padding: 15,
     borderRadius: 10,
     shadowOffset: {
@@ -42,7 +43,7 @@ export const styles = StyleSheet.create({
       width: 0,
     },
     shadowOpacity: 0.5,
-    shadowColor: colorDefs.LIGHT_GREY,
+    shadowColor: appColors.TEXT_SEMI,
     shadowRadius: 2,
     marginVertical: 4,
     elevation: 1,
@@ -50,7 +51,7 @@ export const styles = StyleSheet.create({
   },
   lables: {
     fontSize: 18,
-    color: colorDefs.LIGHT_GREEN,
+    color: appColors.TEXT_DARK,
     fontWeight: 'bold',
     marginLeft: 5,
   },
@@ -64,13 +65,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
-    color: colorDefs.WHITE,
+    color: appColors.TEXT_WHITE,
     fontSize: 16,
     fontWeight: 'bold',
   },
   title: {
     fontSize: 20,
-    color: colorDefs.LIGHT_GREEN,
+    color: appColors.TEXT_DARK,
     fontWeight: 'bold',
     padding: 5,
   },
@@ -94,13 +95,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    // backgroundColor: 'red'
   },
   baseValueWrapper: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'flex-end',
-    // backgroundColor: 'black'
   },
   profilePic: {
     width: 80,
@@ -123,41 +122,32 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   submitButtons: {
-    backgroundColor: colorDefs.DARK_GREEN,
+    backgroundColor: appColors.GRADIENT_LEFT,
     padding: 10,
     width: 150,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: colorDefs.DARK_GREEN,
+    borderColor: appColors.GRADIENT_LEFT,
     justifyContent: 'center',
     margin: 15,
     height: 40,
   },
   submitBtnText: {
     alignSelf: 'center',
-    color: colorDefs.WHITE,
+    color: appColors.TEXT_WHITE,
     fontWeight: 'bold',
     fontSize: 15,
     padding: 5,
   },
-  submitButtonDisabled: {
-    backgroundColor: colorDefs.DARK_GREY,
-    padding: 10,
-    width: 150,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: colorDefs.DARK_GREY,
-    justifyContent: 'center',
-    margin: 15,
-  },
+
   otpInput: {
     borderBottomWidth: 1,
-    borderBottomColor: colorDefs.DARK_GREY,
+    borderBottomColor: appColors.TEXT_SEMI,
     width: 150,
   },
   heading: {
     fontSize: 20,
-    color: colorDefs.DARK_GREEN,
+    color: appColors.TEXT_DARK,
     alignSelf: 'center',
     fontWeight: 'bold',
     padding: 5,
@@ -188,7 +178,7 @@ export const styles = StyleSheet.create({
   },
   lblHelpDuration: {
     fontSize: 18,
-    color: colorDefs.LIGHT_GREEN,
+    color: appColors.TEXT_DARK,
     fontWeight: 'bold',
   },
   lblOtp: {
@@ -209,7 +199,7 @@ export const styles = StyleSheet.create({
   },
   lblendHelp: {
     alignSelf: 'center',
-    color: colorDefs.WHITE,
+    color: appColors.TEXT_WHITE,
   },
   centeredView: {
     flex: 1,
@@ -227,12 +217,11 @@ export const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
     width: '80%',
-    // marginTop: 25,
     marginBottom: 0,
   },
   modalSaveBtn: {
     flex: 1,
-    backgroundColor: colorDefs.DARK_GREEN,
+    backgroundColor: appColors.GRADIENT_LEFT,
     borderRadius: 20,
     elevation: 2,
     justifyContent: 'center',
@@ -240,7 +229,7 @@ export const styles = StyleSheet.create({
   },
   modalCancelBtn: {
     flex: 1,
-    backgroundColor: colorDefs.DARK_GREY,
+    backgroundColor: appColors.TEXT_LIGHT,
     borderRadius: 20,
     elevation: 2,
     justifyContent: 'center',
@@ -266,7 +255,7 @@ export const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: colorDefs.SMOKE_WHITE,
+    backgroundColor: appColors.BG,
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
@@ -279,6 +268,6 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     width: '90%',
-    height: '35%',
+    height: '45%',
   },
 });

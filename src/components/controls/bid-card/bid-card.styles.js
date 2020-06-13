@@ -1,10 +1,10 @@
 import {StyleSheet, YellowBox} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
-import {colorDefs} from '../../../constants/colors';
+import {colorDefs, appColors} from '../../../constants/colors';
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: colorDefs.WHITE,
+    backgroundColor: appColors.BG,
     flex: 1,
   },
   flatlist: {
@@ -19,13 +19,16 @@ export const styles = StyleSheet.create({
       height: 1,
       width: 0,
     },
-    backgroundColor: colorDefs.WHITE,
+    backgroundColor: appColors.BG,
     shadowOpacity: 0.2,
-    shadowColor: colorDefs.LIGHT_GREY,
+    shadowColor: appColors.TEXT_SEMI,
     shadowRadius: 2,
-    marginVertical: 4,
-    margin:5,
+    marginVertical: 5,
+    margin: 5,
     elevation: 1,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+    borderLeftWidth: 10,
   },
   wrapper: {
     flex: 1,
@@ -47,6 +50,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     padding: 5,
+    width: '70%',
   },
   creditContainer: {
     flex: 1,
@@ -60,13 +64,12 @@ export const styles = StyleSheet.create({
   },
   lable: {
     fontSize: 15,
-    color: colorDefs.DARK_GREY,
+    color: appColors.TEXT_SEMI,
   },
-  statusConatiner: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginRight: 15,
+  titleStatusContainer: {
+    flexDirection: 'row',
+    alignContent: 'space-around',
+    justifyContent: 'space-between',
   },
   containerOne: {
     flex: 1,
@@ -81,14 +84,21 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 10,
+    // backgroundColor:'red'
   },
   lblStatus: {
     fontSize: 15,
-    padding: 5,
+    alignSelf: 'flex-end',
+    textAlign: 'center',
+    padding:5,
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '30%',
+    color: appColors.TEXT_WHITE,
   },
   lblDuration: {
     fontSize: 15,
     padding: 5,
-    marginRight: 5,
   },
 });

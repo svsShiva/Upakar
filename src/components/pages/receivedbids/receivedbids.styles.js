@@ -19,9 +19,9 @@ export const styles = StyleSheet.create({
       height: 1,
       width: 0,
     },
-    backgroundColor: colorDefs.WHITE,
+    backgroundColor: appColors.BG,
     shadowOpacity: 0.2,
-    shadowColor: colorDefs.LIGHT_GREY,
+    shadowColor: appColors.TEXT_SEMI,
     shadowRadius: 2,
     marginVertical: 4,
     elevation: 1,
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
   },
   lable: {
     fontSize: 15,
-    color: colorDefs.DARK_GREY,
+    color: appColors.TEXT_DARK,
   },
   expiryContainer: {
     flex: 1,

@@ -12,6 +12,7 @@ import imgrecievedbid from '../assets/images/receivedbid.png';
 import {appColors, colorDefs} from '../constants/colors';
 import imgPlacedFocus from '../assets/images/imgPlacedFocus.png';
 import imgRecievedFocus from '../assets/images/imgReceivedFocus.png';
+import Profile from '../components/pages/profile';
 
 const Tab = createBottomTabNavigator();
 const stackPlacedBids = createStackNavigator();
@@ -63,6 +64,7 @@ function receivedbids() {
         name="RecievedBidDetail"
         component={RecievedbiDetail}
       />
+      <stackrecievedBids.Screen name="Profile" component={Profile} />
     </stackrecievedBids.Navigator>
   );
 }

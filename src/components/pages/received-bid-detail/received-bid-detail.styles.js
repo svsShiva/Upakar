@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     backgroundColor: appColors.BG,
     flex: 1,
   },
-  
+
   bidContainer: {
     flexDirection: 'column',
     padding: 10,
@@ -16,12 +16,12 @@ export const styles = StyleSheet.create({
       height: 1,
       width: 0,
     },
-    backgroundColor: colorDefs.WHITE,
+    backgroundColor: appColors.BG,
     shadowOpacity: 0.2,
-    shadowColor: colorDefs.LIGHT_GREY,
+    shadowColor: appColors.TEXT_SEMI,
     shadowRadius: 2,
-    marginVertical: 4,
-    margin: 5,
+    marginVertical: 6,
+    marginHorizontal: 7,
     elevation: 1,
   },
   bidContainerRow: {
@@ -33,17 +33,17 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     padding: 10,
   },
-  lblDesc: {
+  lblText: {
     fontSize: 15,
     padding: 10,
   },
   submit: {
-    backgroundColor: colorDefs.DARK_GREEN,
+    backgroundColor: appColors.GRADIENT_LEFT,
     alignSelf: 'center',
     padding: 15,
     margin: 10,
     borderWidth: 1,
-    borderColor: colorDefs.DARK_GREEN,
+    borderColor: appColors.GRADIENT_LEFT,
     borderRadius: 25,
     width: 250,
   },
@@ -54,13 +54,13 @@ export const styles = StyleSheet.create({
   },
   otpInput: {
     width: 100,
-    borderBottomColor: colorDefs.DARK_GREY,
+    borderBottomColor: appColors.TEXT_SEMI,
     margin: 10,
   },
 
   lblSubmit: {
     alignSelf: 'center',
-    color: colorDefs.WHITE,
+    color: appColors.TEXT_WHITE,
     fontSize: 15,
     fontWeight: 'bold',
   },
@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
   },
   lblChat: {
     padding: 10,
-    color: colorDefs.WHITE,
+    color: appColors.TEXT_WHITE,
   },
   lblOtp: {
     marginLeft: 20,
@@ -87,25 +87,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  help: {
-    backgroundColor: colorDefs.WHITE,
-    padding: 15,
-    borderRadius: 10,
-    shadowOffset: {
-      height: 1,
-      width: 0,
-    },
-    shadowOpacity: 0.5,
-    shadowColor: colorDefs.LIGHT_GREY,
-    shadowRadius: 2,
-    marginVertical: 4,
-    margin: 5,
-    elevation: 1,
-    // marginBottom: 40,
-  },
   lables: {
     fontSize: 18,
-    color: colorDefs.LIGHT_GREEN,
+    color: appColors.TEXT_DARK,
     fontWeight: 'bold',
     marginLeft: 5,
   },
@@ -134,7 +118,7 @@ export const styles = StyleSheet.create({
   },
   modalSaveBtn: {
     flex: 1,
-    backgroundColor: colorDefs.DARK_GREEN,
+    backgroundColor: appColors.GRADIENT_LEFT,
     borderRadius: 20,
     elevation: 2,
     justifyContent: 'center',
@@ -142,7 +126,7 @@ export const styles = StyleSheet.create({
   },
   modalCancelBtn: {
     flex: 1,
-    backgroundColor: colorDefs.DARK_GREY,
+    backgroundColor: appColors.TEXT_LIGHT,
     borderRadius: 20,
     elevation: 2,
     justifyContent: 'center',
@@ -168,7 +152,7 @@ export const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 20,
-    color: colorDefs.DARK_GREEN,
+    color: appColors.TEXT_DARK,
     alignSelf: 'center',
     fontWeight: 'bold',
     padding: 5,
@@ -176,7 +160,7 @@ export const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: colorDefs.SMOKE_WHITE,
+    backgroundColor: appColors.BG,
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
@@ -189,6 +173,45 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     width: '90%',
-    height: '35%',
+    height: '45%',
+  },
+  lblDesc: {
+    paddingTop: 0,
+    fontSize: 15,
+    paddingLeft: 10,
+  },
+  title: {
+    fontSize: 20,
+    color: appColors.TEXT_DARK,
+    fontWeight: 'bold',
+    padding: 5,
+  },
+  lbldesc: {
+    fontSize: 15,
+    padding: 5,
+  },
+ 
+  userDetailContainer: {
+    flex: 2,
+    flexDirection: 'row',
+    marginBottom: 5,
+  },
+  userDetails: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    padding: 10,
+    marginHorizontal: 10,
+  },
+  userName: {
+    flex: 1,
+    fontSize: 16,
+  },
+  userProfilePic: {
+    width: 65,
+    height: 65,
+    resizeMode: 'contain',
+    alignItems: 'flex-start',
   },
 });

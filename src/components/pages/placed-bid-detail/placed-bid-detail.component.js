@@ -146,16 +146,6 @@ export default function PlacedbidsDetails(props) {
             Need someone who can help picking me up @Uppal bus stand at 8 AM,
             20th June
           </Text>
-          {/* <View style={styles.helpDetails}>
-            <View style={styles.bidsCountWrapper}>
-              <Text style={styles.lables}>{'Category'}</Text>
-              <Text style={styles.textFields}>{'Category 1'}</Text>
-            </View>
-            <View style={styles.baseValueWrapper}>
-              <Text style={styles.lables}>{'Sub Category '}</Text>
-              <Text style={styles.textFields}>{'Sub Category'}</Text>
-            </View>
-          </View> */}
           <View style={styles.rowConatiner}>
             <Text style={styles.lables}>Help Duration:</Text>
             <Text style={styles.textFields}>

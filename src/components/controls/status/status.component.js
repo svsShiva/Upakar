@@ -2,30 +2,26 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 import {styles} from './status.styles';
+import {appColors} from '../../../constants/colors';
 export default function StatusComponent(props) {
-  var Accepted = () => {
-    return (
-      <View style={styles.acceptConatiner}>
-        <Text style={styles.lblstatus}>{props.status}</Text>
-      </View>
-    );
-  };
-  var Pending = () => {
-    return (
-      <View style={styles.pendingContainer}>
-        <Text style={styles.lblstatus}>{props.status}</Text>
-      </View>
-    );
-  };
-  var Status = () => {
+  var getColor = () => {
     switch (props.status) {
       case 'ACCEPTED':
-        return Accepted();
+        return appColors.BID_ACCEPTED;
       case 'PENDING':
-        return Pending();
-      default:
-        return <View />;
+        return appColors.BID_PENDING;
+      case 'SUCCESS':
+        return appColors.BID_SUCCESS;
+      case 'UNSUCCESSFUL':
+        return appColors.BID_UNSUCCESSFUL;
     }
   };
-  return <Status />;
+  var getStyle = () => {
+    return [styles.container, {backgroundColor: getColor()}];
+  };
+  return (
+    <View style={getStyle()}>
+      <Text style={styles.lblstatus}>{props.status}</Text>
+    </View>
+  );
 }
