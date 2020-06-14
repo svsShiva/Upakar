@@ -13,8 +13,13 @@ import { colorDefs, appColors } from '../../../constants/colors';
 import { gradientDimensions } from '../../../constants/styles';
 import { styles } from './custom-drawer.styles';
 import imgProfilePic from '../../../assets/images/profile_pic.png'
+import AsyncStorage from '@react-native-community/async-storage';
 
 function CustomDrawer(props) {
+    const onSignOut = () => {
+        AsyncStorage.removeItem("isLoggedIn");
+        props.navigation.navigate("Auth")
+    }
     return (
         <View style={styles.container}>
             <LinearGradient
@@ -39,6 +44,9 @@ function CustomDrawer(props) {
             </LinearGradient>
             <DrawerContentScrollView {...props} style={styles.drawer}>
                 <DrawerItemList {...props} />
+                <TouchableOpacity onPress={onSignOut} style={{marginHorizontal: 10, marginLeft: 18, paddingVertical: 10,}}>
+                    <Text style={{fontSize: 13,color: appColors.TEXT_SEMI }}>Sign out</Text>
+                </TouchableOpacity>
             </DrawerContentScrollView>
         </View>
     );

@@ -36,9 +36,9 @@ export const styles = StyleSheet.create({
     footerView: {
         alignSelf:"flex-end",
         flexDirection:"row",
-        backgroundColor:appColors.GRADIENT_LEFT
     }, 
     footerTileView :{
+        backgroundColor:appColors.GRADIENT_LEFT,
         flex:1,
         justifyContent: "center",
         paddingVertical:10,
@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
         alignContent:"center",
         borderColor:"white",
         borderWidth: 2,
-        borderRightWidth:1
+        borderRightWidth:1,
     },
     footerTileImage: {
         resizeMode:"contain",
