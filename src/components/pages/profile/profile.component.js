@@ -78,7 +78,7 @@ export default function Profile(props) {
                     </View>
                     <View style={styles.aboutDetailContainer}>
                         <Text style={styles.aboutDetailTitleText}>Address</Text>
-                        <Text style={[styles.aboutDetailDescriptionText, { width: 250 }]}>{props.state.profileReducer.data.address.line1} </Text>
+                        <Text style={[styles.aboutDetailDescriptionText, { width: 250 }]}>{"Plot No: 62, Creative Nagar, ECIL Post, Hyderabad"} </Text>
                     </View>
                 </View>
                 <View style={styles.skillContainer}>

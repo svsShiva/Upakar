@@ -25,6 +25,13 @@ import { bidsData } from '../../../data/bids';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
 import CustomTextInput from '../../controls/custom-text-input';
 import { profileData } from '../../../data/profile';
+import imgCoin from '../../../assets/images/bitcoin.png';
+import imgDuration from '../../../assets/images/timer.png';
+import imgCategory from '../../../assets/images/list.png';
+import imgCreatedAt from '../../../assets/images/calendar.png';
+import imgUserProfile from '../../../assets/images/user_profile.png';
+import { getFormattedDateString } from '../../../services/date-services';
+
 
 export default function DashboardDetail(props) {
 
@@ -60,11 +67,11 @@ export default function DashboardDetail(props) {
                     <View style={styles.help}>
                         <TouchableOpacity style={styles.userDetailContainer} onPress={onProfilePress}>
                             <Image
-                                source={imgProfilePic}
+                                source={imgUserProfile}
                                 style={styles.userProfilePic}
                             />
                             <View style={styles.userDetails}>
-                                <Text style={styles.userName}>Shiva Siripurapu</Text>
+                                <Text style={styles.userName}>Sainag Chunduru</Text>
                                 <Rating
                                     type="custom"
                                     ratingCount={5}
@@ -77,19 +84,40 @@ export default function DashboardDetail(props) {
                                 />
                             </View>
                         </TouchableOpacity>
-                        <Text style={styles.helpTitle}>{props.state.dashboardReducer.selectedHelp.title}</Text>
-                        <Text style={styles.helpDescription}>{props.state.dashboardReducer.selectedHelp.description}</Text>
-                        <View style={styles.helpDetails}>
-                            <View style={styles.bidsCountWrapper}>
-                                <Text style={styles.lables}>{"Ends by"}</Text>
-                                <Text style={styles.textFields}>{"20th June, 2020"}</Text>
+                        <Text style={{ fontSize: 18, fontWeight: 'bold', marginTop: 20 }}>{props.state.dashboardReducer.selectedHelp.title}</Text>
+                        <Text style={{ fontSize: 16, fontStyle: 'italic', marginHorizontal: 10, marginVertical: 5 }}>{props.state.dashboardReducer.selectedHelp.description}</Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 5 }}>
+                            <View style={{}} >
+                                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                                    <Image
+                                        source={imgCreatedAt}
+                                        style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
+                                    <Text style={{ fontSize: 16, margin: 5 }}>
+                                        {getFormattedDateString(props.state.dashboardReducer.selectedHelp.created_at)}
+                                    </Text>
+                                </View>
+                                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                                    <Image
+                                        source={imgCategory}
+                                        style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
+                                    <Text style={{ fontSize: 16, margin: 5 }}>{props.state.dashboardReducer.selectedHelp.category}</Text>
+                                </View>
                             </View>
-                            <View style={styles.baseValueWrapper}>
-                                <Text style={styles.lables}>{"Base Value"}</Text>
-                                <Text style={styles.textFields}>{"50 Credits"}</Text>
+                            <View style={{}}>
+                                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                                    <Image
+                                        source={imgCoin}
+                                        style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
+                                    <Text style={{ fontSize: 16, margin: 5 }}>{props.state.dashboardReducer.selectedHelp.bid_credits + " Credits"}</Text>
+                                </View>
+                                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                                    <Image
+                                        source={imgDuration}
+                                        style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
+                                    <Text style={{ fontSize: 16, margin: 5 }}>{props.state.dashboardReducer.selectedHelp.help_duration}</Text>
+                                </View>
                             </View>
                         </View>
-
                     </View>
 
                     <View style={styles.flatlistWrapper}>
@@ -133,16 +161,39 @@ function BidCard(props) {
 
     return (
         <View style={styles.bids}>
-            <Image
-                source={imgProfilePic}
-                style={styles.profilePic}
-            />
-            <View style={styles.bidsWrapper}>
-                <Text style={styles.bidsTextFields}>{"Some bidder" + props.data.bidder}</Text>
-                <Text style={styles.bidsTextFields}>{"Ratings: 4.5"}</Text>
-                <View style={styles.bidsDetails}>
-                    <Text style={styles.bidsCreditDetails}>{"Credits  " + props.data.credits}</Text>
-                    <Text style={styles.bidsDurationDetails}>{" Duration " + props.data.help_duration}</Text>
+            <View style={{ flex:1, flexDirection: 'row', justifyContent:'space-between',marginHorizontal: 10, marginVertical: 10}}>
+                <View style={{justifyContent: 'center'}} >
+                    <Image
+                        source={imgProfilePic}
+                        style={styles.bidderProfilePic}
+                    />
+                </View>
+                <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
+                    <Text style={{fontSize: 16, margin: 5}} >{"Bidder " + props.data.bidder}</Text>
+                    <Rating
+                        type="custom"
+                        ratingCount={5}
+                        imageSize={18}
+                        showRating={false}
+                        startingValue={4}
+                        readonly={true}
+                        ratingColor={appColors.GRADIENT_LEFT}
+                        style={{}}
+                    />
+                </View>
+                <View style={{flex: 1}}>
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                        <Image
+                            source={imgCoin}
+                            style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
+                        <Text style={{ fontSize: 16, margin: 5 }}>{props.data.credits + " Credits"}</Text>
+                    </View>
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                        <Image
+                            source={imgDuration}
+                            style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
+                        <Text style={{ fontSize: 16, margin: 5 }}>{props.data.help_duration}</Text>
+                    </View>
                 </View>
             </View>
         </View>

@@ -2,7 +2,7 @@ export const bidsData = [
   {
     bidder: '123',
     credits: '20',
-    help_duration: '1 hr',
+    help_duration: '1 Hours',
     status: 'ACCEPTED',
     upakar_id: '123',
     upakar_name: 'Drive me from Nizampet to JNTU Hey HEllo Hi im thop ',
@@ -11,7 +11,7 @@ export const bidsData = [
   {
     bidder: '456',
     credits: '20',
-    help_duration: '1 day',
+    help_duration: '1 Days',
     status: 'PENDING',
     upakar_id: '100',
     upakar_name: 'Test Bid number Two',
@@ -20,7 +20,7 @@ export const bidsData = [
   {
     bidder: '100',
     credits: '20',
-    help_duration: '2 days',
+    help_duration: '2 Days',
     status: 'SUCCESS',
     upakar_id: '101',
     upakar_name: 'Test Bid Number Three',
@@ -29,7 +29,7 @@ export const bidsData = [
   {
     bidder: '101',
     credits: '30',
-    help_duration: '3 day',
+    help_duration: '3 Days',
     status: 'UNSUCCESSFUL',
     upakar_id: '456',
     upakar_name: 'Test Bid Number Four',
@@ -38,7 +38,7 @@ export const bidsData = [
   {
     bidder: '102',
     credits: '40',
-    help_duration: '2 hrs',
+    help_duration: '2 Hours',
     status: 'ACCEPTED',
     upakar_id: '102',
     upakar_name: 'Test Bid Number Five',
@@ -47,7 +47,7 @@ export const bidsData = [
   {
     bidder: '103',
     credits: '100',
-    help_duration: '5 hrs',
+    help_duration: '5 Hours',
     status: 'UNSUCCESSFUL',
     upakar_id: '103',
     upakar_name: 'Test Bid Number Six',
@@ -56,7 +56,7 @@ export const bidsData = [
   {
     bidder: '150',
     credits: '30',
-    help_duration: '5 hrs',
+    help_duration: '5 Hours',
     status: 'PENDING',
     upakar_id: '103',
     upakar_name: 'Test Bid Number 7',
@@ -65,7 +65,7 @@ export const bidsData = [
   {
     bidder: '151',
     credits: '40',
-    help_duration: '5 hrs',
+    help_duration: '5 Hours',
     status: 'SUCCESS',
     upakar_id: '103',
     upakar_name: 'Test Bid Number 8',
@@ -74,7 +74,7 @@ export const bidsData = [
   {
     bidder: '152',
     credits: '30',
-    help_duration: '5 hrs',
+    help_duration: '5 Hours',
     status: 'ACCEPTED',
     upakar_id: '103',
     upakar_name: 'Test Bid Number 9',
@@ -83,7 +83,7 @@ export const bidsData = [
   {
     bidder: '153',
     credits: '35',
-    help_duration: '5 hrs',
+    help_duration: '5 Hours',
     status: 'PENDING',
     upakar_id: '103',
     upakar_name: 'Test Bid Number 10',
@@ -92,7 +92,7 @@ export const bidsData = [
   {
     bidder: '154',
     credits: '36',
-    help_duration: '5 hrs',
+    help_duration: '5 Hours',
     status: 'SUCCESS',
     upakar_id: '103',
     upakar_name: 'Test Bid Number 11',

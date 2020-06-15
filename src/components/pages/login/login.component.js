@@ -12,7 +12,7 @@ import { loginStrings } from '../../../constants/strings';
 import { styles } from './login.styles';
 import { appColors, colorDefs } from '../../../constants/colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import imgLogo from "../../../assets/images/logo.png"
+import imgLogo from "../../../assets/images/upakar_logo.png"
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Login(props) {
@@ -36,7 +36,7 @@ export default function Login(props) {
                 showsVerticalScrollIndicator={false}>
                 <View style={styles.container} >
                     <View style={{ flex: 3.2, backgroundColor: appColors.GRADIENT_LEFT, justifyContent: "center", alignItems: "center" }}>
-                        <Image source={imgLogo} style={{ resizeMode: "contain", height: 250, width: 250, marginTop:20, }} />
+                        <Image source={imgLogo} style={{ resizeMode: "contain", height: 180, width: 180, marginTop:20, }} />
                     </View>
                     <View style={{ flex: 6.8, backgroundColor: "white", paddingTop: 20 }}>
                         <View style={styles.textInputView}>

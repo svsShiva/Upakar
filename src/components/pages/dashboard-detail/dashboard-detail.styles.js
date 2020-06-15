@@ -58,8 +58,8 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     bids: {
+        flexDirection: 'row',
         backgroundColor: colorDefs.WHITE,
-        padding: 15,
         borderRadius: 10,
         shadowOffset: {
             height: 1,
@@ -68,9 +68,8 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowColor: colorDefs.LIGHT_GREY,
         shadowRadius: 2,
-        marginVertical: 4,
         elevation: 1,
-        flexDirection: 'row'
+        marginVertical: 4
     },
     lables: {
         fontSize: 18,
@@ -104,37 +103,10 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold'
     },
-    helpTitle: {
-        fontSize: 18,
-        color: colorDefs.LIGHT_GREEN,
-        fontWeight: 'bold',
-        marginVertical: 5
-    },
-    helpDescription: {
-        fontSize: 16,
-        color: appColors.TEXT_DARK,
-        fontStyle: 'italic',
-        marginVertical: 5
-    },
+   
     textFields: {
         fontSize: 16,
         paddingVertical: 10
-    },
-    helpDetails: {
-        marginVertical: 10,
-        flexDirection: 'row'
-    },
-    bidsCountWrapper: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        // backgroundColor: 'red'
-    },
-    baseValueWrapper: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        // backgroundColor: 'black'
     },
     profilePic: {
         width: 80,
@@ -142,30 +114,13 @@ export const styles = StyleSheet.create({
         resizeMode: 'contain',
         alignItems: 'flex-start',
     },
-    bidsWrapper: {
-        flex: 1,
-        paddingHorizontal: 20,
-        justifyContent: 'center'
-        // backgroundColor: 'red',
-    },
-    bidsTextFields: {
-        fontSize: 16,
-    },
-    bidsDetails: {
-        paddingVertical: 10,
-        flex: 1,
-        flexDirection: 'row'
-    },
-    bidsCreditDetails: {
-        fontSize: 16,
-        flex: 1,
+    bidderProfilePic: {
+        width: 60,
+        height: 60,
+        resizeMode: 'contain',
         alignItems: 'flex-start',
     },
-    bidsDurationDetails: {
-        fontSize: 16,
-        flex: 1,
-        alignSelf: 'center'
-    },
+
 
     //Modal styles
     centeredView: {

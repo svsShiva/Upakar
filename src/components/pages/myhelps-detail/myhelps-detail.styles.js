@@ -37,19 +37,19 @@ export const styles = StyleSheet.create({
     },
     userDetailContainer: {
         flex: 2,
-        flexDirection:'row'
+        flexDirection: 'row'
     },
-    userDetails: { 
+    userDetails: {
         flex: 1,
-        flexDirection: 'column', 
-        justifyContent: 'center',  
-        alignItems: 'flex-start', 
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
         padding: 10,
         marginHorizontal: 10
     },
-    userName: { 
-        flex: 1, 
-        fontSize: 16 
+    userName: {
+        flex: 1,
+        fontSize: 16
     },
     userProfilePic: {
         width: 65,
@@ -58,8 +58,8 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     bids: {
+        flexDirection: 'row',
         backgroundColor: colorDefs.WHITE,
-        padding: 15,
         borderRadius: 10,
         shadowOffset: {
             height: 1,
@@ -68,9 +68,8 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowColor: colorDefs.LIGHT_GREY,
         shadowRadius: 2,
-        marginVertical: 4,
         elevation: 1,
-        flexDirection: 'row'
+        marginVertical: 4
     },
     lables: {
         fontSize: 18,
@@ -80,7 +79,7 @@ export const styles = StyleSheet.create({
     buttonWrapper: {
         position: 'absolute',
         bottom: 0,
-        flex:1,
+        flex: 1,
         width: "100%"
     },
     button: {
@@ -93,37 +92,21 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold'
     },
-    helpTitle: {
-        fontSize: 18,
-        color: colorDefs.LIGHT_GREEN,
-        fontWeight: 'bold',
-        marginVertical: 5
+    inActiveButton: {
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colorDefs.LIGHT_GREY
     },
-    helpDescription: {
+    inActiveButtonText: {
+        color: colorDefs.WHITE,
         fontSize: 16,
-        color: appColors.TEXT_DARK,
-        fontStyle: 'italic',
-        marginVertical: 5
+        fontWeight: 'bold'
     },
+   
     textFields: {
         fontSize: 16,
         paddingVertical: 10
-    },
-    helpDetails: {
-        marginVertical: 10,
-        flexDirection: 'row'
-    },
-    bidsCountWrapper: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        // backgroundColor: 'red'
-    },
-    baseValueWrapper: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        // backgroundColor: 'black'
     },
     profilePic: {
         width: 80,
@@ -131,40 +114,23 @@ export const styles = StyleSheet.create({
         resizeMode: 'contain',
         alignItems: 'flex-start',
     },
-    bidsWrapper: {
-        flex: 1,
-        paddingHorizontal: 20,
-        justifyContent: 'center'
-        // backgroundColor: 'red',
-    },
-    bidsTextFields: {
-        fontSize: 16,
-    },
-    bidsDetails: {
-        paddingVertical: 10,
-        flex: 1,
-        flexDirection: 'row'
-    },
-    bidsCreditDetails: {
-        fontSize: 16,
-        flex: 1,
+    bidderProfilePic: {
+        width: 60,
+        height: 60,
+        resizeMode: 'contain',
         alignItems: 'flex-start',
     },
-    bidsDurationDetails: {
-        fontSize: 16,
-        flex: 1,
-        alignSelf: 'center'
-    },
+
 
     //Modal styles
     centeredView: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: appColors.SEMI_TRANSPARENT
     },
     modalScrollView: {
-        flex: 1
+        flex: 1,
+        backgroundColor: colorDefs.SEMI_TRANSPARENT
     },
     modalView: {
         margin: 20,
@@ -181,13 +147,11 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         width: "90%",
-        height: "60%",
     },
     modalFieldsContainer: {
         // backgroundColor: 'blue',
         width: "100%",
         marginVertical: 10,
-        height: "55%"
     },
     textStyle: {
         color: "white",
@@ -195,8 +159,8 @@ export const styles = StyleSheet.create({
         textAlign: "center"
     },
     textInput: {
-        margin: 5,  
-        backgroundColor:appColors.TEXT_WHITE,
+        margin: 5,
+        backgroundColor: appColors.TEXT_WHITE,
         borderRadius: 10,
         fontSize: 16,
         textAlignVertical: "top",
@@ -212,7 +176,7 @@ export const styles = StyleSheet.create({
         // backgroundColor: 'red',
     },
     modalSaveBtn: {
-        flex: 1, 
+        flex: 1,
         backgroundColor: colorDefs.DARK_GREEN,
         borderRadius: 20,
         elevation: 2,
@@ -226,5 +190,58 @@ export const styles = StyleSheet.create({
         elevation: 2,
         justifyContent: 'center',
         marginHorizontal: 5
+    },
+    helpDurationContainer: {
+        flex: 1,
+        margin: 5,
+        // backgroundColor: 'black'
+    },
+    durationPickerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        margin: 5
+    },
+    durationPicker: {
+        height: 40,
+        width: 130,
+        marginVertical: 10,
+        flexDirection: 'row',
+        borderWidth: 2,
+        borderColor: colorDefs.LIGHT_GREEN,
+        borderRadius: 25
+    },
+    durationTypeText: {
+        fontSize: 16,
+        alignSelf: 'center',
+        color: colorDefs.SMOKE_WHITE
+    },
+    durationTypeHours: {
+        flex: 1,
+    },
+    durationTypeDays: {
+        flex: 1
+    },
+    durationGradientLeft: {
+        flex: 1,
+        borderTopLeftRadius: 20,
+        borderBottomLeftRadius: 20,
+        justifyContent: 'center',
+        borderColor: colorDefs.DARK_GREEN,
+    },
+    durationGradientRight: {
+        flex: 1,
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 20,
+        justifyContent: 'center',
+        borderColor: colorDefs.DARK_GREEN
+    },
+    durationTextContainer: {
+        flex: 2,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+    },
+    durationText: {
+        fontSize: 18,
+        padding: 10
     }
 });
