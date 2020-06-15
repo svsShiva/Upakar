@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import DashboardDetail from './dashboard-detail.component';
-import { showHidePlaceBidsModal } from './dashboard-detail.actions';
+import { showHidePlaceBidsModal, placeBid } from './dashboard-detail.actions';
 import { showData } from '../profile/profile.actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
     showHidePlaceBidsModal: () => dispatch(showHidePlaceBidsModal()),
-    showProfile: (data) => dispatch(showData(data))
+    showProfile: (data) => dispatch(showData(data)),
+    placeBid: (data) => dispatch(placeBid(data))
 });
 
 export default connect(

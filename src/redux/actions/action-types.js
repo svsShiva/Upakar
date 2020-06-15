@@ -12,7 +12,9 @@ export const loginActionTypes = {
   TEST_SAMPLE_LOGIN: 'TEST_SAMPLE_LOGIN',
 };
 
-export const dashboardDetailActionTypes = {};
+export const dashboardDetailActionTypes = {
+  PLACE_BID: "PLACE_BID"
+};
 
 export const myHelpsActionTypes = {};
 

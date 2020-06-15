@@ -56,12 +56,16 @@ export default function DashboardDetail(props) {
         props.navigation.navigate('Profile')
     }
 
+    const onBidPlaced = (bid) => {
+        props.placeBid(bid)
+    }
+
     return (
         <View style={styles.outerContainer}>
             <CustomHeader navigation={props.navigation} showBackButton={true} title={"Help Detail"}></CustomHeader>
             <ScrollView>
                 <PlaceBidModal showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
-                    hidePlaceBidModal={props.showHidePlaceBidsModal} />
+                    hidePlaceBidModal={props.showHidePlaceBidsModal} placeBid={onBidPlaced} />
 
                 <View style={styles.container}>
                     <View style={styles.help}>
@@ -119,7 +123,13 @@ export default function DashboardDetail(props) {
                             </View>
                         </View>
                     </View>
-
+                    {
+                        props.state.dashboardDetailReducer.loggedUserBid ?
+                            <BidCard {...props}
+                                data={props.state.dashboardDetailReducer.loggedUserBid}
+                                isLoggedUserBid /> :
+                            <></>
+                    }
                     <View style={styles.flatlistWrapper}>
                         <FlatList
                             showsVerticalScrollIndicator={false}
@@ -134,7 +144,7 @@ export default function DashboardDetail(props) {
                 </View>
             </ScrollView>
             {
-                props.state.dashboardDetailReducer.isBidPlaced ?
+                props.state.dashboardDetailReducer.loggedUserBid ?
                     <View style={styles.buttonWrapper}>
                         <View style={styles.inActiveButton}>
                             <Text
@@ -158,18 +168,20 @@ export default function DashboardDetail(props) {
 }
 
 function BidCard(props) {
-
+    let bids = props.isLoggedUserBid ?
+        [styles.bids, { borderLeftColor: appColors.GRADIENT_LEFT, borderTopLeftRadius: 10, borderBottomLeftRadius: 10, borderLeftWidth: 10, }] :
+        styles.bids;
     return (
-        <View style={styles.bids}>
-            <View style={{ flex:1, flexDirection: 'row', justifyContent:'space-between',marginHorizontal: 10, marginVertical: 10}}>
-                <View style={{justifyContent: 'center'}} >
+        <View style={bids}>
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 10, marginVertical: 10 }}>
+                <View style={{ justifyContent: 'center' }} >
                     <Image
                         source={imgProfilePic}
                         style={styles.bidderProfilePic}
                     />
                 </View>
-                <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
-                    <Text style={{fontSize: 16, margin: 5}} >{"Bidder " + props.data.bidder}</Text>
+                <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, margin: 5 }} >{"Bidder " + props.data.bidder}</Text>
                     <Rating
                         type="custom"
                         ratingCount={5}
@@ -181,7 +193,7 @@ function BidCard(props) {
                         style={{}}
                     />
                 </View>
-                <View style={{flex: 1}}>
+                <View style={{ flex: 1 }}>
                     <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                         <Image
                             source={imgCoin}
@@ -256,7 +268,22 @@ function PlaceBidModal(props) {
         [colorDefs.SMOKE_WHITE, colorDefs.SMOKE_WHITE];
     let durationTypeDaysTextColors = durationType == "Days" ?
         [styles.durationTypeText, { color: colorDefs.WHITE }] :
-        [styles.durationTypeText, { color: appColors.GRADIENT_LEFT }]
+        [styles.durationTypeText, { color: appColors.GRADIENT_LEFT }];
+
+    const onPlaceBidPressed = () => {
+        let bid = {
+            bidder: 'Shiva Siripurapu',
+            credits: fields[0].value,
+            help_duration: helpDuration + " " + durationType,
+            status: 'PENDING',
+            upakar_id: '123',
+            upakar_name: 'Drive me from Nizampet to JNTU Hey HEllo Hi im thop ',
+            is_active: 'YES ',
+            comments: fields[1].value
+        }
+        props.placeBid(bid);
+        props.hidePlaceBidModal();
+    }
 
     return (
         <Modal
@@ -336,7 +363,7 @@ function PlaceBidModal(props) {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={styles.modalSaveBtn}
-                                onPress={hidePlaceBidModal}
+                                onPress={onPlaceBidPressed}
                             >
                                 <Text style={styles.textStyle}>Save</Text>
                             </TouchableOpacity>
