@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
     FlatList,
     TouchableOpacity,
     Image,
-    TextInput
+    TextInput,
+
 } from 'react-native';
 
 import { dashboardStrings } from '../../../constants/strings';
@@ -16,6 +17,8 @@ import CustomHeader from '../../controls/custom-header';
 import imgSearch from '../../../assets/images/Search.png'
 import imgSort from '../../../assets/images/sort.png';
 import imgFilter from '../../../assets/images/filter.png';
+import SortModal from '../../controls/sort-model.js'
+import FilterModal from '../../controls/filter-model.js'
 
 export default function Dashboard(props) {
     var getRenderItem = ({ item, index }) => {
@@ -31,7 +34,8 @@ export default function Dashboard(props) {
     var getFooterComponent = () => {
         return <View style={{ height: 20 }} />
     }
-
+    let [viewSortModal, setViewSortModal] = useState(false)
+    let [viewFilterModal, setViewFilterModal] = useState(false)
     return (
         <View style={styles.container} >
             <CustomHeader navigation={props.navigation} showBackButton={false} title={"Upakar"}></CustomHeader>
@@ -59,15 +63,27 @@ export default function Dashboard(props) {
                     </View>
             }
             <View style={styles.footerView}>
-                <TouchableOpacity style={styles.footerTileView} >
+                <TouchableOpacity onPress={() => setViewSortModal(true)} style={[styles.footerTileView, { marginLeft: 2 }]} >
                     <Image style={styles.footerTileImage} source={imgSort} ></Image>
                     <Text style={styles.footerTileText}>SORT</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.footerTileView} >
+                <TouchableOpacity onPress={() => setViewFilterModal(true)} style={[styles.footerTileView, { marginRight: 2 }]} >
                     <Image style={styles.footerTileImage} source={imgFilter} ></Image>
                     <Text style={styles.footerTileText}>FILTER</Text>
                 </TouchableOpacity>
             </View>
+            {
+                viewSortModal &&
+                <SortModal
+                    onCancel={() => setViewSortModal(false)}
+                />
+            }
+            {
+                viewFilterModal &&
+                <FilterModal
+                    onCancel={() => setViewFilterModal(false)}
+                />
+            }
         </View>
     );
 }
