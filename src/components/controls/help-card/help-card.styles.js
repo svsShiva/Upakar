@@ -5,7 +5,6 @@ import { colorDefs } from '../../../constants/colors';
 
 export const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
         backgroundColor: colorDefs.WHITE,
         padding: 10,
         borderRadius: 10,
@@ -16,51 +15,8 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowColor: colorDefs.LIGHT_GREY,
         shadowRadius: 2,
-        marginVertical: 4,
-        elevation: 1
-    },
-    wrapper: {
-        flex: 1
-    },
-    box: {
-        flexDirection: 'row',
-        flex: 1,
-        justifyContent: 'space-between',
-    },
-    lblCredit: {
-        fontSize: 18,
-        padding: 5,
-    },
-    lblduration: {
-        fontSize: 18,
-        padding: 5,
-    },
-    title: {
-        fontSize: 18,
-        padding: 5,
-    },
-    creditContainer: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-    },
-    durationContainer: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-    },
-    lable: {
-        fontSize: 15,
-        color: colorDefs.DARK_GREY,
-    },
-    expiryContainer: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-    },
-    lblExpiration: {
-        fontSize: 15,
-        padding: 5,
-        marginBottom: 5,
+        marginVertical: 5,
+        elevation: 2,
+        marginHorizontal: 5
     }
 })
