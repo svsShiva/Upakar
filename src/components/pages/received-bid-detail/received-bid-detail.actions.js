@@ -4,9 +4,9 @@ export const showData = (data) => ({
     type: receivedbidDetailActionTypes.SHOW_DATA,
     payload: data
 });
-export const showHideAcceptBid =()=>({
-    type:receivedbidDetailActionTypes.SHOW_HIDE_ACCEPT_BID_MODAL
+export const showHideAcceptBid = () => ({
+    type: receivedbidDetailActionTypes.SHOW_HIDE_ACCEPT_BID_MODAL
 })
-export const acceptBid=()=>({
-    type:receivedbidDetailActionTypes.ACCEPT_BID
+export const acceptBid = () => ({
+    type: receivedbidDetailActionTypes.ACCEPT_BID
 })

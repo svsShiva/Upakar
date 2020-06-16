@@ -31,21 +31,20 @@ export const receivedBidsActionTypes = {
 };
 
 export const createHelpActionTypes = {};
+
 export const placedbidDetailActionTypes = {
   SHOW_DATA: "SHOW_PLACED_BID",
-  SHOW_HIDE_ENDHELP_MODAL: "SHOW_END HELP_MODAL"
+  SHOW_HIDE_ENDHELP_MODAL: "SHOW_END HELP_MODAL",
+  END_HELP: "END_HELP"
 };
+
 export const receivedbidDetailActionTypes = {
   SHOW_DATA: "SHOW_RECEIVED_BID",
   SHOW_HIDE_ACCEPT_BID_MODAL: "SHOW ACCEPT BID MODAL",
   SHOW_HIDE_ENDHELP_MODAL: "SHOW_END HELP_MODAL",
-  END_HELP:'END HELP'
+  END_HELP: 'END HELP',
+  ACCEPT_BID: 'ACCEPT_BID'
 };
-export const receivedbidDetailActionTypes = {
-  SHOW_DATA: "SHOW_DATA",
-  SHOW_HIDE_ACCEPT_BID_MODAL: "SHOW ACCEPT BID MODAL",
-  ACCEPT_BID:'ACCEPT BID'
-}
 
 export const profileActionTypes = {
   SHOW_DATA: "SHOW_PROFILE"
