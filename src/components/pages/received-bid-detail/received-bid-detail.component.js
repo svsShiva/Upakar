@@ -36,6 +36,10 @@ export default function ReceivedbidsDetails(props) {
     props.showProfile(profileData[1]);
     props.navigation.navigate('Profile');
   };
+  
+  const acceptBid = data => {
+    props.acceptBid(data);
+  };
 
   return (
     <View style={styles.container} behavior="position">
@@ -52,6 +56,8 @@ export default function ReceivedbidsDetails(props) {
           <OtpModal
             showAcceptBid={props.state.receivedBidDetailReducer.showAcceptBid}
             hideAcceptBid={props.showHideAcceptBid}
+            acceptBid={acceptBid}
+            data={props.state.receivedBidDetailReducer.data}
           />
           <View style={styles.bidContainer}>
             <Text style={styles.heading}>Biddder Details</Text>
@@ -143,6 +149,11 @@ function OtpModal(props) {
   const hidePlaceBidModal = () => {
     props.hideAcceptBid();
   };
+  const acceptBid = () => {
+    props.data.status = 'ACCEPTED';
+    props.acceptBid(props.data);
+    props.hideAcceptBid();
+  };
   return (
     <Modal
       animationType="slide"
@@ -151,32 +162,33 @@ function OtpModal(props) {
       onRequestClose={() => {
         Alert.alert('Modal has been closed.');
       }}>
-      <View style={styles.centeredView}>
-        <View style={styles.modalView}>
-          <Text style={styles.heading}>Enter Otp</Text>
-          <TextInput
-            placeholder="Enter Start Otp"
-            onChangeText={onOtpChange}
-            value={otpValue}
-            style={styles.textInput}
-          />
-          <Text style={styles.getOtptext}>
-            {'*please get the start otp from the respective bidder'}
-          </Text>
-          <View style={styles.modalBtnsContainer}>
-            <TouchableOpacity
-              style={styles.modalCancelBtn}
-              onPress={hidePlaceBidModal}>
-              <Text style={styles.textStyle}>Cancel</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.modalSaveBtn}
-              onPress={hidePlaceBidModal}>
-              <Text style={styles.textStyle}>Submit</Text>
-            </TouchableOpacity>
+      <ScrollView style={styles.modalScrollView}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.heading}>Enter Otp</Text>
+            <TextInput
+              placeholder="Enter Start Otp"
+              onChangeText={onOtpChange}
+              value={otpValue}
+              style={styles.textInput}
+              keyboardType="number-pad"
+            />
+            <Text style={styles.getOtptext}>
+              {'*please get the start otp from the bidder'}
+            </Text>
+            <View style={styles.modalBtnsContainer}>
+              <TouchableOpacity
+                style={styles.modalCancelBtn}
+                onPress={hidePlaceBidModal}>
+                <Text style={styles.textStyle}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.modalSaveBtn} onPress={acceptBid}>
+                <Text style={styles.textStyle}>Submit</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </Modal>
   );
 }

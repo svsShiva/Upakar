@@ -1,17 +1,18 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import PlacedbidsDetails from './placed-bid-detail.component';
-import {showHideEndHelp} from './placed-bid-detail.actions';
+import {showHideEndHelp, endHelp} from './placed-bid-detail.actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    state: state
+  state: state,
 });
 
 const mapDispatchToProps = dispatch => ({
-    showHideEndHelp: ()=>dispatch(showHideEndHelp())
+  showHideEndHelp: () => dispatch(showHideEndHelp()),
+  endHelp: data => dispatch(endHelp(data)),
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps,
 )(PlacedbidsDetails);

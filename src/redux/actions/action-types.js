@@ -37,7 +37,14 @@ export const placedbidDetailActionTypes = {
 };
 export const receivedbidDetailActionTypes = {
   SHOW_DATA: "SHOW_RECEIVED_BID",
-  SHOW_HIDE_ACCEPT_BID_MODAL: "SHOW ACCEPT BID MODAL"
+  SHOW_HIDE_ACCEPT_BID_MODAL: "SHOW ACCEPT BID MODAL",
+  SHOW_HIDE_ENDHELP_MODAL: "SHOW_END HELP_MODAL",
+  END_HELP:'END HELP'
+};
+export const receivedbidDetailActionTypes = {
+  SHOW_DATA: "SHOW_DATA",
+  SHOW_HIDE_ACCEPT_BID_MODAL: "SHOW ACCEPT BID MODAL",
+  ACCEPT_BID:'ACCEPT BID'
 }
 
 export const profileActionTypes = {

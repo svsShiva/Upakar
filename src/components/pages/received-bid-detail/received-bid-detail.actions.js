@@ -7,3 +7,6 @@ export const showData = (data) => ({
 export const showHideAcceptBid =()=>({
     type:receivedbidDetailActionTypes.SHOW_HIDE_ACCEPT_BID_MODAL
 })
+export const acceptBid=()=>({
+    type:receivedbidDetailActionTypes.ACCEPT_BID
+})

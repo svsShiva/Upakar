@@ -98,10 +98,10 @@ export const styles = StyleSheet.create({
     width: 65,
   },
   centeredView: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: appColors.SEMI_TRANSPARENT,
+    marginTop: '45%',
   },
   textInput: {
     margin: 10,
@@ -158,9 +158,13 @@ export const styles = StyleSheet.create({
     padding: 5,
     // margin: 2,
   },
+  modalScrollView: {
+    flex: 1,
+    backgroundColor: colorDefs.SEMI_TRANSPARENT,
+  },
   modalView: {
     margin: 20,
-    backgroundColor: appColors.BG,
+    backgroundColor: colorDefs.SMOKE_WHITE,
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
@@ -173,7 +177,6 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     width: '90%',
-    height: '45%',
   },
   lblDesc: {
     paddingTop: 0,
@@ -190,7 +193,7 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     padding: 5,
   },
- 
+
   userDetailContainer: {
     flex: 2,
     flexDirection: 'row',

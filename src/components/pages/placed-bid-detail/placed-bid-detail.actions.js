@@ -7,3 +7,6 @@ export const showData = (data) => ({
 export const showHideEndHelp =()=>({
     type:placedbidDetailActionTypes.SHOW_HIDE_ENDHELP_MODAL
 })
+export const endHelp =()=>({
+    type:placedbidDetailActionTypes.END_HELP
+})

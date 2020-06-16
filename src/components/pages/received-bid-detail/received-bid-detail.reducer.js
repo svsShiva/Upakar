@@ -3,7 +3,8 @@ import { receivedbidDetailActionTypes, receivedBidsActionTypes } from "../../../
 const initialState = {
     message: "recieved-detail",
     data: {},
-    showAcceptBid:false
+    showAcceptBid:false,
+    acceptBid:undefined
 }
 
 const receivedBidDetailReducer = (state = initialState, action) => {
@@ -18,6 +19,11 @@ const receivedBidDetailReducer = (state = initialState, action) => {
                 ...state,
                 showAcceptBid:!state.showAcceptBid
             }
+        case receivedbidDetailActionTypes.ACCEPT_BID:
+            return{
+                ...state,
+                acceptBid:action.payload
+            }    
         default: return state;
     }
 }
