@@ -4,6 +4,7 @@ import {View, Text} from 'react-native';
 import {styles} from './status.styles';
 import {appColors} from '../../../constants/colors';
 export default function StatusComponent(props) {
+  console.log("Hey status :",props)
   var getColor = () => {
     switch (props.status) {
       case 'ACCEPTED':

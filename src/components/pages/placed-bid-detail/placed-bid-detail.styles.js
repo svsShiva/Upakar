@@ -202,10 +202,9 @@ export const styles = StyleSheet.create({
     color: appColors.TEXT_WHITE,
   },
   centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: appColors.SEMI_TRANSPARENT,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '45%',
   },
   textInput: {
     margin: 10,
@@ -255,7 +254,7 @@ export const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: appColors.BG,
+    backgroundColor: colorDefs.SMOKE_WHITE,
     borderRadius: 20,
     padding: 20,
     alignItems: 'center',
@@ -268,6 +267,9 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
     width: '90%',
-    height: '45%',
+  },
+  modalScrollView: {
+    flex: 1,
+    backgroundColor: colorDefs.SEMI_TRANSPARENT,
   },
 });
