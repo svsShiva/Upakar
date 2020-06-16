@@ -4,7 +4,7 @@ import {
     Text,
     TouchableOpacity,
     ScrollView,
-    SafeAreaView,
+    SafeAreaView,   
     FlatList,
     Image,
     Alert,
@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { Rating } from 'react-native-ratings';
-import { Picker } from '@react-native-community/picker';
 
 import { dashboardDetailStrings } from '../../../constants/strings';
 import { styles } from './dashboard-detail.styles';
@@ -23,7 +22,6 @@ import { gradientDimensions } from '../../../constants/styles';
 import { colorDefs, appColors } from '../../../constants/colors';
 import { bidsData } from '../../../data/bids';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
-import CustomTextInput from '../../controls/custom-text-input';
 import { profileData } from '../../../data/profile';
 import imgCoin from '../../../assets/images/bitcoin.png';
 import imgDuration from '../../../assets/images/timer.png';
@@ -42,6 +40,10 @@ export default function DashboardDetail(props) {
     }
 
     const getKeyExtractor = (item, index) => item.id;
+
+    const getHeaderComponent = () => {
+        return <View style={{ height: 5}} />
+    }
 
     const getFooterComponent = () => {
         return <View style={{ height: 60 }} />
@@ -137,6 +139,7 @@ export default function DashboardDetail(props) {
                             renderItem={getRenderItem}
                             keyExtractor={getKeyExtractor}
                             style={styles.flatlist}
+                            ListHeaderComponent={getHeaderComponent}
                             ListFooterComponent={getFooterComponent}
                             extraData={props.state.dashboardReducer.refreshFlatlist}
                         />
