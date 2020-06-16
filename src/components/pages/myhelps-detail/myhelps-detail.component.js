@@ -33,6 +33,10 @@ import imgUserProfile from '../../../assets/images/user_profile.png';
 import { getFormattedDateString } from '../../../services/date-services';
 
 
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default function MyHelpsDetail(props) {
 
     const getRenderItem = ({ item, index }) => {
@@ -56,11 +60,23 @@ export default function MyHelpsDetail(props) {
         props.navigation.navigate('Profile')
     }
 
+    const onEditPress = () => {
+        Alert.alert(
+            'Edit Help',
+            'Hey! you wil have this feature in next version.',
+            [
+                { text: 'OK', onPress: () => { } }
+            ],
+            { cancelable: false }
+        );
+    }
+
+
     return (
         <View style={styles.outerContainer}>
             <CustomHeader navigation={props.navigation} showBackButton={true} title={"Help Detail"}></CustomHeader>
             <ScrollView>
-                <PlaceBidModal showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
+                <PlaceBidModal {...props} showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
                     hidePlaceBidModal={props.showHidePlaceBidsModal} />
 
                 <View style={styles.container}>
@@ -123,7 +139,7 @@ export default function MyHelpsDetail(props) {
                             >{"Bid Already Placed"}</Text>
                         </View>
                     </View> :
-                    <TouchableOpacity style={styles.buttonWrapper} onPress={showPlaceBidsModal}>
+                    <TouchableOpacity style={styles.buttonWrapper} onPress={onEditPress}>
                         <LinearGradient
                             start={gradientDimensions.start} end={gradientDimensions.end}
                             colors={[appColors.GRADIENT_LEFT, appColors.GRADIENT_RIGHT]}
@@ -139,23 +155,26 @@ export default function MyHelpsDetail(props) {
 }
 
 function BidCard(props) {
-    
-    const onBidPressed = () => {
-        props.showData(props.data)
+
+    const onBidPressed = async () => {
+        props.showLoader();
+        props.showData(props.data);
+        await sleep(500);
+        props.hideLoader();
         props.navigation.navigate('BidDetail')
     }
 
     return (
         <TouchableOpacity style={styles.bids} onPress={onBidPressed}>
-            <View style={{ flex:1, flexDirection: 'row', justifyContent:'space-between',marginHorizontal: 10, marginVertical: 10}}>
-                <View style={{justifyContent: 'center'}} >
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 10, marginVertical: 10 }}>
+                <View style={{ justifyContent: 'center' }} >
                     <Image
                         source={imgProfilePic}
                         style={styles.bidderProfilePic}
                     />
                 </View>
-                <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center'}}>
-                    <Text style={{fontSize: 16, margin: 5}} >{"Bidder " + props.data.bidder}</Text>
+                <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 16, margin: 5 }} >{"Bidder " + props.data.bidder}</Text>
                     <Rating
                         type="custom"
                         ratingCount={5}
@@ -167,7 +186,7 @@ function BidCard(props) {
                         style={{}}
                     />
                 </View>
-                <View style={{flex: 1}}>
+                <View style={{ flex: 1 }}>
                     <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                         <Image
                             source={imgCoin}
@@ -249,9 +268,7 @@ function PlaceBidModal(props) {
             animationType="slide"
             transparent={true}
             visible={props.showPlaceBidsModal}
-            onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
-            }}
+            onRequestClose={hidePlaceBidModal}
         >
             <ScrollView style={styles.modalScrollView}>
                 <View style={styles.centeredView}>

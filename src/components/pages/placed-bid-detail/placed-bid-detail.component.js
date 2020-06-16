@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -9,12 +9,17 @@ import {
   Alert,
 } from 'react-native';
 
-import {placedbidDetailStrings} from '../../../constants/strings';
-import {styles} from './placed-bid-detail.styles';
+import { placedbidDetailStrings } from '../../../constants/strings';
+import { styles } from './placed-bid-detail.styles';
 import CustomHeader from '../../controls/custom-header';
-import {ScrollView, TextInput} from 'react-native-gesture-handler';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import StatusComponent from '../../controls/status';
 import imgChat from '../../../assets/images/imageChat.png';
+
+
+const sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 export default function PlacedbidsDetails(props) {
   const [helpDuration, sethelpDuration] = useState('');
@@ -46,12 +51,15 @@ export default function PlacedbidsDetails(props) {
   var onSave = () => {
     setEditable(false);
   };
+
   const showHideEndHelp = () => {
     props.showHideEndHelp();
   };
+
   const endHelp = data => {
     props.endHelp(data);
   };
+
   return (
     <View style={styles.outerContainer}>
       <CustomHeader
@@ -64,6 +72,7 @@ export default function PlacedbidsDetails(props) {
       />
       <ScrollView>
         <OtpModal
+          {...props}
           showEndHelp={props.state.placedBidDetailReducer.showEndHelp}
           hidePlaceBidModal={props.showHideEndHelp}
           data={props.state.placedBidDetailReducer.data}
@@ -130,8 +139,8 @@ export default function PlacedbidsDetails(props) {
               </View>
             </View>
           ) : (
-            <View />
-          )}
+              <View />
+            )}
         </View>
         <View style={styles.help}>
           <Text style={styles.heading}>Help Details</Text>
@@ -165,33 +174,45 @@ export default function PlacedbidsDetails(props) {
           <Text style={styles.lblendHelp}>End the Help</Text>
         </TouchableOpacity>
       ) : (
-        <View />
-      )}
+          <View />
+        )}
     </View>
   );
 }
 
 function OtpModal(props) {
   const [otpValue, setOtp] = useState('');
-  var onOtpChange = value => {
+
+  const onOtpChange = value => {
     setOtp(value);
   };
+
   const hidePlaceBidModal = () => {
     props.hidePlaceBidModal();
   };
-  const endHelp = () => {
+
+  const endHelp = async () => {
+    props.showLoader();
     props.data.status = 'SUCCESS';
     props.endHelp(props.data);
-    props.hidePlaceBidModal();
+    await sleep(500);
+    props.hideLoader();
+    Alert.alert(
+      'End Help',
+      'Hey! Upakar thanks you for helping',
+      [
+        { text: 'OK', onPress: () => props.hidePlaceBidModal() }
+      ],
+      { cancelable: false }
+    );
   };
+
   return (
     <Modal
       animationType="slide"
       transparent={true}
       visible={props.showEndHelp}
-      onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
-      }}>
+      onRequestClose={hidePlaceBidModal}>
       <ScrollView style={styles.modalScrollView}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>

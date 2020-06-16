@@ -11,16 +11,25 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {colorDefs, appColors} from '../../../constants/colors';
-import {placedBidsStrings} from '../../../constants/strings';
-import {styles} from './bid-card.styles';
+import { colorDefs, appColors } from '../../../constants/colors';
+import { placedBidsStrings } from '../../../constants/strings';
+import { styles } from './bid-card.styles';
+
+const sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 export default function BidCard(props) {
-  var onBidClick = () => {
+
+  const onBidClick = async () => {
+    props.showLoader();
     props.showData(props.data);
+    await sleep(500);
+    props.hideLoader();
     props.navigation.navigate(props.nav);
   };
-  var getStatusColor = _status => {
+
+  const getStatusColor = _status => {
     switch (_status) {
       case 'ACCEPTED':
         return appColors.BID_ACCEPTED;
@@ -32,13 +41,17 @@ export default function BidCard(props) {
         return appColors.BID_UNSUCCESSFUL;
     }
   };
+
   const cardStyle = _status => {
-    return [styles.itemContainer, {borderLeftColor: getStatusColor(_status)}];
+    return [styles.itemContainer, { borderLeftColor: getStatusColor(_status) }];
   };
+
   const statusStyle = _status => {
     let _color = getStatusColor(_status);
-    return [styles.lblStatus, {backgroundColor: _color, borderColor: _color}];
+    return [styles.lblStatus, { backgroundColor: _color, borderColor: _color }];
   };
+
+
   return (
     <TouchableOpacity style={cardStyle(props.data.status)} onPress={onBidClick}>
       <View style={styles.wrapper}>

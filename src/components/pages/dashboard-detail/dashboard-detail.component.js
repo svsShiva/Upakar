@@ -4,7 +4,7 @@ import {
     Text,
     TouchableOpacity,
     ScrollView,
-    SafeAreaView,   
+    SafeAreaView,
     FlatList,
     Image,
     Alert,
@@ -31,6 +31,10 @@ import imgUserProfile from '../../../assets/images/user_profile.png';
 import { getFormattedDateString } from '../../../services/date-services';
 
 
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default function DashboardDetail(props) {
 
     const getRenderItem = ({ item, index }) => {
@@ -42,7 +46,7 @@ export default function DashboardDetail(props) {
     const getKeyExtractor = (item, index) => item.id;
 
     const getHeaderComponent = () => {
-        return <View style={{ height: 5}} />
+        return <View style={{ height: 5 }} />
     }
 
     const getFooterComponent = () => {
@@ -53,8 +57,11 @@ export default function DashboardDetail(props) {
         props.showHidePlaceBidsModal();
     }
 
-    const onProfilePress = () => {
+    const onProfilePress = async () => {
+        props.showLoader();
         props.showProfile(profileData[1])
+        await sleep(500);
+        props.hideLoader();
         props.navigation.navigate('Profile')
     }
 
@@ -66,7 +73,7 @@ export default function DashboardDetail(props) {
         <View style={styles.outerContainer}>
             <CustomHeader navigation={props.navigation} showBackButton={true} title={"Help Detail"}></CustomHeader>
             <ScrollView>
-                <PlaceBidModal showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
+                <PlaceBidModal {...props} showPlaceBidsModal={props.state.dashboardDetailReducer.showPlaceBidsModal}
                     hidePlaceBidModal={props.showHidePlaceBidsModal} placeBid={onBidPlaced} />
 
                 <View style={styles.container}>
@@ -273,7 +280,8 @@ function PlaceBidModal(props) {
         [styles.durationTypeText, { color: colorDefs.WHITE }] :
         [styles.durationTypeText, { color: appColors.GRADIENT_LEFT }];
 
-    const onPlaceBidPressed = () => {
+    const onBidSaved = async () => {
+        props.showLoader();
         let bid = {
             bidder: 'Shiva Siripurapu',
             credits: fields[0].value,
@@ -285,7 +293,16 @@ function PlaceBidModal(props) {
             comments: fields[1].value
         }
         props.placeBid(bid);
-        props.hidePlaceBidModal();
+        await sleep(500);
+        props.hideLoader();
+        Alert.alert(
+            'Bid Placed',
+            'You bid has been placed successfully',
+            [
+                { text: 'OK', onPress: () => props.hidePlaceBidModal() }
+            ],
+            { cancelable: false }
+        );
     }
 
     return (
@@ -293,9 +310,7 @@ function PlaceBidModal(props) {
             animationType="slide"
             transparent={true}
             visible={props.showPlaceBidsModal}
-            onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
-            }}
+            onRequestClose={hidePlaceBidModal}
         >
             <ScrollView style={styles.modalScrollView}>
                 <View style={styles.centeredView}>
@@ -366,7 +381,7 @@ function PlaceBidModal(props) {
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={styles.modalSaveBtn}
-                                onPress={onPlaceBidPressed}
+                                onPress={onBidSaved}
                             >
                                 <Text style={styles.textStyle}>Save</Text>
                             </TouchableOpacity>

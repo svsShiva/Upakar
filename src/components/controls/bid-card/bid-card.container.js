@@ -1,7 +1,8 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import BidCard from './bid-card.component';
-import {selectBid} from '../../pages/placedbids/placedbids.actions';
+import { showLoader, hideLoader } from '../../../redux/actions/global.actions';
+import { selectBid } from '../../pages/placedbids/placedbids.actions';
 
 const mapStateToProps = (state, ownProps) => ({
   state: state,
@@ -9,6 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   selectBid: data => dispatch(selectBid(data)),
+  showLoader: () => dispatch(showLoader()),
+  hideLoader: () => dispatch(hideLoader())
 });
 
 export default connect(

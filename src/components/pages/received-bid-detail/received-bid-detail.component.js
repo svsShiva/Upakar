@@ -27,6 +27,10 @@ import imgProfilePic from '../../../assets/images/profile_pic.png';
 import { profileData } from '../../../data/profile';
 
 
+const sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export default function ReceivedbidsDetails(props) {
   const showPlaceBidsModal = () => {
     props.showHideAcceptBid();
@@ -36,7 +40,7 @@ export default function ReceivedbidsDetails(props) {
     props.showProfile(profileData[1]);
     props.navigation.navigate('Profile');
   };
-  
+
   const acceptBid = data => {
     props.acceptBid(data);
   };
@@ -54,6 +58,7 @@ export default function ReceivedbidsDetails(props) {
             status={props.state.receivedBidDetailReducer.data.status}
           />
           <OtpModal
+            {...props}
             showAcceptBid={props.state.receivedBidDetailReducer.showAcceptBid}
             hideAcceptBid={props.showHideAcceptBid}
             acceptBid={acceptBid}
@@ -141,27 +146,40 @@ export default function ReceivedbidsDetails(props) {
   );
 }
 
+
 function OtpModal(props) {
   const [otpValue, setOtp] = useState('');
-  var onOtpChange = value => {
+
+  const onOtpChange = value => {
     setOtp(value);
   };
+
   const hidePlaceBidModal = () => {
     props.hideAcceptBid();
   };
-  const acceptBid = () => {
+
+  const acceptBid = async () => {
+    props.showLoader();
     props.data.status = 'ACCEPTED';
     props.acceptBid(props.data);
-    props.hideAcceptBid();
+    await sleep(500);
+    props.hideLoader();
+    Alert.alert(
+      'Start Help',
+      'Yay! Help has been started',
+      [
+        { text: 'OK', onPress: () => props.hideAcceptBid() }
+      ],
+      { cancelable: false }
+    );
   };
+
   return (
     <Modal
       animationType="slide"
       transparent={true}
       visible={props.showAcceptBid}
-      onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
-      }}>
+      onRequestClose={hidePlaceBidModal}>
       <ScrollView style={styles.modalScrollView}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>

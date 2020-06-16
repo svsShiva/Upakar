@@ -3,9 +3,9 @@ import {View, Text} from 'react-native';
 
 import {styles} from './status.styles';
 import {appColors} from '../../../constants/colors';
+
 export default function StatusComponent(props) {
-  console.log("Hey status :",props)
-  var getColor = () => {
+  const getColor = () => {
     switch (props.status) {
       case 'ACCEPTED':
         return appColors.BID_ACCEPTED;
@@ -17,9 +17,11 @@ export default function StatusComponent(props) {
         return appColors.BID_UNSUCCESSFUL;
     }
   };
-  var getStyle = () => {
+
+  const getStyle = () => {
     return [styles.container, {backgroundColor: getColor()}];
   };
+  
   return (
     <View style={getStyle()}>
       <Text style={styles.lblstatus}>{props.status}</Text>

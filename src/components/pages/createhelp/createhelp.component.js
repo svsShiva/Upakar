@@ -4,7 +4,8 @@ import {
     Text,
     TouchableOpacity,
     ScrollView,
-    Slider
+    Slider,
+    Alert
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -15,6 +16,11 @@ import CustomTextInput from '../../controls/custom-text-input';
 import { Picker } from '@react-native-community/picker';
 import { colorDefs, appColors } from '../../../constants/colors';
 import { gradientDimensions } from '../../../constants/styles';
+
+
+const sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 export default function CreateHelp(props) {
     const initialFields = [
@@ -63,6 +69,20 @@ export default function CreateHelp(props) {
     const onDurationDaysPressed = () => {
         setDurationType("Days")
     }
+
+    const onSubmitPresses = async () => {
+        props.showLoader();
+        await sleep(500);
+        props.hideLoader();
+        Alert.alert(
+            'Create Help',
+            'Yay! Help has been created',
+            [
+                { text: 'OK', onPress: () => { } }
+            ],
+            { cancelable: false }
+        );
+    };
 
     return (
         <View style={styles.container} >
@@ -137,7 +157,7 @@ export default function CreateHelp(props) {
                         step={1}
                     />
                 </View>
-                <TouchableOpacity style={styles.submitButtonView}>
+                <TouchableOpacity style={styles.submitButtonView} onPress={onSubmitPresses}>
                     <Text style={styles.buttonText}>Place Request</Text>
                 </TouchableOpacity>
             </ScrollView>
