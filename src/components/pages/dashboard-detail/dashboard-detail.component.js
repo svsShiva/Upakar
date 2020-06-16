@@ -216,7 +216,7 @@ function BidCard(props) {
 }
 
 function PlaceBidModal(props) {
-    initialFields = [
+    const initialFields = [
         {
             name: "Bid Amount",
             placeholder: "Bid Amount",
