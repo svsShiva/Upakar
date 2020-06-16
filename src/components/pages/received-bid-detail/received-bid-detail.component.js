@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -10,30 +10,33 @@ import {
   Alert,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {Rating} from 'react-native-ratings';
+import { Rating } from 'react-native-ratings';
 
 import {
   placedbidDetailStrings,
   receivedbidDetailStrings,
 } from '../../../constants/strings';
-import {styles} from './received-bid-detail.styles';
+import { styles } from './received-bid-detail.styles';
 import CustomHeader from '../../controls/custom-header';
-import {colorDefs, appColors} from '../../../constants/colors';
-import {ScrollView} from 'react-native-gesture-handler';
+import { colorDefs, appColors } from '../../../constants/colors';
+import { ScrollView } from 'react-native-gesture-handler';
 import StatusComponent from '../../controls/status';
 import imgChat from '../../../assets/images/imageChat.png';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
 // import {showHideAcceptBid} from './received-bid-detail.actions';
-import {profileData} from '../../../data/profile';
+import { profileData } from '../../../data/profile';
+
+
 export default function ReceivedbidsDetails(props) {
   const showPlaceBidsModal = () => {
     props.showHideAcceptBid();
   };
+
   const onPressProfile = () => {
     props.showProfile(profileData[1]);
     props.navigation.navigate('Profile');
   };
-  console.log('H', props.state.receivedBidDetailReducer);
+
   return (
     <View style={styles.container} behavior="position">
       <CustomHeader
@@ -42,7 +45,7 @@ export default function ReceivedbidsDetails(props) {
         title={receivedbidDetailStrings.WELCOME_MESSAGE}
       />
       <ScrollView>
-        <KeyboardAvoidingView style={{flex: 1}} behavior="padding">
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
           <StatusComponent
             status={props.state.receivedBidDetailReducer.data.status}
           />
@@ -68,7 +71,7 @@ export default function ReceivedbidsDetails(props) {
                   startingValue={4}
                   readonly={true}
                   ratingColor={appColors.GRADIENT_LEFT}
-                  style={{flex: 1}}
+                  style={{ flex: 1 }}
                 />
               </View>
             </TouchableOpacity>
@@ -115,13 +118,13 @@ export default function ReceivedbidsDetails(props) {
               </Text>
             </TouchableOpacity>
           ) : (
-            <View style={styles.bidContainer}>
-              <View style={styles.rowConatiner}>
-                <Text style={styles.lables}>{'End OTP:'}</Text>
-                <Text style={styles.lblOtp}>{'1234'}</Text>
+              <View style={styles.bidContainer}>
+                <View style={styles.rowConatiner}>
+                  <Text style={styles.lables}>{'End OTP:'}</Text>
+                  <Text style={styles.lblOtp}>{'1234'}</Text>
+                </View>
               </View>
-            </View>
-          )}
+            )}
         </KeyboardAvoidingView>
       </ScrollView>
 
