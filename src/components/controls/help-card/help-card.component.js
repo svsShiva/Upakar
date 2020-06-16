@@ -23,21 +23,27 @@ import imgCreatedAt from '../../../assets/images/calendar.png';
 export default function HelpCard(props) {
     const onHelpClick = async () => {
         try {
-            props.navigation.navigate(props.onBackNavigateScreen)
-            props.selectHelp(props.data)
+            props.showLoader();
+            props.selectHelp(props.data);
+            await sleep(500);
+            props.hideLoader();
+            props.navigation.navigate(props.onBackNavigateScreen);
         }
         catch (err) {
             console.warn(err)
         }
+    }
 
+    const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     return (
         <TouchableOpacity style={styles.container} onPress={onHelpClick}>
             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{props.data.title}</Text>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 10, marginTop: 10}}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 10, marginTop: 10 }}>
                 <View style={{}} >
-                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                         <Image
                             source={imgCreatedAt}
                             style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
@@ -57,7 +63,7 @@ export default function HelpCard(props) {
                         <Image
                             source={imgCoin}
                             style={{ width: 25, height: 25, resizeMode: 'contain', margin: 5 }} />
-                        <Text style={{ fontSize: 16, margin: 5}}>{props.data.bid_credits + " Credits"}</Text>
+                        <Text style={{ fontSize: 16, margin: 5 }}>{props.data.bid_credits + " Credits"}</Text>
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                         <Image

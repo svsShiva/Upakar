@@ -1,10 +1,20 @@
 import React from 'react';
 
-import Dashboard from './pages/dashboard/index';
-import Navigation from '../navigation/index'
+import Navigation from '../navigation/index';
+import CustomLoader from '../components/controls/custom-loader';
+import { View, StyleSheet } from 'react-native';
 
 export default function Root() {
     return (
-        <Navigation />
+        <View style={styles.container}>
+            <Navigation />
+            <CustomLoader />
+        </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+})

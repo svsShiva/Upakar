@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     Image,
     TextInput,
-
+    Modal
 } from 'react-native';
 
 import { dashboardStrings } from '../../../constants/strings';
@@ -17,8 +17,8 @@ import CustomHeader from '../../controls/custom-header';
 import imgSearch from '../../../assets/images/Search.png'
 import imgSort from '../../../assets/images/sort.png';
 import imgFilter from '../../../assets/images/filter.png';
-import SortModal from '../../controls/sort-model.js'
-import FilterModal from '../../controls/filter-model.js'
+import SortModal from '../../controls/sort-model.js';
+import FilterModal from '../../controls/filter-model.js';
 
 export default function Dashboard(props) {
     var getRenderItem = ({ item, index }) => {
@@ -34,8 +34,10 @@ export default function Dashboard(props) {
     var getFooterComponent = () => {
         return <View style={{ height: 20 }} />
     }
+
     let [viewSortModal, setViewSortModal] = useState(false)
     let [viewFilterModal, setViewFilterModal] = useState(false)
+
     return (
         <View style={styles.container} >
             <CustomHeader navigation={props.navigation} showBackButton={false} title={"Upakar"}></CustomHeader>
@@ -87,4 +89,3 @@ export default function Dashboard(props) {
         </View>
     );
 }
-
