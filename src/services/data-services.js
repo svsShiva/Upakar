@@ -8,3 +8,7 @@ export const getUserById = (id) => {
 export const getProfileByUserId = (id) => {
     return profiles.find((profile) => profile.user_id == id);
 }
+
+export const getUserByEmail = (email) => {
+    return users.find((user) => user.email == email);
+}

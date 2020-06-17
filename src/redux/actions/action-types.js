@@ -1,6 +1,8 @@
 export const globalActionTypes = {
   SHOW_LOADER: "SHOW_LOADER",
   HIDE_LOADER: "HIDE_LOADER",
+  UPDATE_LOGGED_USER: "UPDATE_LOGGED_USER",
+  UPDATE_LOGGED_USER_PROFILE: "UPDATE_LOGGED_USER_PROFILE"
 };
 
 export const dashboardActionTypes = {

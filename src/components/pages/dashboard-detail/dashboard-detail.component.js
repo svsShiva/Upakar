@@ -58,14 +58,6 @@ export default function DashboardDetail(props) {
         props.showHidePlaceBidsModal();
     }
 
-    const onProfilePress = async () => {
-        props.showLoader();
-        props.showProfile(profiles[1])
-        await sleep(500);
-        props.hideLoader();
-        props.navigation.navigate('Profile')
-    }
-
     const onBidPlaced = (bid) => {
         props.placeBid(bid)
     }
@@ -73,6 +65,16 @@ export default function DashboardDetail(props) {
     let requester = getUserById(props.state.dashboardReducer.selectedHelp.requester.user_id);
     let requesterProfile = getProfileByUserId(props.state.dashboardReducer.selectedHelp.requester.user_id);
 
+    const onProfilePress = async () => {
+        props.showLoader();
+        props.showProfile({
+            ...requester,
+            ...requesterProfile
+        })
+        await sleep(500);
+        props.hideLoader();
+        props.navigation.navigate('Profile')
+    }
     return (
         <View style={styles.outerContainer}>
             <CustomHeader navigation={props.navigation} showBackButton={true} title={"Help Detail"}></CustomHeader>

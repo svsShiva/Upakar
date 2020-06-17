@@ -3,7 +3,7 @@ import { profiles } from '../../../data/profiles';
 
 
 const initialState = {
-    data: profiles[0]
+    data: undefined
 }
 
 const profileReducer = (state = initialState, action) => {

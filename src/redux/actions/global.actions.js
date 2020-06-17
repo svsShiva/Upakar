@@ -11,3 +11,17 @@ export const hideLoader = () => {
         type: globalActionTypes.HIDE_LOADER
     }
 }
+
+export const updateLoggedUser = (data) => {
+    return {
+        type: globalActionTypes.UPDATE_LOGGED_USER,
+        payload: data
+    }
+}
+
+export const updateLoggedUserProfile = (data) => {
+    return {
+        type: globalActionTypes.UPDATE_LOGGED_USER_PROFILE,
+        payload: data
+    }
+}
