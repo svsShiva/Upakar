@@ -25,6 +25,7 @@ import imgChat from '../../../assets/images/imageChat.png';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
 // import {showHideAcceptBid} from './received-bid-detail.actions';
 import { profiles } from '../../../data/profiles';
+import { getProfileByUserId, getUserById, getHelpbyId } from '../../../services/data-services';
 
 
 const sleep = (ms) => {
@@ -32,18 +33,28 @@ const sleep = (ms) => {
 }
 
 export default function ReceivedbidsDetails(props) {
+
+  let bidder = getUserById(props.state.receivedBidDetailReducer.data.bidder);
+  let bidderProfile = getProfileByUserId(props.state.receivedBidDetailReducer.data.bidder);
+  let help = getHelpbyId(props.state.receivedBidDetailReducer.data.upakar_id);
+
   const showPlaceBidsModal = () => {
     props.showHideAcceptBid();
   };
 
   const onPressProfile = () => {
-    props.showProfile(profiles[1]);
+    props.showProfile({
+      ...bidder,
+      ...bidderProfile
+    });
     props.navigation.navigate('Profile');
   };
 
   const acceptBid = data => {
     props.acceptBid(data);
   };
+
+
 
   return (
     <View style={styles.container} behavior="position">
@@ -72,14 +83,14 @@ export default function ReceivedbidsDetails(props) {
               <Image source={imgProfilePic} style={styles.userProfilePic} />
               <View style={styles.userDetails}>
                 <Text style={styles.userName}>
-                  {props.state.receivedBidDetailReducer.data.bidder}
+                  {bidder.name}
                 </Text>
                 <Rating
                   type="custom"
                   ratingCount={5}
                   imageSize={20}
                   showRating={false}
-                  startingValue={4}
+                  startingValue={bidderProfile.ratings}
                   readonly={true}
                   ratingColor={appColors.GRADIENT_LEFT}
                   style={{ flex: 1 }}
@@ -100,22 +111,21 @@ export default function ReceivedbidsDetails(props) {
             </View>
             <Text style={styles.lblTitle}>Commments :</Text>
             <Text style={styles.lblDesc}>
-              test comments test comments testing comments tested comments
+              {props.state.receivedBidDetailReducer.data.comments}
             </Text>
           </View>
           <View style={styles.bidContainer}>
             <Text style={styles.heading}>Help Details</Text>
             <Text style={styles.title}>
-              {props.state.receivedBidDetailReducer.data.upakar_name}
+              {help.title}
             </Text>
             <Text style={styles.lblDesc}>
-              Need someone who can help picking me up @Uppal bus stand at 8 AM,
-              20th June
+              {help.description}
             </Text>
             <View style={styles.rowConatiner}>
               <Text style={styles.lables}>Help Duration :</Text>
               <Text style={styles.lblText}>
-                {props.state.receivedBidDetailReducer.data.help_duration}
+                {help.help_duration}
               </Text>
             </View>
           </View>

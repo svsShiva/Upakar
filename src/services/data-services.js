@@ -23,3 +23,7 @@ export const getHelpsByUserId = (id) => {
     });
     return helps;
 }
+
+export const getHelpbyId = (id) => {
+    return helpDetails.find((help)=> help._id == id);
+}

@@ -24,8 +24,12 @@ export default function ReceivedBids(props) {
   };
 
   const myHelps = getHelpsByUserId(props.state.globalReducer.loggedUser._id);
+
   let bids = [];
 
+  myHelps.forEach((help)=> {
+    bids = bids.concat(help.bids)
+  })
 
   return (
     <View style={styles.container}>
@@ -33,10 +37,10 @@ export default function ReceivedBids(props) {
         navigation={props.navigation}
         title={receivedBidsStrings.WELCOME_MESSAGE}
       />
-      {myHelps[0].bids.length > 0 ? (
+      {bids.length > 0 ? (
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={myHelps[0].bids}
+          data={bids}
           renderItem={getRenderItem}
           keyExtractor={getKeyExtractor}
           ListFooterComponent={getFooterComponent}

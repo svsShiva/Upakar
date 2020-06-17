@@ -15,6 +15,7 @@ import CustomHeader from '../../controls/custom-header';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import StatusComponent from '../../controls/status';
 import imgChat from '../../../assets/images/imageChat.png';
+import { getProfileByUserId, getUserById, getHelpbyId } from '../../../services/data-services';
 
 
 const sleep = (ms) => {
@@ -59,6 +60,9 @@ export default function PlacedbidsDetails(props) {
   const endHelp = data => {
     props.endHelp(data);
   };
+
+  let help = getHelpbyId(props.state.placedBidDetailReducer.data.upakar_id);
+
 
   return (
     <View style={styles.outerContainer}>
@@ -108,8 +112,7 @@ export default function PlacedbidsDetails(props) {
           </View>
           <Text style={styles.lables}>Comments</Text>
           <Text style={styles.lblDesc}>
-            Need someone who can help picking me up @Uppal bus stand at 8 AM,
-            20th June
+            {props.state.placedBidDetailReducer.data.comments}
           </Text>
           {editable ? (
             <View style={styles.helpDetails}>
@@ -145,16 +148,15 @@ export default function PlacedbidsDetails(props) {
         <View style={styles.help}>
           <Text style={styles.heading}>Help Details</Text>
           <Text style={styles.title}>
-            {props.state.placedBidDetailReducer.data.upakar_name}
+            {help.title}
           </Text>
           <Text style={styles.lblDesc}>
-            Need someone who can help picking me up @Uppal bus stand at 8 AM,
-            20th June
+            {help.description}
           </Text>
           <View style={styles.rowConatiner}>
             <Text style={styles.lables}>Help Duration:</Text>
             <Text style={styles.textFields}>
-              {props.state.placedBidDetailReducer.data.help_duration}
+              {help.help_duration}
             </Text>
           </View>
         </View>
