@@ -32,6 +32,12 @@ export default function MyHelps(props) {
         return <View style={{ height: 20 }} />
     }
 
+    const myhelps = [];
+    helps.forEach(help => {
+        if (help.user_id == props.state.globalReducer.loggedUser._id) {
+            myhelps.push(help)
+        }
+    });
 
     return (
         <View style={styles.container} >
@@ -39,15 +45,15 @@ export default function MyHelps(props) {
             <View style={styles.viewsIcon}>
                 <View style={styles.searchView}>
                     <Image style={styles.imgSearchStyle} source={imgSearch} ></Image>
-                    <TextInput placeholder="Search for help..." style={{flex:1}}/>
+                    <TextInput placeholder="Search for help..." style={{ flex: 1 }} />
                 </View>
-               
+
             </View>
             {
-                helps.length > 0 ?
+                myhelps.length > 0 ?
                     <FlatList
                         showsVerticalScrollIndicator={false}
-                        data={helps}
+                        data={myhelps}
                         renderItem={getRenderItem}
                         keyExtractor={getKeyExtractor}
                         style={styles.flatlist}

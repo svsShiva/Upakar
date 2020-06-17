@@ -56,9 +56,9 @@ export default function BidCard(props) {
     <TouchableOpacity style={cardStyle(props.data.status)} onPress={onBidClick}>
       <View style={styles.wrapper}>
         <View style={styles.titleStatusContainer}>
-          <Text style={styles.title}>{props.data.upakar_name}</Text>
+          <Text style={styles.title}>{props.data.upakar_title}</Text>
           <Text style={statusStyle(props.data.status)}>
-            {props.data.status.toLowerCase()}
+            {props.data.status}
           </Text>
         </View>
 

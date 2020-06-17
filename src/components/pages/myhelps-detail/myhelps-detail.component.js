@@ -31,6 +31,7 @@ import imgCategory from '../../../assets/images/list.png';
 import imgCreatedAt from '../../../assets/images/calendar.png';
 import imgUserProfile from '../../../assets/images/user_profile.png';
 import { getFormattedDateString } from '../../../services/date-services';
+import { getProfileByUserId, getUserById } from '../../../services/data-services';
 
 
 const sleep = (ms) => {
@@ -71,6 +72,8 @@ export default function MyHelpsDetail(props) {
         );
     }
 
+    let requester = getUserById(props.state.dashboardReducer.selectedHelp.requester.user_id);
+    let requesterProfile = getProfileByUserId(props.state.dashboardReducer.selectedHelp.requester.user_id);
 
     return (
         <View style={styles.outerContainer}>
@@ -120,7 +123,7 @@ export default function MyHelpsDetail(props) {
                     <View style={styles.flatlistWrapper}>
                         <FlatList
                             showsVerticalScrollIndicator={false}
-                            data={bidsData}
+                            data={props.state.dashboardReducer.selectedHelp.bids}
                             renderItem={getRenderItem}
                             keyExtractor={getKeyExtractor}
                             style={styles.flatlist}
@@ -164,6 +167,9 @@ function BidCard(props) {
         props.navigation.navigate('BidDetail')
     }
 
+    let bidder = getUserById(props.data.bidder);
+    let bidderProfile = getProfileByUserId(props.data.bidder)
+
     return (
         <TouchableOpacity style={styles.bids} onPress={onBidPressed}>
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginHorizontal: 10, marginVertical: 10 }}>
@@ -174,13 +180,13 @@ function BidCard(props) {
                     />
                 </View>
                 <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 16, margin: 5 }} >{"Bidder " + props.data.bidder}</Text>
+                    <Text style={{ fontSize: 16, margin: 5 }} >{bidder.name}</Text>
                     <Rating
                         type="custom"
                         ratingCount={5}
                         imageSize={18}
                         showRating={false}
-                        startingValue={4}
+                        startingValue={bidderProfile.ratings}
                         readonly={true}
                         ratingColor={appColors.GRADIENT_LEFT}
                         style={{}}

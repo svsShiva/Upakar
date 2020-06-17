@@ -1,0 +1,135 @@
+const data = `
+[
+    {
+        "_id": "1",
+        "bidder": "1",
+        "credits": "65",
+        "help_duration": "1 Hours",
+        "upakar_id": "1",
+        "upakar_title": "Deliver Ching's Secret Schezwan Sauce to New Nagole Colony",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "2",
+        "bidder": "1",
+        "credits": "25",
+        "help_duration": "-NA-",
+        "upakar_id": "2",
+        "upakar_title": "Need some Ideas for Science Fair for Class 10th",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "3",
+        "bidder": "1",
+        "credits": "125",
+        "help_duration": "1 Hours",
+        "upakar_id": "3",
+        "upakar_title": "Need Oome one Who can Take care of my Baby for 1 hr on 1 July 2020",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "4",
+        "bidder": "1",
+        "credits": "65",
+        "help_duration": "1 Hours",
+        "upakar_id": "4",
+        "upakar_title": "Small Repair Required for My Wooden Base Pad",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "5",
+        "bidder": "1",
+        "credits": "65",
+        "help_duration": "0.1 Hours",
+        "upakar_id": "5",
+        "upakar_title": "Need a small Repair to my Toilet Flush",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "6",
+        "bidder": "1",
+        "credits": "125",
+        "help_duration": "-NA-",
+        "upakar_id": "6",
+        "upakar_title": "Can Someone make a small Handmade Craft of a Rose for a gift",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "7",
+        "bidder": "1",
+        "credits": "65",
+        "help_duration": "1 Hours",
+        "upakar_id": "7",
+        "upakar_title": "Need a Small connection Fix for a Mixy Grinder",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "8",
+        "bidder": "1",
+        "credits": "125",
+        "help_duration": "-NA-",
+        "upakar_id": "8",
+        "upakar_title": "Windows 10 Installation on my Laptop",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "9",
+        "bidder": "1",
+        "credits": "30",
+        "help_duration": "-NA-",
+        "upakar_id": "9",
+        "upakar_title": "Need an alternative for Oflox Eye Drops",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    },
+    {
+        "_id": "10",
+        "bidder": "1",
+        "credits": "120",
+        "help_duration": "1 Hours",
+        "upakar_id": "10",
+        "upakar_title": "Drop at MGBS BusStop from Nagole Metro on 28 JUNE 2020",
+        "comments": "Bidded",
+        "otp": "1234",
+        "status": "ACCEPTED",
+        "isAccepted": true,
+        "is_active": "YES"
+    }
+]`
+
+export const placedbids = JSON.parse(data)
