@@ -39,14 +39,14 @@ function CustomDrawer(props) {
                             source={imgProfilePic}
                             style={styles.profileImage}
                         />
-                        <Text style={styles.username}>Rama S</Text>
+                        <Text style={styles.username}>John Robert</Text>
                     </TouchableOpacity>
                 </View>
             </LinearGradient>
             <DrawerContentScrollView {...props} style={styles.drawer}>
                 <DrawerItemList {...props} />
                 <TouchableOpacity onPress={onSignOut} style={{marginHorizontal: 10, marginLeft: 18, paddingVertical: 10,}}>
-                    <Text style={{fontSize: 13,color: appColors.TEXT_SEMI }}>Sign out</Text>
+                    <Text style={{fontSize: 14,color: appColors.TEXT_SEMI }}>Sign out</Text>
                 </TouchableOpacity>
             </DrawerContentScrollView>
         </View>

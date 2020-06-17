@@ -16,6 +16,8 @@ import { ScrollView, TextInput } from 'react-native-gesture-handler';
 import StatusComponent from '../../controls/status';
 import imgChat from '../../../assets/images/imageChat.png';
 import { getProfileByUserId, getUserById, getHelpbyId } from '../../../services/data-services';
+import {colorDefs, appColors} from '../../../constants/colors';
+
 
 
 const sleep = (ms) => {
@@ -167,12 +169,24 @@ export default function PlacedbidsDetails(props) {
             <Text style={styles.lblOtp}>{'1234'}</Text>
           </View>
         </View>
+        <TouchableOpacity style={{
+          backgroundColor: appColors.GRADIENT_RIGHT,
+          height: 40,
+          justifyContent: 'center',
+          alignSelf: 'flex-end',
+          borderColor: appColors.GRADIENT_LEFT,
+          borderRadius: 20,
+          margin: 10,
+          width: 100
+        }} onPress={showHideEndHelp}>
+          <Text style={styles.lblendHelp}>Chat</Text>
+        </TouchableOpacity>
       </ScrollView>
       {/* <TouchableOpacity style={styles.floatingButton}>
         <Image source={imgChat} style={styles.chatbtn} />
       </TouchableOpacity> */}
       {props.state.placedBidDetailReducer.data.status === 'ACCEPTED' ? (
-        <TouchableOpacity style={styles.endHelp} onPress={showHideEndHelp}>
+        <TouchableOpacity style={styles.endHelp}>
           <Text style={styles.lblendHelp}>End the Help</Text>
         </TouchableOpacity>
       ) : (

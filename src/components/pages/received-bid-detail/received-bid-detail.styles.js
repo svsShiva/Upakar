@@ -1,6 +1,8 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
-import {colorDefs, appColors} from '../../../constants/colors';
+import { colorDefs, appColors } from '../../../constants/colors';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
   container: {
@@ -39,13 +41,14 @@ export const styles = StyleSheet.create({
   },
   submit: {
     backgroundColor: appColors.GRADIENT_LEFT,
-    alignSelf: 'center',
+    justifyContent: 'center',
     padding: 15,
     margin: 10,
     borderWidth: 1,
     borderColor: appColors.GRADIENT_LEFT,
     borderRadius: 25,
-    width: 250,
+    height: 45,
+    width: windowWidth - 20
   },
   otpConatiner: {
     flexDirection: 'row',

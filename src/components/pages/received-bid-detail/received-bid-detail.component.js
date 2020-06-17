@@ -146,6 +146,25 @@ export default function ReceivedbidsDetails(props) {
                 </View>
               </View>
             )}
+
+          <TouchableOpacity
+            style={{
+              backgroundColor: appColors.GRADIENT_LEFT,
+              justifyContent: 'center',
+              alignSelf: 'flex-end',
+              padding: 15,
+              margin: 10,
+              borderWidth: 1,
+              borderColor: appColors.GRADIENT_LEFT,
+              borderRadius: 25,
+              height: 45,
+              width: 100
+            }}
+            >
+            <Text style={styles.lblSubmit}>
+              {"Chat"}
+            </Text>
+          </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>
 
