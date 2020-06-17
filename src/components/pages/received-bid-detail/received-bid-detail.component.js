@@ -24,7 +24,7 @@ import StatusComponent from '../../controls/status';
 import imgChat from '../../../assets/images/imageChat.png';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
 // import {showHideAcceptBid} from './received-bid-detail.actions';
-import { profileData } from '../../../data/profile';
+import { profiles } from '../../../data/profiles';
 
 
 const sleep = (ms) => {
@@ -37,7 +37,7 @@ export default function ReceivedbidsDetails(props) {
   };
 
   const onPressProfile = () => {
-    props.showProfile(profileData[1]);
+    props.showProfile(profiles[1]);
     props.navigation.navigate('Profile');
   };
 

@@ -11,7 +11,7 @@ import {
 
 import { dashboardStrings } from '../../../constants/strings';
 import { styles } from './dashboard.styles';
-import { data } from '../../../data/dashboard';
+import { helps } from '../../../data/dashboard';
 import HelpCard from '../../controls/help-card';
 import CustomHeader from '../../controls/custom-header';
 import imgSearch from '../../../assets/images/Search.png'
@@ -35,8 +35,8 @@ export default function Dashboard(props) {
         return <View style={{ height: 20 }} />
     }
 
-    let [viewSortModal, setViewSortModal] = useState(false)
-    let [viewFilterModal, setViewFilterModal] = useState(false)
+    let [viewSortModal, setViewSortModal] = useState(false);
+    let [viewFilterModal, setViewFilterModal] = useState(false);
 
     return (
         <View style={styles.container} >
@@ -49,10 +49,10 @@ export default function Dashboard(props) {
 
             </View>
             {
-                data.length > 0 ?
+                helps.length > 0 ?
                     <FlatList
                         showsVerticalScrollIndicator={false}
-                        data={data}
+                        data={helps}
                         renderItem={getRenderItem}
                         keyExtractor={getKeyExtractor}
                         style={styles.flatlist}

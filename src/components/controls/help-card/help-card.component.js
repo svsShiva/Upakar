@@ -18,13 +18,20 @@ import imgCoin from '../../../assets/images/bitcoin.png';
 import imgDuration from '../../../assets/images/timer.png';
 import imgCategory from '../../../assets/images/list.png';
 import imgCreatedAt from '../../../assets/images/calendar.png';
+import { helpDetails } from '../../../data/dashboard-detail';
 
 
 export default function HelpCard(props) {
     const onHelpClick = async () => {
         try {
+            let helpDetail;
             props.showLoader();
-            props.selectHelp(props.data);
+            helpDetails.forEach((help) => {
+                if(help._id == props.data._id){
+                    helpDetail = help
+                }
+            })
+            props.selectHelp(helpDetail);
             await sleep(500);
             props.hideLoader();
             props.navigation.navigate(props.onBackNavigateScreen);

@@ -10,7 +10,7 @@ import {
 
 import { myHelpsStrings } from '../../../constants/strings';
 import { styles } from './myhelps.styles';
-import { data } from '../../../data/dashboard';
+import { helps } from '../../../data/dashboard';
 import HelpCard from '../../controls/help-card';
 import CustomHeader from '../../controls/custom-header';
 import imgSearch from '../../../assets/images/Search.png'
@@ -31,6 +31,8 @@ export default function MyHelps(props) {
     var getFooterComponent = () => {
         return <View style={{ height: 20 }} />
     }
+
+
     return (
         <View style={styles.container} >
             <CustomHeader navigation={props.navigation} showBackButton={false} title={"My Helps"} />
@@ -42,10 +44,10 @@ export default function MyHelps(props) {
                
             </View>
             {
-                data.length > 0 ?
+                helps.length > 0 ?
                     <FlatList
                         showsVerticalScrollIndicator={false}
-                        data={data}
+                        data={helps}
                         renderItem={getRenderItem}
                         keyExtractor={getKeyExtractor}
                         style={styles.flatlist}

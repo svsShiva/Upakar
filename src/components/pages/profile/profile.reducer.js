@@ -1,8 +1,9 @@
 import { profileActionTypes } from "../../../redux/actions/action-types";
-import { profileData } from '../../../data/profile';
+import { profiles } from '../../../data/profiles';
+
 
 const initialState = {
-    data: profileData[0]
+    data: profiles[0]
 }
 
 const profileReducer = (state = initialState, action) => {

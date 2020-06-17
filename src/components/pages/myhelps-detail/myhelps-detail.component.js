@@ -24,7 +24,7 @@ import { colorDefs, appColors } from '../../../constants/colors';
 import { bidsData } from '../../../data/bids';
 import imgProfilePic from '../../../assets/images/profile_pic.png';
 import CustomTextInput from '../../controls/custom-text-input';
-import { profileData } from '../../../data/profile';
+import { profiles } from '../../../data/profiles';
 import imgCoin from '../../../assets/images/bitcoin.png';
 import imgDuration from '../../../assets/images/timer.png';
 import imgCategory from '../../../assets/images/list.png';
@@ -56,7 +56,7 @@ export default function MyHelpsDetail(props) {
     }
 
     const onProfilePress = () => {
-        props.showProfile(profileData[1])
+        props.showProfile(profiles[1])
         props.navigation.navigate('Profile')
     }
 
