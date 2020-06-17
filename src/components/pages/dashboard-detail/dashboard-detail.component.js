@@ -292,14 +292,16 @@ function PlaceBidModal(props) {
     const onBidSaved = async () => {
         props.showLoader();
         let bid = {
-            bidder: 'Shiva Siripurapu',
+            bidder: props.state.globalReducer.loggedUser._id,
             credits: fields[0].value,
             help_duration: helpDuration + " " + durationType,
             status: 'PENDING',
-            upakar_id: '123',
-            upakar_name: 'Drive me from Nizampet to JNTU Hey HEllo Hi im thop ',
+            upakar_id: props.state.dashboardReducer.selectedHelp._id,
+            upakar_name: props.state.dashboardReducer.selectedHelp.upakar_title,
             is_active: 'YES ',
-            comments: fields[1].value
+            comments: fields[1].value,
+            otp: "2344",
+            isAccepted: false
         }
         props.placeBid(bid);
         await sleep(500);
